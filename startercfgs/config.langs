@@ -1,0 +1,39 @@
+Create one line of the following format for each language you wish to offer.
+The first field is the extension which should be on the relevant file.  The
+second field is what the user sees to choose from.
+::txt 		::file extension for language 1
+::plain text	::name for language 1
+
+::ans	::
+::ANSI graphics	::
+
+::	::
+::	::
+
+::	::
+::	::
+
+::	::
+::	::
+
+::	::
+::	::
+
+::	::
+::	::
+
+::	::
+::	::
+
+::	::
+::	::
+
+::	::
+::	::
+
+::	::
+::	::
+
+::	::
+::	::
+Do not add or remove any lines. 12 languages maximum.  

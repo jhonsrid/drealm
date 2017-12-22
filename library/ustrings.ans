@@ -1,0 +1,1668 @@
+#
+#
+#All lines starting with '#' are comments and will be ignored by the program
+#You may delete them if you wish. You must not delete any line which is not
+#a comment, the very least it may contain is a newline, or the count of
+#strings will be wrong.
+#
+# All %d or %s must be retained, and in the order in which they appear.  But
+# the literal strings may be arranged around them as required.
+#
+#
+# Ustrings 0001 to 0031 are used in menus for selecting messages to act on
+# As they might appear all in one menu, all single letter options specified
+# should be different from each other.
+#
+# Ustring0001; Single letter option for first message in message area
+a
+#
+# Ustring0002;Phrase describing first message in message area
+first message in area
+#
+# Ustring0003;Single letter option for last message in message area
+z
+#
+# Ustring0004;Phrase describing last message in message area
+last message in area
+#
+# Ustring0005;Single letter option for first message in thread
+b
+#
+# Ustring0006;Phrase describing first message in thread
+base message of thread
+#
+# Ustring0007;Single letter option for previous message in thread
+^
+# Ustring0008;Phrase describing previous message in thread
+previous message in thread
+#
+# Ustring0009;Single letter option for next message in thread
+v
+#
+# Ustring0010;Phrase describing next message in thread
+next message in thread
+#
+# Ustring0011;Single letter option for current message
+.
+#
+# Ustring0012;Phrase describing current message
+current message
+#
+# Ustring0013;Single letter option for parent message to current
+u
+#
+# Ustring0014;Phrase describing parent message to current
+parent
+#
+# Ustring0015;Reserved
+reserved
+#
+# Ustring0016;Reserved
+reserved
+#
+# Ustring0017;Single letter option for next message numerically
+>
+#
+# Ustring0018;Phrase describing next message numerically
+next message numerically
+#
+# Ustring0019;Single letter option for previous message numerically
+<
+#
+# Ustring0020;Phrase describing previous message numerically
+previous message numerically
+#
+# Ustring0021;Single letter option for next message by default
+n
+#
+# Ustring0022;Phrase describing first next message by default
+next new message
+#
+# Ustring0023;Single letter option for whole thread
+d
+#
+# Ustring0024;Phrase describing whole thread
+thread
+#
+# Ustring0025;Single letter option for whole branch
+h
+#
+# Ustring0026;Phrase describing whole branch
+branch
+#
+# Ustring0027;Single letter option for end of area (as in jump to end)
+e
+#
+# Ustring0028;Phrase describing end of area
+end
+#
+# Ustring0029;Single letter option for start of area
+s
+#
+# Ustring0030;Phrase describing start of area
+start
+#
+# Ustring0031;Or enter message number
+Or enter any message number
+#
+#--------------------------------------------------
+# Skipping 
+# Ustring0032;Single letter option for skip backwards
+b
+#
+# Ustring0033;Single letter option for skip forwards
+f
+#
+# Ustring0034;Single letter for skip thread
+d
+#
+# Ustring0035;Single letter for skip branch
+d
+#
+# Ustring0036;Menu bar complete
+[1mSkip [[33mb[0;1m]ack, [[33mf[0;1m]orwards, over threa[[33md[0;1m] or branc[[33mh[0;1m]?[0m
+#
+# Ustring0037;Skip forward how many?[B
+Skip forward how many?
+#
+# Ustring0038;Skipping %d takes you past the end.
+Skipping %d takes you past the end.  
+#
+# Ustring0039;Skip back how many?
+Skip back how many?
+#
+# Ustring0040;Skipping back %d takes you past the start.
+Skipping back %d takes you past the start.
+#
+#-----------------------------------------
+# jumping
+#
+# Ustring0041;Jump to where?
+Jump to where?
+#-------------------------------------------------
+# The following are for  "list messages" 
+#
+# Ustring0042;Single letter for list new
+n
+#
+# Ustring0043;Single letter for list thread
+d
+#
+# Ustring0044;Single letter option for list subjects
+s
+#
+# Ustring0045;Prompt string for listing messages
+[1mList [[33mn[0;1m]ew, threa[[33md[0;1m], branc[[33mh[0;1m], [[33ms[0;1m]ubjects, or from [[33mmsgno[0;1m]:[0m
+#
+#----------------------------------------------------
+#
+# moderated areas
+#
+# Ustring0046;is moderated.
+is moderated.
+#
+# Ustring0047;Your message will be forwarded to the chairman.
+Your message will be forwarded to the chairman.
+#
+# Ustring0048;No pending messages.
+No pending messages.
+#
+# Ustring0049;Messages pending moderator
+Messages pending moderator.
+#
+# Menu for moderators
+# Ustring0050;Single letter for send message 
+s
+#
+# Ustring0051;Single letter for keep message back for now
+h
+#
+# Ustring0052;Single character for edit message
+e
+#
+# Ustring0053;Single character for delete message
+d
+#
+# Ustring0054;single character for quit
+q
+#
+# Ustring0055;Whole menu bar. Send is default.
+[1m[[33mS[0;1m]end, [[33mh[0;1m]old, [[33me[0;1m]dit, [[33md[0;1m]elete, [[33mq[0;1m]uit:[0m
+#
+#--------------------------------------------------------------
+# general strings
+# Important - make [y]es letter and [n]o letter different!!
+# Ustring0056;initial letter for "yes"
+y
+#
+# Ustring0057;word for yes
+Yes
+#
+# Ustring0058;initial letter for "no"
+n
+#
+# Ustring0059;word for no
+No
+#
+# Ustring0060;Action abandoned
+Abandoned.
+#
+# Ustring0061;Fault reported
+Fault reported.
+#
+# Ustring0062;invalid
+invalid
+#
+# Ustring0063;quit (used in menus)
+quit
+#
+# Ustring0064;Cannot open %s.
+Cannot open %s.
+#
+# Ustring0065;Cannot find %s.
+Cannot find %s.
+#
+# Ustring0066;Cannot read %s.
+Cannot read %s.
+#
+# Ustring0067;Cannot write %s.
+Cannot write %s.
+#
+# Ustring0068;Cannot create %s.
+Cannot create %s.
+#----------------
+# messages in general
+#
+# Ustring0069;message
+message
+#
+# Ustring0070;Which message?
+Which message?
+#
+# Ustring0071;flag
+flag
+#
+# Ustring0072;Cannot perform action on more than one message at a time.
+Cannot perform action on more than one message at a time.
+#
+# Ustring0073;All messages marked as read.
+all messages marked as read.
+# 
+# Ustring0074;All messages marked as unread.
+all messages marked as unread.
+# 
+# Ustring0075;marked as read
+marked as read
+#
+# Ustring0076;There are no lower messages in %s.
+There are no lower messages in %s.
+#
+# Ustring0077;There are no higher messages in %s.
+There are no higher messages in %s.
+#
+# Ustring0078;the current thread
+the current thread
+#
+# Ustring0079;the current branch
+the current branch
+#
+# Ustring0080;You do not have any rights over message %d.
+You do not have any rights over message %d.
+#
+# Ustring0081;That value has not yet been defined.
+That value has not yet been defined.
+#
+# Ustring0082;You are not yet positioned at a message.
+You are not yet positioned at a message.
+#
+# Ustring0083;The current message does not have a parent.
+The current message does not have a parent.
+#
+# Ustring0084;Could not define a branch from your current position.
+Could not define a branch from your current position.
+#
+# Ustring0085;Could not define a thread from your current position.
+Could not define a thread from your current position.
+#
+# Ustring0086;messages
+messages
+#
+# Ustring0087;Index error
+Index error
+#
+# Ustring0088;This was the last message in %s.
+This was the last message in %s.
+#------------------------------
+# posting
+#
+# Ustring0089;Reply to which message?
+Reply to which message?
+#
+# Ustring0090;Press Enter to use your normal ID or type in an alias.
+Press Enter to use your normal ID or type in an alias:
+#
+# Ustring0091;You cannot use someone else's ID as an alias.
+You cannot use someone else's ID as an alias.
+#
+# Ustring0092;Subject:
+Subject:
+#
+# Ustring0093;Press Enter to accept, or type in new subject.
+Press Enter to accept, or type in new subject:
+#
+# Ustring0094;Sending message...
+Sending message...
+#
+# Ustring0095;Only %d more messages allowed in this area.
+Only %d more messages allowed in this area.
+#
+# Ustring0096;No more messages allowed in this area.
+No more messages allowed in this area.
+#----------------------------------------
+# news
+#
+# Ustring0097;Scanning for latest system news...
+Scanning for latest system news...
+#
+# Ustring0098;You have now read all the news
+You have now read all the news
+#
+# Ustring0099;Continue reading news?
+Continue reading news?
+#
+# Ustring0100;No system news since last time.
+No system news since last time.
+#-------------------------
+# storing pointers
+#
+# Ustring0101;You have not stored your pointers.
+You have not stored your pointers.
+#
+# Ustring0102;Pointers last stored %s.  Use these?
+Pointers last stored %s. Use these?
+#
+# Ustring0103;Pointers restored.
+Pointers restored.
+#----------------------
+# listing areas
+#
+# Ustring0104;There are no areas matching the type specified.
+There are no areas matching the type specified.
+#
+# Ustring0105;c = chaired by you, m = you are a member, p = private, s = in scanlist.
+# The letters are hard-coded but the words can be translated.
+c = chaired by you, m = you are a member, p = private, s = in scanlist.
+#------------------------
+# flagging
+#
+# Ustring0106;Message %d flagged as %s.
+Message %d flagged as %s.
+#
+# Ustring0107;Message %d unflagged from %s.
+Message %d unflagged from %s.
+#--------------------
+# deleting
+#
+# Ustring0108;Delete %s?
+Delete %s?
+#
+# Ustring0109;Only a chairman can delete a sequence of messages.
+Only a chairman can delete a sequence of messages.
+#
+# Ustring0110;This option deletes this message and all dependant messages.
+This option deletes this message and all dependant messages.
+#
+# Ustring0111;This option deletes the whole threads from its base message.
+This option deletes the whole thread from its base message.
+#
+# Ustring0112;Deleting message/s
+Deleting message/s
+#-----------------
+# linking
+#
+# Ustring0113;Link which message?
+Link which message?
+#
+# Ustring0114;To which message?
+To which message?
+#
+# Ustring0115;You must provide a specific message to accept the link.
+You must provide a specific message to accept the link.
+#
+# Ustring0116;You may only link a newer message to an older one.
+You may only link a newer message to an older one.
+#
+# Ustring0117;Linked.
+Linked.
+#
+# Ustring0118;That would be a pointless move.
+That would be a pointless move.
+#------------------------------
+# searching
+#
+# Ustring0119;Search pattern: (prompt)
+Search pattern:
+#
+# Ustring0120;Start search from where? (Enter = 1)
+Start search from where? (Enter = 1)
+#
+# Ustring0121;End search where? (Enter = last)
+End search where? (Enter = last)
+#
+# Ustring0122;Cannot search backwards.
+Cannot search backwards.
+#
+# Ustring0123;No matches found.
+No matches found.
+#-------------------------
+# changing areas
+#
+# Ustring0124;Area name undefined.
+Area name undefined.
+#
+# Ustring0125;Your flags do not match.
+Your flags do not match.
+#
+# Ustring0126;Your level is not sufficient.
+Your level is not sufficient.
+#
+# Ustring0127;You are not a member.
+You are not a member.
+#
+# Ustring0128;You cannot post in %s.
+You cannot post in %s.
+#
+# Ustring0129;Override as Sysop?
+Override as Sysop?
+#
+# Ustring0130;Access to area %s denied.
+Access to area %s denied.
+#
+# Ustring0131;There is no such %s as %s.
+There is no such %s as %s.
+#
+# Ustring0132;%s is locked for maintenance.
+%s is locked for maintenance.
+#
+# Ustring0133;Format error in %s.
+Format error in %s.
+#
+# Ustring0134;Out of order.
+out of order.
+#------------------------
+# info
+#
+# Ustring0135;No one has read any messages in %s yet.
+No one has read any messages in %s yet.
+#
+# Ustring0136;%s is private.
+%s is private.
+#
+# Ustring0137;%s is open to all.
+%s is open to all.
+#
+# Ustring0138;%s is readonly.
+%s is readonly.
+#
+# Ustring0139;%s is read/write.
+%s is read/write.
+#
+# Ustring0140;%s allows aliases.
+%s allows aliases.
+#
+# Ustring0141;%s does not allow aliases.
+%s does not allow aliases
+#
+# Ustring0142;%s uses sigs.
+%s uses sigs.
+#
+# Ustring0143;%s does not use sigs.
+%s does not use sigs.
+#
+# Ustring0144;The total number of messages in %s is %d.
+The total number of messages in %s is %d.
+#
+# Ustring0145;Area %s is not private.  Members' list irrelevant.
+Area %s is not private.  Members' list irrelevant.
+#-----------------------------------
+# creation and destruction
+#
+# Ustring0146;Create area by what name?
+Create area by what name? ([Enter] to abandon)
+#
+# Ustring0147;Create area named %s?
+Create area named %s?
+#
+# Ustring0148;There is already an area called %s
+There is already an area called %s
+#
+# Ustring0149;Please enter up to 50 chars description of %s
+Please enter up to 50 chars description of %s
+#
+# Ustring0150;Description: (Prompt)
+Description:
+#
+# Ustring0151;Please wait a few moments...
+Please wait a few moments...
+#
+# Ustring0152;You do not have any authority over area %s.
+You do not have any authority over area %s
+#
+# Ustring0153;Your are not chairman of %s.
+You are not chairman of %s.
+#
+# Ustring0154;pattern
+pattern
+#
+# Ustring0155;area %s
+area %s
+#
+# Ustring0156;title
+title
+#
+# Ustring0157;Current description:
+Current description:
+#---------------------
+# Ustring0158;clear %s?
+clear %s?
+#
+# Ustring0159;external mail allowance
+external mail allowance
+#
+# Ustring0160;%d bytes
+%d bytes
+#
+# Ustring0161;value
+value
+#
+# Ustring0162;Increase(+) or decrease(-)? +/-:
+# The + and - are hardcoded and must be included
+Increase(+) or decrease(-)? +/-:
+#
+# Ustring0163;Adjust by %s how many?
+Adjust by %s how many?
+#
+# Ustring0164;Adjust to %s?
+Adjust to %s?
+#
+# Ustring0165;reset from defaults?
+reset from defaults?
+#----------------------
+# levels
+#
+# Ustring0166;access level
+access level
+#
+# Ustring0167;user level
+user level
+#
+# Ustring0168;flags
+flags
+#
+# Ustring0169;for the flag menu - keep column spacing the same
+# No.     Name        No.     Name        No.     Name
+No.     Name        No.     Name        No.     Name
+#
+# Ustring[0170];expiry date
+expiry date
+#
+# Ustring0171;areas
+areas
+#
+# Ustring0172;Your workpad already contains text.
+Your workpad already contains text.
+#
+# Ustring0173;Loading existing %s into workpad...
+Loading existing %s into workpad...
+#
+# Ustring0174;Editing new file %s...
+Editing new file %s...
+#
+# Ustring0175;Entering editor...
+Entering editor...
+#
+# Ustring0176;Force %s to do what?
+Force %s to do what?
+#
+# Ustring0177;Your %s has expired.
+Your %s has expired.
+#
+# Ustring0178;Your %s expires in %d days time.
+Your %s expires in %d days time.
+#
+# Ustring0179;resetting to defaults
+resetting to defaults
+#------------------
+# scanning
+#
+# Ustring0180;You have no areas in your scan list.
+You have no areas in your scan list.
+#
+# Ustring0181;Scanning for new messages...
+Scanning for new messages...
+#
+# Ustring0182;One full scan of your message areas completed.
+One full scan of your message areas completed.
+#
+# Ustring0183;Scanning area %s
+Scanning area %s:
+#
+# Ustring0184; %d new message/s
+%d new message/s.
+#
+# Ustring0185;Catch up to the %d most recent messages?
+Catch up to the %d most recent messages?
+#
+# Ustring0186;There are no more unread messages in %s.
+There are no more unread messages in %s.
+#
+# Ustring0187;Scan your next area?
+Scan your next area?
+#
+# Ustring0188;There are no messages in %s.
+There are no messages in %s. Why not post one?
+#------------------------------
+#
+# Ustring0189;Pointers stored.
+Pointers stored.
+#
+# Ustring0190;message reading mode
+message reading mode
+#
+# Ustring0191;Unlinked.
+Unlinked.
+#
+# Ustring0192;resetting to null values.
+resetting to null values.
+#
+# Ustring0193;message no. %d
+message no. %d
+#
+# Ustring0194;Please type search pattern between double quotes.
+Please type search pattern between double quotes.
+#
+# Ustring0195;Single letter option to list branch
+h
+#
+# Ustring0196;user
+user
+#
+# Ustring0197;area
+area
+#
+# Ustring0198;details file
+details file
+#
+# Ustring0199;description
+description
+#
+# Ustring0200;The "?" is a hard-coded option, do not vary
+# type "?" for help
+Type ? for help
+#
+# Ustring[201];*chat disabled* (who list)
+*chat disabled*
+#
+# Ustring[202];*listening for chat* (who list)
+*listening for chat*
+#
+# Ustring[203];*chat queuing* (who list)
+*chat queuing*
+#
+# Ustring[204];private message> (prompt)
+private message>
+#
+# Ustring[205];message> (prompt)
+message>
+#
+# Ustring[206];emote to all> (prompt)
+emote to all>
+#
+# Ustring[207];FX> (prompt)
+FX>
+#
+# Ustring[208];Private message to whom?
+Private message to whom?
+#
+# Ustring[209];These are the rules for use of %s.
+These are the rules for use of %s.
+#
+# Ustring[210];%s is either not listening or not logged in.
+%s is either not listening or not logged in.
+#
+# Ustring[211];Do you agree to observe these rules?
+Do you agree to observe these rules?
+#
+# Ustring[212];action
+action
+#
+# Ustring[213];No effect to send.
+effect
+#
+# Ustring[214];[%s whispers] %s (output to recipient)
+[%s whispers] %s
+#
+# Ustring[215];[%s says] %s (output to recipient)
+[%s says] %s
+#
+# Ustring[216];<FX: %s> (output to recipient)
+<FX: %s>
+#
+# Ustring[217];<%s %s> (emoted output to recipient)
+<%s %s>
+#
+# Ustring[218];Chat enabled.
+Chat enabled.
+#
+# Ustring[219];Chat reception now turned on.
+Chat reception now turned on.
+#
+# Ustring[220];Chat reception already on.
+Chat reception already on.
+#
+# Ustring[221];Chat not enabled at this point.
+Chat not enabled at this point.
+#
+# Ustring[222];Chat disabled.
+Chat disabled.
+#
+# Ustring[223];Chat reception now turned off.
+Chat reception now turned off.
+#
+# Ustring[224];Chat reception already off.
+Chat reception already off.
+#
+# Ustring[225];You must turn your chat on before you can converse.
+You must turn your chat on before you can converse.
+#
+# Ustring[226];no other name given
+no other name given
+#
+# Ustring[227];Please type in a unique user ID of 8 characters or less:
+Please type in a unique user ID of 8 characters or less:
+#
+# Ustring[228];Chat not supported for your system.
+Chat not supported for your system.
+#
+# Ustring[229];Problems with chat, please tell sysop.
+Problems with chat, please tell sysop.
+#
+# Ustring[230];a valid language file
+a valid language file
+#
+# Ustring[231];config file
+config file
+#
+# Ustring[232];Cannot determine who you are.
+Cannot determine who you are.
+#
+# Ustring[233];There is already a %s using %s.
+There is already a %s using %s.
+#
+# Ustring[234];Attempting auto-login as %s...
+Attempting auto-login as %s...
+#
+# Ustring[235];Auto-login failed. Please log off fully and return as %s.
+Auto-login failed. Please log off fully and return as %s.
+#
+# Ustring[236];Duplicates not allowed. Session abandoned.
+Duplicates not allowed. Session abandoned.
+#
+# Ustring[237];You do not have an account on %s.
+You do not have an account on %s.
+#
+# Ustring[238];Please contact %s to arrange access.
+Please contact %s to arrange access.
+#
+# Ustring[239];Your own configuration was faulty.
+Your own configuration was faulty.
+#
+# Ustring[240];Reading strings in %s language...
+Reading strings in %s language...
+#
+# Ustring[241];There is a fault in the menu system.
+There is a fault in the menu system.
+#
+# Ustring[242];Could not remove lock
+Could not remove old lock
+#
+# Ustring[243];Could not create lock
+Could not create lock
+#
+# Ustring[244];Still waiting to create lock. (25 second max wait)...
+Still waiting to create lock. (%d second max wait)...
+#
+# Ustring[245];Directory not available.
+Directory not available.
+#
+# Ustring[246];Path too long.
+Path too long.
+#
+# Ustring[247];directory
+directory
+#
+# Ustring[248];'%s' is already in the password file.  Is that your account?
+'%s' is already in the password file.  Is that your account?
+#
+# Ustring[249];filename
+filename
+#
+# Ustring[250];%s does not have %s.
+%s does not have %s.
+#
+# Ustring[251];private file facilities
+private file facilities
+#
+# Ustring[252];Delete original copy of %s?
+Delete original copy of %s?
+#
+# Ustring[253];%s already has %s.
+%s already has %s.
+#
+# Ustring[254];Cannot copy %s.
+Cannot copy %s.
+#
+# Ustring[255];Editing %s...
+Editing %s...
+#
+# Ustring[256];description of %s
+description of %s
+#
+# Ustring[257];%s deleted.
+%s deleted.
+#
+# Ustring[258];Lines and columns may be configured independantly.
+Lines and columns may be configured independantly.
+#
+# Ustring[259];%s renamed to %s.
+%s renamed to %s
+#
+# Ustring[260];sent by
+sent by
+#
+# Ustring[261];No description.
+No description.
+#
+# Ustring[262];Overwrite?
+Overwrite?
+#
+# Ustring[263];%s already exists.
+%s already exists.
+#
+# Ustring[264];Set up account under name '%s'?
+Set up account under name '%s'?
+#
+# Ustring[265];%s created.
+%s created.
+#
+# Ustring[266];filenames
+filenames
+#
+# Ustring[267];There are files remaining which must be moved first.
+There are files remaining which must be removed first.
+#
+# Ustring[268];Cannot delete %s.
+Cannot delete %s.
+#
+# Ustring[269];Protocol:
+# Prompt for file transfer option
+Protocol:
+#
+# Ustring[270];Sorry, could not create BBS account for %s.
+Sorry, could not create BBS account for %s.
+#
+# Ustring[271];About to start sending %s.
+# When downloading a file
+About to start sending %s.
+#
+# Ustring[272];directories
+directories
+#
+# Ustring[273];Please type filename using wildcards if required.
+Please type filename using wildcards if required.
+#
+# Ustring[274];Ctrl-C to abandon
+Ctrl-C to abandon
+#
+# Ustring[275];Searching...
+Searching...
+#
+# Ustring[276];Application error:
+Application error:
+#
+# Ustring[277];Please tell sysop there to look in errorlog.
+Please tell sysop to look in errorlog.
+#
+# Ustring[278];You will be timed out in %s.
+You will be timed out in %s.
+#
+# Ustring[279];seconds
+%d seconds
+#
+# Ustring[280];minutes
+%d minutes
+#
+# Ustring[281];You have been timed out.
+You have been timed out.
+#
+# Ustring[282];Inactivity timer:
+Inactivity timer:
+#
+# Ustring[283];Option recognised but not working.
+Option entered correctly but not working.
+#
+# Ustring[284];Menu error:
+Menu error:
+#
+# Ustring[285];Nothing removed from list.
+Nothing removed from list.
+#
+# Ustring[286];deletions
+deletions
+#
+# Ustring[287];users
+users
+#
+# Ustring[288];Please specify one or more %s
+Please specify one or more %s
+#
+# Ustring[289];Please specify just one %s
+Please specify just one %s
+#
+# Ustring[290];Please specify up to %d %s
+Please specify up to %d %s
+#
+# Ustring[291];Press [Enter] to continue...
+Press [Enter] to continue...
+#
+# Ustring[292];Continue?
+Continue?
+#
+# Ustring[293];Are you sure?
+Are you sure?
+#
+# Ustring[294];No %s specified.
+No %s specified.
+#
+#---------------------------------------------------
+# Editing menus
+# Ustring[295];[E]dit online, [u]pload, [o]k done, or [a]bandon:
+[1m[[33mE[0;1m]dit online, [[33mu[0;1m]pload, [[33mo[0;1m]k done, or [[33ma[0;1m]bandon:[0m
+#
+# Ustring[296];[E]dit online, [u]pload, use [f]ile, [o]k done, or [a]bandon:
+[1m[[33mE[0;1m]dit online, [[33mu[0;1m]pload, use [[33mf[0;1m]ile, [[33mo[0;1m]k done, or [[33ma[0;1m]bandon:[0m
+#
+# Ustring[297];Single character option for edit online
+e
+#
+# Ustring[298];Single character option for upload into editor
+u
+#
+# Ustring[299];Single character option for use file
+f
+#
+# Ustring[300];Single character option for done
+o
+#
+# Ustring[301];Single character option for abandon
+a
+#
+#---------------------------------------------------------
+# Ustring[302];Your selected editor is no longer available.  Please choose another.
+Your selected editor is no longer available.  Please choose another.
+#
+#----------------------------------------------------------
+# Second edit menu, strings 303 and 304 are displayed together on two
+# lines.  The '?' is hardcoded and therefore should be included.
+#
+# Ustring[303];[S]ave to %s, [e]dit, [l]ist, [?]help,
+[1m[[33mS[0;1m]ave to %s, [[33me[0;1m]dit, [[33ml[0;1m]ist, [[33m?[0;1m]help,
+#
+# Ustring[304];[h]old workpad, [c]lear workpad, [a]bandon:
+[[33mh[0;1m]old workpad, [[33mc[0;1m]lear workpad, [[33ma[0;1m]bandon:[0m
+#
+# Ustring[305];Single letter option for [s]ave
+s
+#
+# Ustring[306];Single letter option for [e]dit
+e
+#
+# Ustring[307];Single letter option for [l]ist
+l
+#
+# Ustring[308];Single letter option for [h]old
+h
+#
+# Ustring[309];Single letter option for [c]lear
+c
+#
+# Ustring[310];Single letter option for [a]bandon
+a
+#
+#-----------------------------------------------
+# Ustring[311];Saved to %s.
+Saved to %s.
+#
+# Ustring[312];Clear workpad?
+Clear workpad?
+#
+# Ustring[313];%s is empty.
+%s is empty.
+#
+# Ustring[314];Your selected display program is no longer available.  Please choose another.
+Your selected display program is no longer available.  Please choose another.
+#
+# Ustring[315];Planfile not available.
+Planfile not available.
+#
+# Ustring[316];You do not have access to %s.
+You do not have access to %s.
+#
+# Ustring[317];%s%s was last on %s
+# to display when fingering
+%s%s was last on %s.
+#
+# Ustring[318];*** Special notice for you %s ***
+     *** Special notice for you %s ***
+#
+# Ustring[319];Session timer:
+Session timer:
+#
+# Ustring[320];list
+list
+#
+# Ustring[321];Type ? for a list
+Type ? for a list
+#
+# Ustring[322];Please try later.
+Please try later.
+#
+# Ustring[323];me
+me
+#
+# Ustring[324];Too many matches, only selecting %s.
+Too many matches, only selecting %s.
+#
+# Ustring[325];Please do not use '%s' at the start of filenames.
+Please do not use '%s' at the start of %s.
+#
+# Ustring[326];External mail being spooled.  No outbasket copy taken.
+External mail being spooled.  No outbasket copy taken.
+#
+# Ustring[327];Configuration error:
+Configuration error:
+#
+# Ustring[328];Message number exceeds 4000
+# 4000 is the highest message number allowed.
+Message number exceeds 4000
+#
+# Ustring[329];Password unchanged.
+Password unchanged.
+#
+# Ustring[330];Attempting auto-login as %s...
+Attempting auto-login as %s...
+#
+# Ustring[331];Auto-login failed.  Please log in again manually as %s.
+Auto-login failed.  Please log in again manually as %s.
+#
+# Ustring[332];Address all on one line please.
+Address all on one line please:
+#
+# Ustring[333];Date of birth in any format.
+Date of birth in any format:
+#
+# Ustring[334];address
+address
+#
+# Ustring[335];date of birth
+date of birth
+#
+# Ustring[336];real name
+real name
+#
+# Ustring[337];full name (or AKA)
+full name (or AKA)
+#
+# Ustring[338];phone number
+phone number
+#
+# Ustring[339];Press the key you wish to use for %s:
+Press the key you wish to use for %s:
+#
+# Ustring[340];erase
+delete
+#
+# Ustring[341];word erase
+word erase
+#
+# Ustring[342];line kill
+line kill
+#
+# Ustring[343];line redraw
+line redraw
+#
+# Ustring[344];settings
+settings
+#
+# Ustring[345];Your %s has not been changed.
+Your %s has not been changed.
+#
+# Ustring[346];%s key
+%s key
+#
+# Ustring[347];By default chat messages will not be received.
+By default chat messages will not be received.
+#
+# Ustring[348];By default chat messages will be received.
+By default chat messages will be received.
+#
+# Ustring[349];OFF
+OFF
+#
+# Ustring[350];ON
+ON
+#
+# Ustring[351];hotkeys
+hotkeys
+#
+# Ustring[352];Not now receiving own messages during normal reading.
+Not now receiving own messages during normal reading.
+#
+# Ustring[353];Now receiving own messages in natural sequence.
+Now receiving own messages in natural sequence.
+#
+# Ustring[354];pause in seconds before flush
+pause in seconds before flush
+#
+# Ustring[355];inactivity timeout
+inactivity timeout
+#
+# Ustring[356];%d seconds
+%d seconds
+#
+# Ustring[357];screen length
+screen length
+#
+# Ustring[358];screen width
+screen width
+#
+# Ustring[359];%d rows
+%d rows
+#
+# Ustring[360];%d columns
+%d columns
+#
+# Ustring[361];autorecent
+autorecent
+#
+# Ustring[362];%d messages
+%d messages
+#
+# Ustring[363];Please log in again now as %s.
+Please log in again now as %s.
+#
+# Ustring[364];'%s' is an existing system user.  Is that ok?
+'%s' is an existing system user.  Is that ok?
+#
+# Ustring[365];Please ask your Superuser to create a Unix account for %s.
+Please ask your Superuser to create a Unix account for %s.
+#
+# Ustring[366];Cannot zap %s.
+Cannot fod %s.
+#
+# Ustring[367];Unix account
+Unix account
+#
+# Ustring[368];unknown
+unknown
+#
+# Ustring[369];uncoloured
+uncoloured
+#
+# Ustring[370];yellow
+[33m;1myellow[0m
+#
+# Ustring[371];red
+[33m;1mred[0m
+#
+# Ustring[372];green
+[32m;1mgreen[0m
+#
+# Ustring[373];blue
+[34m;1mblue[0m
+#
+# Ustring[374];cyan
+[36m;1mcyan[0m
+#
+# Ustring[375];magenta
+[35m;1mmagenta[0m
+#
+# Ustring[376];plain
+plain text
+#
+# Ustring[377];bold
+[1mbold[0m
+#
+# Ustring[378];multi-coloured
+[32m;1mmulti-[33m;1mcoloured [34m;1mas [35m;1msent[0m
+#
+# Ustring[379];Available colours
+Available colours
+#
+# Ustring[380];colour for outgoing chat messages
+colour for outgoing chat messages
+#
+# Ustring[381];colour for incoming chat messages
+colour for incoming chat messages
+#
+# Ustring[382];%s is a shell user, Unix facilities retained.
+%s is a shell user, Unix facilities retained.
+#
+# Ustring[383];You have %s remaining today.
+You have %s remaining today.
+#
+# Ustring[384];editor program
+editor program
+#
+# Ustring[385];display program
+display program
+#
+# Ustring[386];Daily timer:
+Daily timer:
+#
+# Ustring[387];%s set to %s.
+%s set to %s.
+#
+#/*HERE*/
+# Ustring[388];Read message replies chain-fashion
+Read message replies chain-fashion
+#
+# Ustring[389];Read messages replies numerically by subject
+Read messages replies numerically by subject
+#
+# Ustring[390];Read messages strictly numerically
+Read messages strictly numerically
+#
+# Ustring[391];%s is currently %s.
+%s is currently %s.
+#
+# Ustring[392];%s has %s by default.
+%s has %s by default. 
+#
+# Ustring[393];Which %s?
+Which %s?
+#
+# Ustring[394];%s remaining unchanged as %s.
+%s remaining unchanged as %s.
+#
+# Ustring[395];You have used up all your time for today.
+You have used up all your time for today.
+#
+# Ustring[396];Cannot find terminal list but you may try one you know.
+Cannot find terminal list but you may try one you know.
+#
+# Ustring[397];terminal type
+terminal type
+#
+# Ustring[398];Bad filename %s.
+Bad filename %s.
+#
+# Ustring[399];Enter %s:
+Enter %s:
+#
+# Ustring[400];Enter new %s:
+Enter new %s:
+#
+#-----------------------------------------------------------
+# User maintenance menu
+# The following lines must have the correct spacing!  
+# Also MAKE SURE TO INCLUDE THE OPTION LETTERS - they are hardcoded!
+#
+# Ustring[401];User id: %s        (details last updated %s)
+User id: %s        (details last updated %s)
+#
+# Ustring[402];First on: %s    Last on: %s
+First on: %s    Last on: %s
+#
+# Ustring[403];Calls Made: %-6d    Msgs posted: %-6d
+Calls Made: %-6d    Msgs posted: %-6d
+#
+# Ustring[404];[a] Real Name: %s
+[a] Real Name: %s
+#
+# Ustring[405];[b] Address  : %s
+[b] Address  : %s
+#
+# Ustring[406];[c] Phone    : %s
+[c] Phone    : %s
+#
+# Ustring[407];[d] D.O.B.   : %s
+[d] D.O.B.   : %s
+#
+# Ustring[408];[e] A.K.A.   : %s
+[e] A.K.A.   : %s
+#
+# Ustring[409];Security Level      : %-6d
+[f] Security Level      : %-6d
+#
+# Ustring[410];Subscription Expires: %s
+[g] Subscription Expires: %s
+#
+# Ustring[411];Ext. Mail Reserves  : %d
+[h] Ext. Mail Reserves  : %d
+#
+# Ustring[412];[i] View planfile         [j] Edit planfile
+[i] View planfile         [j] Edit planfile
+#
+# Ustring[413];[k] View sig              [l] Edit sig
+[k] View sig              [l] Edit sig
+#
+# Ustring[414];[m] View scanlist         [n] Edit scanlist
+[m] View scanlist         [n] Edit scanlist
+#
+# Ustring[415];[o] View notes            [p] Edit notes
+[o] View notes            [p] Edit notes
+#
+# Ustring[416];[r] User defaults         [s] Password change
+[r] User defaults         [s] Password change
+#
+# Ustring[417];[t] User Flags
+[t] User Flags
+#
+# Ustring[418];[q] Quit
+[q] Quit
+#
+# Ustring[419];Change:
+Change:
+#
+#------------------------------------------------------------------
+# User defaults menu
+# The following lines must also have correct spacing and format codes
+#
+# Ustring[420];[a] - hotkeys (%d)        [b] - readmode (%s)
+[a] - hotkeys (%d)        [b] - readmode (%s)
+#
+# Ustring[421];[c] - readown (%d)        [d] - recent (%d)
+[c] - readown (%d)        [d] - recent (%d)
+#
+# Ustring[422];[e] - rows (%2d)          [f] - columns (%d)
+[e] - rows (%2d)          [f] - columns (%d)
+#
+# Ustring[423];[g] - erase (%2d)         [h] - word erase (%d)
+[g] - erase (%2d)         [h] - word erase (%d)
+#
+# Ustring[424];[i] - kill (%2d)          [j] - reprint (%d)
+[i] - kill (%2d)          [j] - reprint (%d)
+#
+# Ustring[425];[k] - pausetime (%2d)     [l] - timeout (%d)
+[k] - pausetime (%2d)     [l] - timeout (%d)
+#
+# Ustring[426];[m] - chatcolour IN (%2d) [n] - chatcolour OUT(%d)
+[m] - chatcolour IN (%2d) [n] - chatcolour OUT(%d)
+#
+# Ustring[427];[o] - chat on at login (%d)
+[o] - chat on at login (%d)
+#
+# Ustring[428];[p] - editor (%s)
+[p] - editor (%s)
+#
+# Ustring[429];[r] - display (%s)
+[r] - display (%s)
+#
+# Ustring[430];[s] - terminal (%s)
+[s] - terminal (%s)
+#
+# Ustring[431];[t] - language (%s)
+[t] - language (%s)
+#
+# Ustring[432];[q] - quit
+[q] - quit
+#
+# Ustring[433];You have %s remaining for this session.
+You have %s remaining for this session.
+#
+#----------------------------------------------------------
+# user-to-user mail menus
+# the following are used in specifying which message to act on
+#
+# Ustring[434];single character option for next new message
+n
+#
+# Ustring[435];word or phrase describing next new message
+next new message
+#
+# Ustring[436];single character option for all messages in mail directory
+a
+#
+# Ustring[437];word or phrase describing all messages in mail directory
+all
+#
+# Ustring[438];single character option for messages TO user
+i
+#
+# Ustring[439];word or phrase describing messages TO user
+in
+#
+# Ustring[440];single character option for messages FROM user
+o
+#
+# Ustring[441];word or phrase describing messages FROM user
+out
+#
+# Ustring[442];single character option for all UNREAD incoming messages
+w
+#
+# Ustring[443];word or phrase describing new UNREAD incoming messages
+unread
+#
+# Ustring[444];single character option for message you just read again
+.
+#
+# Ustring[445];word or phrase describing message you just read again
+same message again
+#
+# Ustring[446];single character option for parent to message just read
+u
+#
+# Ustring[447];word or phrase describing parent to message just read
+parent
+#
+# Ustring[448];single character option for message you got up to
+~
+#
+# Ustring[449];word or phrase describing message you got up to
+latest
+#
+#-------------------------------------------------------
+# Ustring[450];No unread private mail.
+No unread private mail.
+#
+# Ustring[451];You no longer have a copy of the parent message.
+You no longer have a copy of the parent message.
+#
+# Ustring[452];marked as unread
+marked as unread
+#
+# Ustring[453];No private mail needs restoring.
+No private mail needs restoring.
+#
+# Ustring[454];You have %s %s remaining.
+You have %s %s remaining.
+#
+# Ustring[455];This mail from %s is %d bytes in size.
+This mail from %s is %d bytes in size.
+#
+# Ustring[456];Accept to read?
+Accept to read?
+#
+# Ustring[457];Cannot perform this operation on messages selected.
+Cannot perform this operation on messages selected.
+#
+# Ustring[458];Confirm for each one?
+Confirm for each one?
+#
+# Ustring[459];Single character option for quit (could be used anywhere)
+q
+#
+# Ustring[460];You haven't read msg %d. Really delete?
+You haven't read msg %d. Really delete?
+#
+# Ustring[461];Remove %s's copy too?
+Remove %s's copy too?
+#
+# Ustring[462];Mail to whom?
+Mail to whom?
+#
+# Ustring[463];external mail facilities
+external mail facilities
+#
+# Ustring[464];this facility
+this facility
+#
+# Ustring[465];mail facilities
+mail facilities
+#
+# Ustring[466];You may only post mail to sysop.
+You may only post mail to sysop.
+#
+# Ustring[467];Could not import your mail.
+Could not import your mail.
+#
+# Ustring[468];Would you like your Unix mail imported?
+Would you like your Unix mail imported?
+#
+# Ustring[469];Processing mail, please wait...
+Processing mail, please wait...
+#
+# Ustring[470];*** External mail arrived ***
+*** External mail arrived ***
+#
+# Ustring[471];*** You have new mail ***
+*** You have new Personal Mail ***
+#
+#---------------------------------------------------------------
+# Ustring[472];Invalid input '%s'.
+%s invalid.
+#
+# Ustring[473];%s is not available.
+%s is not available.
+#
+# Ustring[474];Offline Reading and Editing Support Routines
+Offline Reading and Editing Support Routines
+#
+#-----------------------------------------------------------------
+# Menus for OLR facilities
+#
+# Ustring[475];Single character option for help
+h
+#
+# Ustring[476];Phrase meaning Help
+Help and how to use this routine
+#
+# Ustring[477];Single character option for Go
+g
+#
+# Ustring[478];Phrase meaning Go
+Go ahead and do it
+#
+# Ustring[479];Select option:
+Select option:
+#
+# Ustring[480];Single character option for use existing putfile
+e
+#
+# Ustring[481];Phrase meaning use existing putfile
+Use putfile already here
+#
+# Ustring[482];Single character option for upload new putfile
+y
+#
+# Ustring[483];Phrase meaning upload new putfile
+Upload new putfile
+#
+# Ustring[484];Single character option for no messages to post
+n
+#
+# Ustring[485];Phrase meaning no messages to post
+I have no messages to post
+#
+# Ustring[486];Grab all new messages now?
+Grab all new messages now?
+#
+# Ustring[487];Store current pointers first?
+Store current pointers first?
+#
+# Ustring[488];Download now?
+Download now?
+#
+# Ustring[489];Putfile appears to be a duplicate - not posted.
+Putfile appears to be a duplicate - not posted.
+#
+# Ustring[490];Grabbing...
+Grabbing...
+#
+# Ustring[491];Grab only the %d latest messages in each area?
+Grab only the %d latest messages in each area?
+#
+# Ustring[492];language
+language
+#
+# Ustring[493];No alternatives to choose from.
+No alternatives to choose from.
+#
+# Ustring[494];Setting will take effect at next login.
+Setting will take effect at next login.
+#
+# Ustring[495];ANSI
+ANSI
+#
+# Ustring[496];vote
+vote
+#
+# Ustring[497];You have already voted on this message.
+You have already voted on this message.
+#
+# Ustring[498];This is not a voting message.
+This is not a voting message.
+#
+# Ustring[499];No votes have been caste.
+No votes have been caste.
+#
+# Ustring[500];This is a voting message - the results are:
+This is a voting message - the results are:
+#
+# Ustring[501];word meaning "to" as in give book to teacher
+to
+#
+# Ustring[502];Can only forward mail internally
+Can only forward mail internally
+#
+# Ustring[503];%s please try again.
+%s please try again.
+#
+# Ustring[504];reserved
+
+#
+# Ustring[505];reserved
+
+#
+# Ustring[506];reserved
+
+#
+# Ustring[507];reserved
+
+#
+# Ustring[508];reserved
+
+#
+# Ustring[509];reserved
+
+#
+# Ustring[510];reserved
+
+#
+# Ustring[511];reserved
+
+#
+# Ustring[512];reserved
+
+#
+# Ustring[513];reserved
+
+#
+# Ustring[514];reserved
+
+#
+# Ustring[515];reserved
+
+#
+# Ustring[516];reserved
+
+#
+# Ustring[517];reserved
+
+#
+# Ustring[518];reserved
+
+#
+# Ustring[519];reserved
+
+#
+# Ustring[520];reserved
+
+#
+# Ustring[521];reserved
+
+#
+# Ustring[522];reserved
+
+#
+# Ustring[523];reserved
+
+#
+# Ustring[524];reserved
+
+#
+# Ustring[525];reserved
+
+#

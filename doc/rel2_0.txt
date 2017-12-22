@@ -1,0 +1,209 @@
+
+**************************************************************************	
+Upgrading from 1.1 to 2.0
+-------------------------
+
+rename all your existing library .dlb files to .txt
+
+copy over any .txt files in the library directory of this distribution which
+you don't already have (eg nocreate.txt, ustrings.txt, mstrings.txt)
+
+Edit your config.drealm so that Spare Field 1 becomes C.menucache. This
+holds the amount of memory to be set aside for cached menus. It can be left
+as 0 until you know if you want cached menus. (Look at new config.drealm
+supplied in startercfgs directory to see how it should be changed, and see
+manual section on menus for explanation of cached menus)
+
+Edit your config.user so that Reserved Field 1 becomes $language$ and
+Reserved Field 2 becomes $languagename$.  (Look at supplied in config.user
+in startercfgs directory to see how it should look, and see manual section
+on support for foreign languages to find out what it's all about!)
+
+copy config.langs into your config directory, or create one to suit.
+
+*************************************************************************
+
+New facilities
+--------------
+
+Foreign Language Support - at last!!!!
+Now welcome users speaking different languages on your BBS. Sets of strings
+defined in separate files.
+New menu action set_language - user chooses his preferred language
+New menu action display_lang - displays a file coded by language-specific
+extension.  
+
+
+New menu action random random to return a random integer within range of 1
+to maximum number.  Puts result in $random$ (G.randomnum).  Fails by
+returning 0 and setting $random$ to 0.
+
+
+New menu action set_echo.  Parameter is a single number:
+	1 - do not echo
+	2 - echo each character input
+	3 - echo a star for each character input
+
+
+Voting: Any area message can now support a vote on its content.  Menu action
+create_vote creates a file called <msgno.vote>.  Menu action vote allows
+users to cast a vote.  This is a simple function and no bounds checking is
+done apart from preventing anyone from voting twice (ie voters can vote for
+an option not on offer). When reading a voting message, the votes so far are
+summarised at the end of the message.
+
+
+New menu action start_daytimer.  Sets maximum time per day.  
+
+
+
+Other changes and improvements
+------------------------------
+
+Distributed packages now contain both source and binaries as people were
+getting confused and downloading both.
+
+All doc/ files changed to .txt (from .doc).
+
+Changing area (whether by change_area or by scan) now asks each time if you
+want to "catch up" to $recent$, whether or not you had read any before.
+
+When initialising to C.startarea, $recent$ is taken into account silently if
+the user had not previously been a reader of the area.  
+
+New library file "nocreate.txt" displayed after making a BBS account if
+the unix account cannot be created.
+
+search_filenames now wraps the user input with wildcards - so "tlx" is
+treated as "*tlx*" automatically.
+
+When executing destroy_area, drealmBBS now searches for the area's occurence
+in the users' pointer files and removes them.  Before this change, if a new
+area was started with the same name as an old one, the users' pointers
+"remembered" the old one and they were not shown any new messages.  Still
+does not remove areas from users' scanlist, as this could also be a nuisance
+under some circumstances.
+
+give_aka now allows one to remove an AKA altogether, previously the best you
+could do was set it to a [Space]!
+
+function "update" will now overwrite user's .drealmrc with acceptable values
+from config.user if it finds a field invalid or missing.  benefit mainly
+when a field is added to support a new function.  Still does not help if a
+setting chosen by a user becomes unavailable.
+
+added variable $node$ which is full pathname of user's tty
+
+added variable $currentmail$
+
+added four more custom variables, 5-8
+
+added variables $display$ for user's chosen file display program and
+$editor$ for user's chosen text editor.
+
+list_areas now takes three parameters, the first is the areaflags, second
+is user level and third is access mask.  Eg if the menu action says
+"list_areas 000000000000000000000000000001 20 ??1?" the result will be to list
+those areas with areaflag 30 set to '1' and all others set to '0', and which
+can be accessed by anyone with user level 20 or over, if they are a chairman
+of the area.
+
+Took out hard coded "Scan for new messages?" after reading last one in each
+area.  This can be easily emulated in a menu line, and makes it more
+flexible.
+
+Removed all support for menu action "silence" as it was proving impossible
+to really fool a user he'd still got full access!
+
+scan_areas now uses argument 'q' to scan silently and return true if the
+user has any new messages to read at all.  'e' still does the express
+verbose scan.
+
+Changed menu action "display" to only take one file at a time.  True if that
+one file is found.  This was to help develop language support.
+
+Fixed bug which stopped posting in an area with more that 3900 messages
+instead of 3999
+
+fixed bug in area_change so you don't get two error messages for one bad
+area.
+
+Removed a bug in removing "members" from a list - when the length of the
+names being removed was over 1024 bytes, the program would crash.  Solved by
+writing names to a file and using that.
+
+Fixed bug where drealmBBS's idea of the user's home directory was wrong. 
+This only affects file-transfer.  Previously, the user was placed in their
+drealm private files directory for file transfers.  Now, they are placed in
+their home directory.  You may need to go around tidying up the privatefiles
+areas, removing any ".dl" directories and putting other files into the
+user's home directory.  THIS ONLY AFFECTS SYSTEMS WHERE $homedirs$ IS NOT
+THE SAME AS $privatefiles$.  Thanks to sysop@peterlaz.dh.i-2000.com for the
+bug report.
+
+Added test for full (4000 msgs) areas to is_area_elig - about time too!
+
+Fixed flag_msg to check for authority over target message
+
+flag strings other than $myflag$ and $areaflag$ used to show a '#' for
+offset 1, rather than the proper first flag.  This is now fixed.
+
+Package of specially written useradd, usermod, userdel included in
+distribution for the benefit of those sysops not using shadow passwords and
+whose existing useradds etc no longer support non-shadow systems.
+
+
+
+Programmer interest only
+------------------------
+
+Changes to Makefile:
+* TERMCAP changed to USE_TERMCAP to make drealmBBS use TERMCAP rather than
+  TERMINFO.  TERMINFO is prefered.
+* Unix Domain Datagrams are used rather than FIFOs if kernel version supports them
+* Compiler warnings tightened further (code now compiles quietly under
+  C++ if you resolve the name clashes ("new", "this", etc.))
+* displaymail and displaymsg incorporated into drealmBBS source.  This is
+  for language string support.  drealmBBS now links with curses (or termcap,
+  if you have to).
+* The "isle" editor has been changed to call display.o for screen size.  It
+  now ignores the command line parameters.
+* Removed rules for programs no longer included
+* Sundry local installation changes
+
+Various warnings fixed.  Various indentation fixed.
+
+chatout (and timer) now puts itself into the background once it had
+established its socket/fifo adequately.  chatfuncs.c changed to run it in
+the foreground. (The is because we had to be able to tell by looking at the
+socket/fifo whether chatout had started or not.  When it was run in the
+background, we had to try a few times, in case it was slow starting.  Now,
+we don't get as far as checking until it's either worked or failed.)
+
+display.c now checks with the terminal device driver for the screen size
+before falling back on the terminfo/termcap values.  This affects mail and
+area message display, internal pagination, "pager" file viewer and "isle"
+editor.  All notice screen size changes.
+
+New function Dstrcmp - like strcmp, but case sensitivity depends on
+C.sensitive setting.
+
+New function "menumatch" for single character option (internal) menus.
+Observes C.sensitive setting.
+
+U.lines and U.cols now only initialise LINES and COLUMNS environment
+variables.  In all other places, the display.c function get_LW is relied on
+to set LINES and WIDTH C variables.
+
+Function "summarise" added, to run after display_msg in for voting messages.
+
+In scan_area what was variable "mode" is now called "type".
+
+All that NEW_FORCE_STUFF removed.
+
+Rewrote fieldtrans, transstring, send_now.
+
+New function whichlangfile to support display_lang
+
+Introduced new variables to hold flag strings which might be printed and
+indexed into.

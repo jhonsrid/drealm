@@ -1,0 +1,58 @@
+genfuncs.o: genfuncs.c genfuncs.h
+drealmgen.o: drealmgen.c drealm.h configfuncs.h genfuncs.h drealmgen.h
+drealm_sig.o: drealm_sig.c drealm_sig.h
+display.o: display.c display.h drealm_sig.h
+drealm.o: drealm.c drealm.h mainfuncs.h drealmgen.h inputfuncs.h \
+  configfuncs.h setupfuncs.h genfuncs.h chatfuncs.h readfuncs.h \
+  mailfuncs.h filefuncs.h olrfuncs.h timerfuncs.h
+mainfuncs.o: mainfuncs.c drealm.h drealmgen.h inputfuncs.h configfuncs.h \
+  setupfuncs.h genfuncs.h display.h getvalf.h getmemb.h mainfuncs.h \
+  chatfuncs.h readfuncs.h filefuncs.h
+inputfuncs.o: inputfuncs.c drealm_sig.h drealm.h drealmgen.h mainfuncs.h \
+  inputfuncs.h configfuncs.h setupfuncs.h genfuncs.h chatfuncs.h
+configfuncs.o: configfuncs.c drealm.h drealmgen.h mainfuncs.h \
+  inputfuncs.h configfuncs.h setupfuncs.h genfuncs.h
+setupfuncs.o: setupfuncs.c drealm.h drealmgen.h mainfuncs.h inputfuncs.h \
+  configfuncs.h genfuncs.h getvalf.h colour.h setupfuncs.h display.h \
+  readfuncs.h chatfuncs.h
+chatfuncs.o: chatfuncs.c drealm.h drealmgen.h mainfuncs.h inputfuncs.h \
+  configfuncs.h setupfuncs.h genfuncs.h getvalf.h chatfuncs.h
+timerfuncs.o: timerfuncs.c drealm.h drealmgen.h mainfuncs.h genfuncs.h \
+  timerfuncs.h
+readfuncs.o: readfuncs.c drealm.h drealmgen.h mainfuncs.h inputfuncs.h \
+  configfuncs.h setupfuncs.h genfuncs.h display.h getvalf.h sendmess.h \
+  displaymsg.h readfuncs.h
+mailfuncs.o: mailfuncs.c drealm.h drealmgen.h mainfuncs.h inputfuncs.h \
+  configfuncs.h setupfuncs.h genfuncs.h display.h getvalf.h sendmail.h \
+  mailfuncs.h displaymail.h sendmess.h readfuncs.h
+filefuncs.o: filefuncs.c drealm.h mainfuncs.h drealmgen.h inputfuncs.h \
+  configfuncs.h setupfuncs.h genfuncs.h display.h getvalf.h sendmail.h \
+  sendmess.h readfuncs.h filefuncs.h
+olrfuncs.o: olrfuncs.c drealm.h drealmgen.h mainfuncs.h inputfuncs.h \
+  configfuncs.h setupfuncs.h genfuncs.h readfuncs.h filefuncs.h \
+  mailfuncs.h sendmail.h olrfuncs.h
+getvalf.o: getvalf.c drealm.h drealmgen.h mainfuncs.h inputfuncs.h \
+  configfuncs.h setupfuncs.h genfuncs.h display.h slist.h getvalf.h
+getmemb.o: getmemb.c drealm.h drealmgen.h mainfuncs.h inputfuncs.h \
+  configfuncs.h setupfuncs.h genfuncs.h display.h slist.h getmemb.h
+slist.o: slist.c slist.h
+sendmail.o: sendmail.c drealm.h genfuncs.h drealmgen.h sendmail.h
+sendmess.o: sendmess.c drealm.h drealmgen.h mainfuncs.h inputfuncs.h \
+  configfuncs.h setupfuncs.h genfuncs.h sendmess.h
+displaymsg.o: displaymsg.c drealm.h inputfuncs.h readfuncs.h mainfuncs.h \
+  displaymsg.h display.h
+displaymail.o: displaymail.c drealm.h mailfuncs.h inputfuncs.h \
+  displaymail.h display.h
+chatout.o: chatout.c drealm_sig.h colour.h
+timer.o: timer.c drealm_sig.h
+pager.o: pager.c display.h
+isle.o: isle.c drealm.h genfuncs.h display.h
+longname.o: longname.c
+stats.o: stats.c drealm.h configfuncs.h genfuncs.h drealmgen.h
+zapuser.o: zapuser.c
+adduser.o: adduser.c
+remuser.o: remuser.c
+username.o: username.c
+setpwd.o: setpwd.c
+filetidy.o: filetidy.c drealm.h configfuncs.h genfuncs.h drealmgen.h
+mailtidy.o: mailtidy.c drealm.h configfuncs.h genfuncs.h drealmgen.h

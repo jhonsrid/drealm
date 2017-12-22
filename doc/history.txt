@@ -1,0 +1,162 @@
+drealmBBS - Bulletin Board System for Linux
+Copyright (C) 1994, 1995  Inge Cubitt and Peter Jones
+You may copy this file, but you must not change it.
+
+------------------------------------------------------------------------------
+
+          A long, long time ago, on an operating system far away...
+
+                                     Or
+
+                        You got yours, an' I got mine
+
+                                     Or
+
+       How you come to have a package called drealmBBS, of all things
+
+------------------------------------------------------------------------------
+
+First off, this is me, Peter, writing.  Just so you know.
+
+Let's skim it.  I joined PRESTEL (a Viewdata/Videotext system run by British
+Telecom) in early 1985.  I was using a BBC Micro with a simple Viewdata
+terminal.  Wow, was I impressed.  I mean it!  40 column colour graphics at
+1200/75 split speed.  And hundreds of people to talk to!  And, err... online
+charges...
+
+Then someone mentioned that there were other things out there to call than
+PRESTEL (I knew this, but how do I find the phone numbers?!).  But, err...
+you don't get 40 column colour graphics.  Unless, of course, you call a BBC
+Micro BBS with a terminal that passes through the control codes.
+
+That's by the by, except that the terminal of choice was CommSoft, written
+by SoftMachinery.  One of the SoftMachinery guys ran an area on PRESTEL, and
+was known as "The Gnome".  When the PRESTEL area folded, the SoftMachinery
+guys regrouped.  They wrote their own system and it was christened "The
+Gnome at Home", as that's where it was born.  This, too, was a Viewdata
+system.  Over time, it became a great system (to the extent that PRESTEL
+even used it for their test system).  It allowed remote users to edit online
+and post message and even have interactive chat (when the autognome was
+willing...).  The Gnome at Home host software became known as the
+Auto(g)nomic Host system.  It used the same modem drivers as CommSoft.
+
+Sometime during the previous paragraph, I called up The Gnome at Home.  And
+it was good.  I started running an area.  At that time, due to the
+incredible number of people called "Peter" on PRESTEL, I was using the
+handle of a FRPG character, "Rocky the Dwarf".  The area I ran was called
+"DwarfTalk" (I still have some of the original viewdata frames backed up on
+floppy, I think).  This started, as the name implies, as somewhere to just
+chat.  I ran a FRPG game on it, too.  The area attracted a following and
+expanded.  It became The Dwarfen Realm.  It also became rather more than I
+wanted to be editing over the phone!
+
+So I splashed out.  My computer collection became three BBC Micros - one
+running a network fileserver, one running the Viewdata host and one running
+anything else I wanted... occasionally, my homebrew chat system.
+
+By this time, the modem had been upgraded to a simple 2400 modem and could
+take incoming calls.  So, what the heck, I'll let people in for a look
+around.
+
+Then, horror of horrors.  Through some advanced application of Murphy's Law,
+The Gnome at Home hard drive crash and could not be recovered from backup.
+The drive also had all the "gpaid gwerk" on it that would have brought in
+money to replace the disk.  The system was down.  When it came back up, it
+was limping.  It never truely recovered.
+
+Around that time, must have been about 1988, I joined Compulink Information
+Exchange (CIX, a CoSy system, a little like BIX but heavily customised).
+Ugh.  80 columns, no colour.  Everyone nattering on about IBM PCs...  Ugh.
+But there was quite a lively social side to it, too.  "Proper" chat, monthly
+get-togethers.  Okay, so I was about 40 miles away - but you learn to cope
+with that, living outside London...  I coped.  I also bought an Acorn
+Archimedes R140, which ran BSD4.3.
+
+While hanging out with the CIX bunch, I met Inge.  She'd just started
+running a BBS on her Amstrad 1640 (or was it an expanded 1512?).  It had two
+lines (at times).  You could talk to Inge.  It was called "Inge's Computer".
+Inge moved house and the BBS became <<<FLYOVER<<<, because of the local
+scenery, and had two lines all the time.  I also had more on it.
+
+I moved into London.  That was late 1989.  By late 1990, I'd moved the rest
+of the way, and The Dwarfen Realm and <<<FLYOVER<<< were running from the
+same premises.
+
+Inge wanted to run a "proper" multi-user system.  The "chat door" on
+<<<FLYOVER<<< had some amusing habits.  My archimedes could handle multiple
+logins under BSD.  So we started sorting out how to use that to allow two
+local and two remote logins to chat.  We put off the problem that the archie
+only had one serial port...  Eventually, we had a system where a BBC micro
+could log in over Econet, a PC could log in (and hang... oh well) over
+Ethernet, the console could be used and a single caller could log in.  It
+went "live"!
+
+We were running a rather naff bit of BBS software for a while.  We didn't
+like the way it did somethings.  So we wrote a C-Shell wrapper to do things
+"our" way and used the BBS just for message areas.  The C-Shell scripts
+eventually took over.  Yeah!  A BBS written in Shell scripts!  We even made
+it so people couldn't do CTRL-C and mess about freely...  We had chat
+working so that you could chat while doing anything!
+
+But it needed a name.  Well, "The Dwarfen Realm".  Obviously.  Hmmm, but I
+just got a UUCP mail feed.  I nearly had it feeding to the Viewdata BBS,
+too!  (I love sendmail... grrrrr :-) ) That needed a seven character name...
+"drealm" was born (with a byte to spare!).
+
+Still, it only had one line.  Hmmm...  We kept trying to get the PC to talk
+ethernet to the Archie, and vice versa, in the hope we could use the PC as a
+terminal server (and save several thousand quid).  No chance.  Someone on
+CIX was advertising several Convergent Technologies S/80s with EIGHT SERIAL
+PORTS!  We got one.  It ran System V Release ermmm... 3? 2? circa 1988
+vintage.  So we had to convert the scripts...  Goodness it was slow compared
+with the archie.  You could *hear* every "goto" in the C-Shell scripts.  Oh
+well.  We put all the modems on.  Everyone was very impressed.  This is
+about 1991 through to 1992.
+
+How slow?  Response time was in minutes... (well, almost).  Something had to
+be done.  Neither I nor Inge could write fluently in C.  What we needed was
+a C-Shell compiler or something.  A rather odd man brought us PERL.  He even
+mentioned how amazed he was at getting it installed on our machine in his
+column in a rather large computer mag.  We were converted.  We started work
+on the scripts.
+
+Wow.  It runs!  It still took an age to load up, and the poor CT S/80 tended
+to say "Out of memory!" when more than one person was running the scripts.
+By now, we had four external lines plus four local. So we made a "one at a
+time" gateway from the C-Shell scripts to the PERL scripts.  People took
+turns to read all their messages at a decent rate.
+
+We tried, for a while, to slim the scripts.  We phoned up Convergent
+Technology, who had become Unisys, and asked what another 1Mb RAM would
+cost.  They named their price and we bought a 486DX50 with 16Mb, plus
+Consensys V4 (AT&T System V Release 4 by any other name).  After getting the
+system stable (how many disk crashes does it take to install SVR4... it's no
+joke...) - no, _before_, we went live.  It ran fast!
+
+The scripts were polished and enhanced.  We made them available for download
+via several BBSes and via Internet from our IP provider (see, we moved on
+from UUCP).  We only heard of two installed sites and we've no idea if
+anyone else is/was running the PERL scripts.  Version numbers ran from 0.01
+through to 0.05.  0.05 went out no later than 11 March 1994.
+
+In the meantime, I'd been starting to write bits of the PERL in C, to save
+memory.  We upgraded to 32Mb.  That helped.  At the start of 1994 we gave
+in.  Inge had been sending herself to sleep learning C from books.  We sat
+down and started writing the whole thing in C.
+
+Converting from C-Shell to PERL had been a nightmare.  Mostly because there
+was no structure to the C-Shell scripts.  The PERL started off that way, but
+we'd split it down to reduce memory usage.  It ported to C pretty much
+routine by routine.  Except the menus...  The PERL system had already
+developed the idea of a main loop, prompt scripts and menu scripts. However,
+the scripts were written in PERL.  We didn't want to have to recompile for
+every menu change.  So we wrote the menu driver.
+
+We were aiming to have the beta version out before the end of August.  Beta
+0.4 went out around 11 October 1994.  0.5 went out about midday on 20
+November 1994.  0.6 was GPLed for Christmas.
+
+It's now Sun Dec 25 00:09:30 GMT 1994.
+
+-- Peter Jones
+

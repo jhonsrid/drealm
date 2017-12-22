@@ -1,0 +1,213 @@
+
+# Name of your BBS - Any format
+::My New BBS					::$bbsname$
+
+# Short name of bbs - must be ONE word or mail will go bizarre!
+::newbbs					::$bbsshort$
+	
+# Name (user ID) of the sysop - must be unix-style ie ONE word!
+::sysop						::$sysopname$
+
+# ID Number of BBS administrator.  (Will have power to alter users directories
+# from shell so be careful)
+::200						::C.admin
+
+# Number of the Unix group which the BBS runs as.
+::30						::$groupnum$
+
+# Number of the group which new users should be created as.
+::40						::C.public
+
+# The name and path of the shell run by a BBS-only user
+# This is for the purposes of creating new users in the unix passwd file
+::/usr/local/bin/drealmbbs			::$bbsshell$
+
+# Where the users' unix home directories are to be created
+::/home						::$homedirs$
+
+# Where the users' own config and BBS administration directories are
+::/drealm/users					::$users$
+
+# Users' private file directories.  May be the same as homedirs if you wish
+::/drealm/privatefiles				::$privatefiles$
+
+# Users' mail directories (mail kept within C.maildirs/<username>/.mail)
+::/drealm/mail					::$maildirs$
+
+# Where help files etc are kept
+::/drealm/library				::$library$
+
+# Where BBS executable files etc are kept
+::/drealm/bin					::$bin$
+
+# Where config files etc are kept
+::/drealm/config				::$configdir$
+
+# Maximum length of name for creating files, directories and conference names. 
+# Keep it to within your system's maximum and remember too long names may
+# spoil screen formatting.  This version of the program will accept a 
+# maximum of 50.  We recommend 14.
+::14						::C.maxfilename
+
+# Where log files etc are kept.  
+::/drealm/data					::$datadir$
+
+# Where menus are kept
+::/drealm/menus 				::$menudir$
+
+# The parent directory of the message areas
+::/drealm/areas					::$areasdir$
+
+# Directory to place temporary files
+::/drealm/tmp					::$tmpdir$
+
+# The path to all your executables are, including required Unix utils
+# don't include your secure bbs bin directory.
+::/bin:/usr/bin:/usr/sbin:/usr/local/bin:/sbin  ::PATH
+
+# The area which people start their session at before a scan or area change
+# May be left blank but will cause problems if people have access to area 
+# commands before area name is set.
+::welcome					::$startarea$
+
+# The area which is used for news announcements at login
+::announcements					::$newsarea$
+
+# Area flag settings to use for a newly created area
+::000000000000000000000000000000		::$newareaflags$
+
+# Minimum level of user who can access a newly created area
+::0						::C.newarealevel
+
+# Usermask flag settings to use for a newly created area
+::??????????????????????????????		::$newareamask$
+
+# Flag settings to use for a newly created user
+::000000000000000000000000000000		::$newuserflags$
+
+# The following is the level that new callers are set to upon creation.
+::2						::$newuserlevel$
+
+# This decides whether external private mail is to be restricted per person
+# 1 for checking, 0 for no checking
+::1						::$mailmonitor$
+
+# The appropriate unix mail program for your system, with its commandline
+# switches.  Used in sending drealm mail externally
+::/usr/sbin/sendmail -oi -t			::C.unixmailer
+
+# Directory where unread unix mail arrives
+::/var/spool/mail				::C.unixmaildir
+
+# The next line decides whether a BBS account should be automatically
+# created for any existing unix system user who starts up the application
+# for the first time.  1 for yes, 0 for no
+::1						::$autocreate$
+
+# Decide whether the command word portion of a users commandline is to be
+# case sensitive or not. (for comparison with keywords field in menu).
+# 1 = case-sensitive, 0 = not
+::0						::$casesensitive$
+
+# Command stacking means can users navigate through several levels of
+# menus in one single command line entry
+# 1 = allow command stacking, 0 = do not
+::1						::$commandstacking$
+
+# Quick return means having gone through several levels of menus to perform
+# the command they wanted, the user will be brought immediately back to
+# where he typed in the command.  Both stacking and quickreturn can be
+# unpredictable at times, if your menu structure is not rigid.
+# 1 = allow quick return, 0 = do not
+::1						::$quickreturn$
+
+# Sets automatic report on user uploads. Not used on this version.
+::0						::C.uploadreport
+
+# Number of bytes allowed as a signature on local messages (taken from 
+# $USERFILES/$USER/sig). Set this to 0 to disallow sigs altogether.
+::512						::$siglength$
+
+# When user selects a file (eg for download) must he type the name in
+# the correct case?  1=yes 0=no
+::1						::$filesensitive$
+
+# Level above which people may send or receive private mail
+::0						::$pvtmaillevel$
+
+# Flag requirements for private mail user
+::??????????????????????????????		::$pvtmailmask$
+
+# Level above which people may use a private file directory 
+::0						::$pvtfileslevel$
+
+# Flag requirements for private files user
+::??????????????????????????????		::$pvtfilesmask$
+
+# Level above which people may send or receive external mail
+::0						::$extmaillevel$
+
+# Flag requirements for external mail user
+::??????????????????????????????		::$extmailmask$
+
+# The following is the level at which a user has sysop privileges
+::100						::$sysoplevel$
+
+# This block allows your users to choose between up to 3 text display utilities
+# 1st of each pair is name to show user, 2nd is system command.
+::Pager						::C.displayname1
+::pager						::C.display1
+
+::						::C.displayname2
+::						::C.display2
+
+::						::C.displayname3
+::						::C.display3
+	
+# This block allows your users to choose between up to 3 text editors
+# 1st of each pair is name to show user, 2nd is system command.
+::Line Editor					::C.editorname1
+::isle						::C.editor1
+
+::						::C.editorname2
+::						::C.editor2
+
+::						::C.editorname3
+::						::C.editor3
+
+# Text filter for text input to system.  Leave blank if unwanted.
+::						::C.filter
+	
+# extra chars allowed in input apart from normal printables
+# this is a space-separated list of ascii decimal values
+::						::C.extras
+
+# regexp program (awk or gawk). Not used in this version.
+::nawk						::C.awkname	
+
+# Type of support for inter-user chat.  Use '2' on Linux and SysV4.2.
+# 0 = none, 1 = files, 2 = ipc                        
+::2						::C.chatstyle
+
+# Using 'Trusted Paths' (peculiar to some SysVr4.2 systems) 1=yes 0=no
+::0						::C.tp
+
+# True if your system allows a file owner to chown the file, or if you have
+# a setuid copy of chown available
+::1						::C.canchown
+
+# True if your system seems happy with an automatic relogin after setting up
+# new account etc.  Set to false at least spares the user getting errors!
+::1						::C.canlogin
+
+# Bytes of memory to reserve for menu cache
+::0						::C.menucache
+
+# Permissions for files sent to public file areas.
+# Notation in Octal, as in "chmod <filename> 660"
+::664						::C.filemode
+
+::0						::spare field
+::0						::spare field
+
+

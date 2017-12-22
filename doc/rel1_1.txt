@@ -1,0 +1,54 @@
+***************************************************************************
+Notice for upgraders
+--------------------
+
+Change needed in config.drealm.  Field after C.canlogin used to be Spare.
+Field is now C.menucache, 0 by default.  See section on menus in manual.doc
+for details.  Need new file, config.preload, if set to non-zero.
+
+**************************************************************************
+
+New menu action set_arealevel and variable $arealevel$ now available
+
+menus can now be read into a memory cache in advance, for cases where disk
+access appears to be slowing down drealm.  menus in config.preload are
+preloaded and kept, menus for current level are loaded in at level change
+time and dropped when changing out.  Amount of cache set in config.drealm,
+and menus only load if they fit.  Many changes to menu-handling code...
+
+
+got rid of stralloc(), use standard library strdup() instead.
+
+fixed (again) problems with timers (and chat) - timer would die after
+issuing the two minute warning.  Also there is a delay after issuing the
+"you've timed out" message, so that it can get to the user before the
+hang-up.
+
+added set_arealevel menu command and support functions to allow the access
+level for an area to be set.  There is a new variable, $arealevel$, which
+contains the current area's level.  Added new functions arealevel_read() and
+arealevel_write() to support this.
+
+prompt_read() renamed to do_pmp(); menu_read() renamed to do_cmd().
+
+code error in get_line_details() corrected.
+
+fixed a bug in all string searching actions which would find capital letters
+unmatcheable if the pattern was entered as part of the command line.
+
+trans_string(), base_name(), dir_name(), strshift() and shiftword() are now
+more efficient.
+
+readfuncs.c functions grouped a little more logically.
+
+new function menushift(), like strshift() but returns FALSE if it did not
+reach a separator in the space allowed.  Still strips origin line to past
+next separator.
+
+fixed a string overflow in editposting() when using a file or uploading. 
+editposting() now clears up the uploaded file after copying it into the
+message.  It also handles multiple files being uploaded and adds them all to
+the message.
+
+Added resetting of .newshigh for reset_guest and suppressed shell error on
+accessing a non-existent .scanlist.

@@ -1,0 +1,97 @@
+drealmBBS - Bulletin Board System for *nix
+Copyright (C) 1994  Inge Cubitt and Peter Jones
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+The GNU General Public License should be in a file called COPYING.
+
+
+Changes from 0.7 to 0.8
+-----------------------
+
+Removed hard-coded mtalk support (you can do it in the menus and we were).
+
+Determine username using cuserid(NULL) to remove a security hole.
+
+Prompt used in adduser program now passed by calling program, ready for
+international language support from release 1.0
+
+check_unix_mail now includes people equal to "extmaillevel", as well as
+above.
+
+drealmBBS LINT support corrected in Makefile.
+
+Chat status when SILENT now inline with normal.
+
+Some redundant code deleted.
+
+Set stderr to line buffered, just in case.
+
+Corrected laston/lastend code and removed a "memory fault".
+
+Checked in pager that we have some idea of a controlling terminal.
+
+Renamed "log" to "dlm_log" (in C - menu command not affected).
+
+Fixed "edit_sig" to edit the sig rather than the plan.
+
+Fixed "copy_mail" to truncate the sender's name to 14 characters, as this
+was causing problems (like corrupt area headers when replying).  A "proper"
+fix will be forthcoming.
+
+Changed some error messages in timer.c to say timer.
+
+Fixed chatout and timer on Linux not to block on open.  This prevents the
+"timer: open: Interrupted system call" bug.  Also, removed time.$user file
+on drealmBBS start up to prevent problems.
+
+Fixed bug whereby a drealm account with no unix account caused drealmBBS to
+abort (on Linux) when maintaining a user.  And when removing a user's
+account.
+
+Fixed assorted uninitialised variables, which have not yet reared their ugly
+heads but might have been nasty to track down...
+
+Empty strings are now treated as false in field formatting (for "yes/no",
+"true/false" etc).
+
+Changed narrative from "abort" to "abandon" in editing.
+
+Added logging of BBS account deletion to newuserlog.
+
+Made testing builtin flags consistent - i.e. only use '0' or 'not 0'.
+
+Used ferror() to test for errors on streams (not a "< 0" test...).
+
+Sorted the variable name tables (in the source) and removed some redundant
+and undocumented variables.  Hopefully this won't break anything.
+
+Moved various routines into different files (just for fun :-)) in the
+source.
+
+Fixed copying a list of messages from mail to an area.  (It took the header
+of the first in the list for each message...)
+
+Made "N/y" be "y/N" in no_yes.
+
+Plugged some memory leaks.
+
+Fixed memory fault in catalogue if user-id on file is not in /etc/passwd.
+
+Checked all getpw* routines to make sure they cope with an user not in
+/etc/passwd.  Some needed changing.
+
+Stopped chatout and timer from thrashing (using up loads of CPU time) on
+Linux.

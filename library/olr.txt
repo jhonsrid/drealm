@@ -1,0 +1,166 @@
+
+The Off-line Reading Support Routine
+------------------------------------
+
+This routine allows you to write all your new messages, both in the conference
+areas and in private mail, to a file for reading offline, and also accepts the
+uploading of a file containing your own pre-written messages for posting.  
+
+The process begins by looking to see if there is a putfile in your directory.
+If it finds one it asks whether to use that or upload a new one - or whether
+you simply don't have any messages of your own to post.  If it can't find a
+putfile, you are asked if you would like to upload one. 
+
+If you had a putfile, the program goes around posting your messages. If there
+are any it can't deal with, it posts a copy into your grabpad with the error
+message it generated so you can decide what to do about them later when you
+download the grabpad.  
+
+Then you are asked if you want to grab new messages now - and if you have an
+'autorecent' setting, it asks if you want that to be obeyed in your grab.  See
+help on setting your user defaults for an explanation of autorecent.
+
+Next prompt - store current pointers? - you should normally answer yes,
+because it means that if anything goes wrong with your grabbing you can use
+the 'restore' command to set all your pointers back where they were and start
+again.  Storing might take a few moments if you belong to a lot of message
+areas.
+
+The process will then grab all your public messages and your private mail. 
+You should see the area names as they are scanned one by one.  Then you will
+be asked if you want to download now.  If you say no, the grabbed messages
+will remain in a file called 'grabpad' and you can download it when you are
+ready, or zip it or edit it first etc.  PLEASE delete your grabpad as soon as
+you download it successfully as this saves disk space for everyone.
+ 
+
+Format of the putfile
+---------------------
+
+Create the header of your first message, as described below.  Then write
+whatever you want to say in the message.  The there should be a line which is
+just a dot on its own at the beginning of the line.  Then the header of your
+next message on the very next line, then the message body then the line with a
+dot.  Continue like this until you have written all the messages you want to
+write, then finish with a line just containing a dot again!  (If you use Robert
+de Bath's offline reader, a correct putfile will be created automatically.)
+
+You can then write five types of messages, private mail post, private mail
+reply, area message post, area message reply, and area message comment.
+
+
+1) private mail post
+The first word of the header should be 'mail' followed by 'post' followed by
+the recipient's name followed by the subject, which can be one or more words.
+Then on the next line begin your message.  Finish it all with a full stop
+on a line by itself.
+
+example:
+mail post inge Problems with editing
+Hi Inge, I am having a few problems with the full screen editor here,
+I wonder if you can rewrite the wretched thing please!
+.
+
+
+You may also post same letter to more than one recipient by listing the names
+separated by commas - but NO spaces.
+
+example:
+mail post inge,thanatos,admin For all of you
+I want you all to know I am starting my OWN bbs...
+.
+
+
+2) private mail reply to a mail you have received
+The first word is 'mail' then 'reply' then the number of the mail which you
+want to reply TO.  The original mail message MUST still be in your mail tray.
+If you had deleted it, the reply won't work.
+
+example:
+mail reply 1255
+Thanks for your mail inge, but I STILL think your editor is rubbish.
+In fact I am never going to use it to write a message ever again!
+.
+
+
+3) area message to everyone
+The first word is 'area' then the name of the area, then 'post'.  After that
+and on the same line, type the subject.
+
+example:
+area chatter post This system stinks
+I don't know what the rest of you think, but I think that this system is utter
+rubbish.  I would like to see it closed down, or asked for a licence fee
+of 10,000 ukp.  
+
+Please would everyone call my BBS instead!
+.
+
+
+4) area message as a reply or comment to one you have read.
+The first word is 'area' then the area name, then 'reply' OR 'comment'.
+After that you need the number of the message you are replying to.  Don't
+bother with a subject line here, as the program copies the subject line out
+of the original message.
+
+example: 
+area windows reply 10 
+No I don't agree. You might think that software you mentioned is useful, but I
+don't!!!  Why don't you try the utility I have written?  It is configurable
+between blowing up your motherboard RAM or your printer port.  
+.
+
+Put all your messages under one another in one file, and name it 'putfile'.
+Have it ready for uploading when you are asked for it!
+
+
+Format of the grabpad
+---------------------
+
+Downloaded messages have the following format (Fields are numbered from 1):
+
+Line 1 - "Area: <areaname>"
+Line 2 - Field 1    - message number within area
+         Fields 2-6 - date
+         Field 8    - author
+         Field 10   - message number it was a reply to (if numeric)
+         Field 12   - person it was a reply to (if field 10 was numeric)
+	 Field 14   - number of base message (founder message of thread)
+Line 3 - replies list (ignore this in an OLR as it cannot remain correct)
+Line 4 - "Subject: <subject string>"
+Line 5 onwards (until a single dot on a line) - message body
+	 
+example:
+Area: chatter
+713 Thu Feb 17 20:05 1994 by inge reply-to 712 by mac base 709
+Replies: 714 716
+Subject: what a silly BBS
+
+I hate this silly BBS don't you?
+.
+
+
+Downloaded Private Mail messages look like:
+
+Line 1 - "Mail: "
+Line 2 - Field 1    - unique message number
+         Fields 2-6 - date
+         Field 8    - author
+         Field 10   - message number it was a reply to (if numeric)
+         Field 12   - person it is addressed to
+Line 3 - "Subject: <subject string>"
+Line 4 onwards (until a single dot on a line) - message body
+	 
+example:
+Mail:
+2467 Sun Feb 13 19:53 1994 by android reply-to 1026 by inge
+Subject: Hi again
+
+I have just called this BBS once more to give another chance but it is still
+rubbish.  
+
+Bye again.
+.
+
+
+	

@@ -1,0 +1,52 @@
+drealmBBS - Bulletin Board System for *nix
+Copyright (C) 1994  Inge Cubitt and Peter Jones
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+The GNU General Public License should be in a file called COPYING.
+
+
+Changes from 0.4 to 0.5
+-----------------------
+
+Ctrl-C (and other events) no longer cause "get_raw: Interrupted system call"
+error message (for example, at the "Override as sysop?" prompt in scanning).
+
+Change to display.c (affects pager, displaymail and displaymsg) to _not_
+print a newline after an ANSI message (where the last char was not a newline
+already).
+
+Menu output formatting has been introduced/tidied.  See menus.doc
+
+download_special has been added.  See menus.doc
+
+search_filenames and search_filedescs have been added.  See menus.doc
+
+set_custom_var (var1 through var4) which are string variables for use as
+parameters.  See menus.doc
+
+Menus can now be located either in stated menu directory, or in
+subdirectories under it which are named with a single character which stands
+for the initial letter of the menu level name.  For example,
+	display_menu Example.cmd
+would search for "$menus$/Example.cmd" and then "$menus$/E/Example.cmd".
+This is to speed directory searching when there are a very large number of
+menus.
+
+Added a new file, '.lastcall', which holds timestamp of the start of the
+last connection to drealmBBS.  '.laston' is unchanged and holds the abend
+flag and has a last-modified time of the last disconnect from drealmBBS.
+
+Changed output of the word 'skip' to 'jump' where appropriate.

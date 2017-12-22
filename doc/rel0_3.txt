@@ -1,0 +1,35 @@
+drealmBBS - Bulletin Board System for *nix
+Copyright (C) 1994  Inge Cubitt and Peter Jones
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+The GNU General Public License should be in a file called COPYING.
+
+Changes from 0.2 to 0.3
+-----------------------
+
+Fixed bug which coredumped if you entered an empty pattern for a textsearch
+
+Configurable case-sensitivity for filenames (eg downloads).  Now set in
+C.filesensitive in config.drealm.  (occupies same line that used to be
+C.speaklevel)
+
+Added special linux bit to adduser.c, because linux passwd program didn't seem
+to return an error when it failed to set a password!
+
+Made file transfers, editing, and file display be done in the context of a
+user's login group, for extra security while using the external programs.
+
+

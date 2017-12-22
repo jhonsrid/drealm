@@ -1,0 +1,36 @@
+
+After editing you will find yourself at the...
+
+[S]ave to message, [e]dit, [l]ist, [?]help,
+[h]old workpad, [c]lear workpad, [a]bort:
+
+...prompt.
+
+You may find yourself at this prompt even before having input anything
+if your workpad was not empty for any reason.
+
+[a] - abort. All editing is performed in your workpad and a safe copy is taken
+      in case you make a mess of the edit and wish to abort.  This option
+      restores your workpad as it was before you began the current input, and
+      exits back to your Area prompt or whatever.  
+
+[c] - clear.  This only clears your workpad and does not touch the finished
+      product you were intending to produce. 
+
+[s] - saves or sends the entire contents of your workpad file, with current
+      updates, to its intended destination.  This may be a public message or a
+      private mail item or a planfile or whatever.  
+     
+[l] - list, displays to you the final version of your edited file, as it would
+      be shown if you chose to [s]ave. 
+      
+[h] - hold will save your workpad with any editing you have just done, but it
+      will not send the results anywhere.  This option is useful if you want
+      to refer to something on the system before completing your message, and
+      means you will not have to start over again.  
+      
+[e] - edit the file again.  The updates at this point are still in your 
+      workpad, and may be altered again before finally saving.  This is useful
+      if you started in Line input mode and realise you need to tidy the text
+      in the full screen editor.  
+

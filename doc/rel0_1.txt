@@ -1,0 +1,51 @@
+drealmBBS - Bulletin Board System for *nix
+Copyright (C) 1994  Inge Cubitt and Peter Jones
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+The GNU General Public License should be in a file called COPYING.
+
+Release 0.1 of drealmBBS
+------------------------
+
+Our very first drealm BBS was simply a set of Unix commands held together by
+Cshell scripted menus.  It took about a minute to interpret every menu
+selection, and there were always lost souls wandering about in the shell who
+had fallen out of Emacs by accident while posting mail-to-sysop.
+
+Our first public releases were 0.03/4/5, prototypes written in Perl scripts,
+thanks to Larry Wall who designed that wonderful language.
+
+0.03 had the menu options hard-coded into the main function scripts for each
+level, but by 0.05 the menu scripts were separate and easily configurable by
+anyone who could pick up the rudiments of Perl.
+
+Eventually, the size and complexity of the system meant that it was no longer
+feasible by reasons of speed and memory requirements to continue running
+through a largely interpretive language, and it was recoded in POSIX-compliant
+C, and released as drealmBBS 0.1
+
+The main differences which will appear to the sysop setting up drealmBBS now
+are that menus are no longer written in a computer programming language.  They
+use a set of simplified commands provided by the bbs application itself, and
+in almost all cases arguments are optional, eliminating the need for learning
+syntax.  There are fields set up to take such details as minimum and maximum
+user security levels, and min and max times for any option to be available.
+
+There is a system of status flags for users and for message areas, most of
+which are sysop-definable.
+
+
+

@@ -1,0 +1,12 @@
+		
+This facility allows you to search any downloadable files whose names match
+a template you choose.
+
+You can type in any string which appears anywhere in the filename, or a
+pattern which includes the wildcards * or ?
+
+The search is not case-sensitive.
+
+Example: You type "tlx" and you will get a list of any files which are to
+do with the telix comms package.
+

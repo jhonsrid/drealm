@@ -1,0 +1,28 @@
+::0			::$hotkeys$ 1 or 0
+
+::pager 		::User's display program call
+::Pager			::$displayname$ - nickname for display
+
+::isle			::User's text editor call
+::Line Editor		::$editorname$ nickname
+
+::vt100			::$terminal$ - terminal definition as in ttydefs
+::10			::$chatincolour$ - colour for received chat
+::80			::$cols$ - characters per line
+::24 			::$rows$ - lines per page
+::8			::$erasekey$ - character erase key
+::23			::$werasekey$ - word erase key
+::21			::$killkey$ - line erase key
+::18			::$reprintkey$ - line reprint key
+
+::0			::$recent$ - number of old messages to read in new confs
+::REFERENCE		::$readmode$ - type of threading
+::0			::$readown$ 1 or 0 - read own new messages just entered
+::3			::$pausetime$ - seconds delay after logging off etc
+::180			::$timeout$ - seconds inactivity timeout
+::1			::$chatdefault$ 1 or 0 - chat reception on 
+::11                    ::$chatoutcolour$ - colour for outgoing chat
+::txt			::$language$
+::plain text		::$languagename$
+::0			::reserved property 3
+::0			::reserved property 4

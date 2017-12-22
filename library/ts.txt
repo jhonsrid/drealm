@@ -1,0 +1,14 @@
+		
+This facility allows you to search for the occurence of a text string in
+the a range of messages in the current area.
+
+You have to put the text pattern you want searched for between quotes, which
+means that you are allowed to put any characters you like in there, including
+spaces and the ? and * wildcards.  It does not matter whether you type in
+lower case or capitals because the search ignores case.  Don't forget if you
+have put spaces, the search will actually try to match those spaces, so make
+sure that everything between those "" is intended! 
+
+Example: You type "beer" and you will get a list of messages which discuss
+the merits of various brands of beer (or something like that).
+

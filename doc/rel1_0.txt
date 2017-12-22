@@ -1,0 +1,86 @@
+drealmBBS - Bulletin Board System for Linux
+Copyright (C) 1994, 1995  Inge Cubitt and Peter Jones
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+The GNU General Public License should be in a file called COPYING.
+
+
+Changes from 0.8 to 1.0
+-----------------------
+
+Removed a line of debugging code from timer.c
+
+Added a pause in timer.c and chatout.c to avoid getting EAGAIN on fast
+Linux machines.
+
+Elapsed time now calculated in GMT not local timezone...
+
+Altered a test which resulted in chairmen being told they had to be a
+chairman in order to delete threads!
+
+Changed set_my_address/phone/dob/name to prompt more helpfully, and not give
+error messages when they are being set for the first time.
+
+Added menu actions download_ub and download_special_ub which are versions of
+download and download_special which do not write files to be downloaded into
+a safe directory first.  Maybe slightly less secure *in some circumstances*
+but can speed up the downloading process.  Experiment for preference.
+
+Changed "dlt" function to insert a single word timezone.  An expedient for
+systems with no timezone set or with a multi-word time zone.  Previously
+discrepancies here would mess up message headers.
+
+Can use TERMCAP rather than TERMINFO.  drealmBBS works best with
+ncurses-1.9.0c or later, as the TERMINFO support in that package is good.
+
+In private mail, changed mark unread to never touch outgoing copies.
+
+Fixed return codes from check_unix_mail so it returns Fail if there is no
+further new mail since last check.
+
+Changed mail_store which was on occasion trying to deal with an undefined
+array and crashing the application!
+
+drealm now looks for .plan and .sig in privatefiles directory rather than
+home.  If this is the same thing on your system then so be it, no problem.
+
+Amalgamated flag variable table with integer table.  Will not make any
+functional difference.
+
+pager, displaymsg and displaymail have altered.  displaymail always
+paginates messages.  displaymsg always paginates messages unless they are
+flagged as ANSI, in which case they never paginate.  pager always paginates
+messages unless screen length is 0 (LINES environment variable) or the first
+byte of the file is ESC (dec 27), on the assumption that this is a pretty
+ANSI picture that is going to clear the screen to start with.  This
+algorithm appears to work (otherwise it would be an heuristic...).
+
+Fixed bug in place_lock.  When trying to burst a lock, it assumed that the
+"remove" of the old lock worked, causing a loop if it didn't.  This was
+the case with the sticky bit ('t') set on /tmp.  Code now gives up
+gracefully.  We recommend you have a /drealm/tmp directory _without_ the
+sticky bit set.
+
+Played around with drealm_getchar and (I think) fixed a niggle with dropped
+characters and chat.
+
+In the mini-menus for setting editor or display program, attempts to choose
+a number not on the menu would often crash the application.  There is now
+some arbitrary input checking.
+
+Made sure no debugging code left in anywhere.
+
+Release the manual, at last.

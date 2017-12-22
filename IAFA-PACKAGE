@@ -1,0 +1,9 @@
+Title:		drealmBBS - Bulletin Board System for Linux
+Version:	2.1a
+Description:	Bulletin board/Conference system software
+Author:		Inge and Peter L Jones (inge@drealm.org.uk)
+Maintained-by:	author
+Maintained-at:	www.drealm.org.uk, tsx-11.mit.edu
+Platforms:	Linux under C.
+Copying-Policy:	Freely Redistributable
+Keywords:	bbs conference conferencing bulletin board unix linux drealm

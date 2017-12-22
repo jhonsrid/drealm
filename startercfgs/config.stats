@@ -1,0 +1,2 @@
+::0	::only users last on within this number of days will be counted
+:: 	::list of users to not appear on stats reports

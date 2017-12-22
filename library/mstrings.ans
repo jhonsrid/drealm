@@ -1,0 +1,300 @@
+# Mstring[1];customisable
+Would you like ANSI graphics menus?
+#
+# Mstring[2];customisable
+[14;3H[0;1mTop:[0m
+#
+# Mstring[3];customisable
+[1;32H[0;1mTop Menu
+#
+# mstring[4];customisable
+[3;3H[[33mM[0;1m] - Private email\n
+#
+# mstring[5];customisable
+[4;3H[[33mA[0;1m] - Message areas\n
+#
+# mstring[6];customisable
+[5;3H[[33mD[0;1m] - Set up user defaults\n
+#
+# Mstring[7];customisable
+[6;3H[[33mS[0;1m] - Sysop menu\n
+#
+# Mstring[8];customisable
+[11;3H[[33mQ[0;1m] - Logoff\n
+#
+# Mstring[9];customisable
+[14;3H[0;1mDefaults:[0m
+#
+# Mstring[10];customisable
+[1;29H[0;1mDefaults Menu
+#
+# Mstring[11];customisable
+[3;3H[[33mP[0;1m] - Change password\n
+#
+# Mstring[12];customisable
+[4;3H[[33mT[0;1m] - Set terminal type - now \$terminal$\n
+#
+# Mstring[13];customisable
+[5;3H[[33mL[0;1m] - Lines per screen - now \$rows$\n
+#
+# Mstring[14];customisable
+[6;3H[[33mC[0;1m] - Characters per line - now \$cols$\n
+#
+# Mstring[15];customisable
+[7;3H[[33mB[0;1m] - Choose erase key\n
+#
+# Mstring[16];customisable
+[11;3H[[33mQ[0;1m] - Quit to previous level\n
+#
+# Mstring[17];customisable
+[14;3H[0;1mArea \$areaname$:[0m
+#
+# Mstring[18];customisable
+[1;22H[0;1mArea Menu \$areaname$
+#
+# Mstring[19];customisable
+[3;3H[[33mN[0;1m] - Read next new message\n
+#
+# Mstring[20];customisable
+[4;3H[[33m#[0;1m] - Read individual message\n
+#
+# Mstring[21];customisable
+[5;3H[[33mJ[0;1m] - Jump to message\n
+#
+# Mstring[22];customisable
+[6;3H[[33mP[0;1m] - Post a message\n
+#
+# Mstring[23];customisable
+[7;3H[[33mR[0;1m] - Reply to a message\n
+#
+# Mstring[24];customisable
+[8;3H[[33mD[0;1m] - Delete a message\n
+#
+# Mstring[25];customisable
+[3;38H[[33mC[0;1m] - Change to another area\n
+#
+# Mstring[26];customisable
+[4;38H[[33mA[0;1m] - Create a new message area\n
+#
+# Mstring[27];customisable
+[5;38H[[33mU[0;1m] - Set usermask flags\n
+#
+# Mstring[28];customisable
+[6;38H[[33mF[0;1m] - Set area status flags\n
+#
+# Mstring[29];customisable
+[7;38H[[33mK[0;1m] - Kill a message area\n
+#
+# Mstring[30];customisable
+[14;3H[0;1mPrivate mail:[0m
+#
+# Mstring[31];customisable
+[1;26H[0;1mPrivate Mail Menu
+#
+# Mstring[32];customisable
+[3;3H[[33mN[0;1m] - Next new item\n
+#
+# Mstring[33];customisable
+[4;3H[[33m#[0;1m] - Read individual message\n
+#
+# Mstring[34];customisable
+[5;3H[[33mP[0;1m] - Post a mail message\n
+#
+# Mstring[35];customisable
+[6;3H[[33mR[0;1m] - Reply to a message\n
+#
+# Mstring[36];customisable
+[7;3H[[33mD[0;1m] - Delete message/s\n
+#
+# Mstring[37];customisable
+[8;3H[[33mL[0;1m] - List messages\n
+#
+# Mstring[38];customisable
+[8;3H[[33mK[0;1m] - Toggle hotkeys\n
+#
+# Mstring[39];customisable
+[9;3H[[33mS[0;1m] - Output style (ANSI graphics or plain text)\n
+#
+# Mstring[40];customisable
+[H[2J
+#
+# Mstring[41];customisable
+[14;3H[0;1mSysop:[0m
+#
+# Mstring[42];customisable
+[1;30H[0;1mSysop Menu
+#
+# mstring[43];customisable
+[3;3H[[33mC[0;1m] - Create a new user\n
+#
+# mstring[44];customisable
+[4;3H[[33mM[0;1m] - User maintenance\n
+#
+# mstring[45];customisable
+[5;3H[[33mK[0;1m] - Kill a user\n
+#
+# Mstring[46];customisable
+\~
+#
+# Mstring[47];customisable
+
+#
+# Mstring[48];customisable
+[31;1mษออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออป
+#
+# Mstring[49];customisable
+[2;1Hบ[68Cบ\nบ[68Cบ\nบ[68Cบ\nบ[68Cบ\nบ[68Cบ\nบ[68Cบ\nบ[68Cบ\nบ[68Cบ\nบ[68Cบ\nบ[68Cบ\nบ[68Cบ\nบ[68Cบ\nบ[68Cบ\n
+#
+# Mstring[50];customisable
+[15;1Hศออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออออผ
+#
+# Mstring[51];customisable
+
+#
+# Mstring[52];customisable
+
+#
+# Mstring[53];customisable
+
+#
+# Mstring[54];customisable
+
+#
+# Mstring[55];customisable
+
+#
+# Mstring[56];customisable
+
+#
+# Mstring[57];customisable
+
+#
+# Mstring[58];customisable
+
+#
+# Mstring[59];customisable
+
+#
+# Mstring[60];customisable
+
+#
+# Mstring[61];customisable
+
+#
+# Mstring[62];customisable
+
+#
+# Mstring[63];customisable
+
+#
+# Mstring[64];customisable
+
+#
+# Mstring[65];customisable
+
+#
+# Mstring[66];customisable
+
+#
+# Mstring[67];customisable
+
+#
+# Mstring[68];customisable
+
+#
+# Mstring[69];customisable
+
+#
+# Mstring[70];customisable
+
+#
+# Mstring[71];customisable
+
+#
+# Mstring[72];customisable
+
+#
+# Mstring[73];customisable
+
+#
+# Mstring[74];customisable
+
+#
+# Mstring[75];customisable
+
+#
+# Mstring[76];customisable
+
+#
+# Mstring[77];customisable
+
+#
+# Mstring[78];customisable
+
+#
+# Mstring[79];customisable
+
+#
+# Mstring[80];customisable
+
+#
+# Mstring[81];customisable
+
+#
+# Mstring[82];customisable
+
+#
+# Mstring[83];customisable
+
+#
+# Mstring[84];customisable
+
+#
+# Mstring[85];customisable
+
+#
+# Mstring[86];customisable
+
+#
+# Mstring[87];customisable
+
+#
+# Mstring[88];customisable
+
+#
+# Mstring[89];customisable
+
+#
+# Mstring[90];customisable
+
+#
+# Mstring[91];customisable
+
+#
+# Mstring[92];customisable
+
+#
+# Mstring[93];customisable
+
+#
+# Mstring[94];customisable
+
+#
+# Mstring[95];customisable
+
+#
+# Mstring[96];customisable
+
+#
+# Mstring[97];customisable
+
+#
+# Mstring[98];customisable
+
+#
+# Mstring[99];customisable
+
+#
+# Mstring[100];customisable
+
+#

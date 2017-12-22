@@ -1,0 +1,54 @@
+drealmBBS - Bulletin Board System for Linux
+Copyright (C) 1994, 1995, 1996  Inge Cubitt and Peter Jones
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+The GNU General Public License should be in a file called COPYING.
+
+=====================================================================
+NB
+This release (2.1a) is identical to 2.1 except for changes of contact
+details in the documentation.  If you already have 2.1, do not bother
+to install this! 
+=====================================================================
+
+FIRST INSTRUCTIONS
+------------------
+
+This package contains both ready-to-run executables and source code.
+
+Documentation is in the doc/ directory.  Everything you need to know about
+installing and using the current package is in manual.txt.  The rel* files
+contain details about changes between various versions and upgrading.txt
+contains instructions for upgraders if necessary.
+
+
+----------------------------------------------------------------------------
+
+Contact details 
+--------------- 
+
+There is no fee for drealmBBS software. There is no warranty for it either
+(see the file COPYING).  However, if you wish, you may send a donation as we
+spend our own personal cash and time on running and maintaining the
+development BBS!!!
+
+
+Email:		inge@drealm.org.uk
+		inge@drealm.clara.co.uk
+
+Usenet: 	alt.bbs.drealmbbs (not used much now except for announcements)
+
+

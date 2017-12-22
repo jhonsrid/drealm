@@ -1,0 +1,40 @@
+drealmBBS - Bulletin Board System for *nix
+Copyright (C) 1994  Inge Cubitt and Peter Jones
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+
+The GNU General Public License should be in a file called COPYING.
+
+
+Changes from 0.5 to 0.6
+-----------------------
+
+Fixed subscript into flags where you couldn't do flag #30 in variable
+formatting.
+
+Fixed download_special where it had to have the persons login permissions on
+the original file instead of copying it to their own directory.
+
+Menu commands set_in_colour and set_out_colour now take a number for the
+desired chat colour.  Added variables chatincolour and chatoutcolour.
+See menus.doc.
+
+Created moderated conf facility.  Scan tells chairmen about pending
+messages.  Menu command `moderate' added.  Areaflag 6 (MODERATED) added.
+See menus.doc.
+
+topdir and taildir now available as variables.
+
+Released source code under GPL.

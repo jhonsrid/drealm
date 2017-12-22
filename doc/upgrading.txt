@@ -1,0 +1,58 @@
+If you are upgrading from an earlier release of drealmBBS, follow steps
+below as far back as necessary.  
+
+If your current live version is prior to 1.0 we suggest starting from
+scratch, but you can keep your existing message base.
+
+========================================================================
+
+Upgrading from 2.0 to 2.1
+
+1. New field in config.drealm C.filemode is the octal value of the perms
+   required on files placed in a public file area.  Put in place of the next
+   spare field, leaving only two spare fields.
+   
+2. ustrings.txt changes: 
+
+   Lines added in ustrings.txt.  
+   Ustring[502] should say:  Can only forward mail internally
+   Ustring[503] should say:  %s, please try again.
+
+   Ustring[51] didn't agree with menu bar at Ustring[55].  Ustring[51]
+   changed to 'h' on distributed copy.  
+   
+   Change your ustrings.txt to agree with above changes if you have already
+   started customising the file, or else copy the new one over.
+
+=====================================================================
+
+Upgrading from 1.1 to 2.0
+
+rename all your existing library .dlb files to .txt
+
+copy over any .txt files in the library directory of this distribution which
+you don't already have (eg nocreate.txt, ustrings.txt, mstrings.txt)
+
+Edit your config.drealm so that Spare Field 1 becomes C.menucache. This
+holds the amount of memory to be set aside for cached menus. It can be left
+as 0 until you know if you want cached menus. (Look at new config.drealm
+supplied in startercfgs directory to see how it should be changed, and see
+manual section on menus for explanation of cached menus)
+
+Edit your config.user so that Reserved Field 1 becomes $language$ and
+Reserved Field 2 becomes $languagename$.  (Look at supplied in config.user
+in startercfgs directory to see how it should look, and see manual section
+on support for foreign languages to find out what it's all about!)
+
+copy config.langs into your config directory, or create one to suit.
+
+======================================================================
+
+Upgrading from 1.0 to 1.1
+
+Change needed in config.drealm.  Field after C.canlogin used to be Spare.
+Field is now C.menucache, 0 by default.  See section on menus in manual.doc
+for details.  Need new file, config.preload, if set to non-zero.
+
+======================================================================
+
