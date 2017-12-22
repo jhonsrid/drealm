@@ -21,8 +21,3 @@ Slightly tweaked to build on modern Linux with a C99 compiler. Release mode (ie 
 * execlp argument list termination
 * Instances of printf(Ustring[123]) were changed to printf("%s", Ustring[123]). (No changes made where already more than one argument)
 
-## TODO 
-* Correct more build warnings
-* Replace use of non-POSIX "CBAUD"
-* Replace use of XOPEN_SOURCE
-* Build on MacOS
