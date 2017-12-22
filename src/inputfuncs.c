@@ -26,6 +26,7 @@ The GNU General Public License should be in a file called COPYING.
 
 #include <unistd.h>
 #include <sys/time.h>
+#include <time.h>
 #if defined(SVR42)
 #  include <sys/select.h>
 int select(int nfds, fd_set *r, fd_set *w, fd_set *e, struct timeval *tv);
@@ -221,12 +222,12 @@ static void reprint_input(char *string) {
 #endif
 }
 
-void get_raw (int waitcr, size_t max_i, char *outstring, int restrict) {
+void get_raw (int waitcr, size_t max_i, char *outstring, int restrictch) {
 /*
  * waitcr	Wait for newline if non-zero, otherwise hotkey
  * max_i	Max number of characters to accept
  * outstring	Where to put the characters accepted
- * restrict	0 - all keys allowed
+ * restrictch	0 - all keys allowed
  *		1 - isprint() plus stuff in C.extras
  *		2 - isdigit() only
  *		3 - y/n only
@@ -301,7 +302,7 @@ void get_raw (int waitcr, size_t max_i, char *outstring, int restrict) {
 		}
 
 		/* If we're doing editing, handle it now */
-		if (restrict != -1) {
+		if (restrictch != -1) {
 			if ((c == U.erase) || (c == 8) || (c == 127)) {
 				if (i) {
 					i--;
@@ -335,11 +336,11 @@ void get_raw (int waitcr, size_t max_i, char *outstring, int restrict) {
 		/* okay, handle everything else as typed */
 		if (i < max_i) {
 			if ( 
-				   (restrict < 1)
-				|| ((restrict == 1) && (isprint(c) || strchr(C.extras,c)))
-				|| ((restrict == 2) && isdigit(c))
-				|| ((restrict == 3) && strchr(G.yesno,c))
-				|| (restrict > 3)
+				   (restrictch < 1)
+				|| ((restrictch == 1) && (isprint(c) || strchr(C.extras,c)))
+				|| ((restrictch == 2) && isdigit(c))
+				|| ((restrictch == 3) && strchr(G.yesno,c))
+				|| (restrictch > 3)
 			) {
 				outstring[i++] = (char)c;
 				if (G.echo == 1) {

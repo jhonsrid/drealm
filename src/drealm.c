@@ -22,6 +22,7 @@ The GNU General Public License should be in a file called COPYING.
 /* */
 
 #define _XOPEN_SOURCE
+#define _XOPEN_SOURCE_EXTENDED /* Needed for strdup definition */
 
 /* ANSI headers */
 #include <ctype.h>
@@ -468,7 +469,7 @@ struct inttab intvar[] = {
 	"readown",		&U.readown,
 	"recent",		&U.recent,
 	"rows",			&U.rows,
-	"siglength",		&C.siglength,
+	"siglength",		(int *)&C.siglength,
 	"sysoplevel",		&C.sysoplevel,
 	"timeout",		&U.timeout,
 	"totalcalls",		&U.totalcalls,
@@ -677,7 +678,7 @@ int main(int argc, char *argv[]) {
 						/*printf(Ustring[234],smalltemp);*/
 						printf("\n");
 						rem_lock(temp);
-						execlp("login","login",smalltemp,0);
+						execlp("login","login",smalltemp,(char *)NULL);
 						printf("Auto-login failed.  Please log off fully and return as %s.",smalltemp);
 						/*printf(Ustring[235],smalltemp);*/
 						printf("\n");

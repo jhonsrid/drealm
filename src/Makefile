@@ -51,21 +51,7 @@ INSTALL=install
 
 # -----------------------------------------------------------------------------
 
-#
-# Determine whether kernel is new enough to have unix domain datagrams
-#
-DGRAMS=$(shell [ $$(uname -r | \
-		sed -e 's/^\([0-9]\)\./0\1./g' \
-			-e 's/\.\([0-9]\)\./.0\1./' \
-			-e 's/\.\([0-9]\)$$/.0\1/' \
-			-e 's/\.//g' \
-		) -ge '010317' \
-	] && echo yes || echo no)
-ifeq "$(DGRAMS)" "yes"
 CPPFLAGS=-DLINUX -DLINUX_WITH_DGRAMS
-else
-CPPFLAGS=-DLINUX
-endif
 
 #
 # Rather than use TERMCAP, get ncurses-1.9.0c or later
@@ -85,14 +71,14 @@ endif
 # Disable the debugging code for "live"
 #
 ifeq "$(LIVE)" "yes"
-CFLAGS=-O2 -ffast-math -fomit-frame-pointer
+CFLAGS=-O2 -ffast-math -fomit-frame-pointer -Wno-unused-result
 LDFLAGS=-O2 -s
 CWARN=
 else
 CFLAGS=-g
 LDFLAGS=-g
 CPPFLAGS += -DDEVEL
-CWARN=-Wall -Wno-parentheses -Wpointer-arith -Wcast-align -Winline -Wshadow -Waggregate-return -Wnested-externs -Wmissing-prototypes -Wstrict-prototypes -Wconversion -Wcast-qual
+CWARN=-Wall -Wno-parentheses -Wpointer-arith -Wcast-align -Winline -Wshadow -Waggregate-return -Wnested-externs -Wmissing-prototypes -Wstrict-prototypes -Wconversion -Wcast-qual -Wno-unused-result
 endif
 
 CC=cc -pipe $(CWARN)

@@ -39,7 +39,7 @@ void get_one_line(char *in);
 void get_one_name(char *outstring, size_t maxln, char *instring);
 int  get_one_num(size_t maxln, int deflt);
 void get_one_param(char *outstring, size_t maxln, char *instring);
-void get_raw(int waitcr, size_t max_i, char *outstring, int restrict);
+void get_raw(int waitcr, size_t max_i, char *outstring, int restrictch);
 void external_term(void);
 void hups_off (void);
 void hups_on (void);

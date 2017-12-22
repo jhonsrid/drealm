@@ -33,6 +33,7 @@ there should be a config.stats if you want exclusions
 #include <sys/stat.h>
 #include <dirent.h>
 #include <string.h>
+#include <time.h>
 #include "drealm.h"
 #include "configfuncs.h"
 #include "genfuncs.h"

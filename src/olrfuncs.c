@@ -637,7 +637,7 @@ int grab_all_areas(char mode) {
 	if (SCANLIST = fopen(filename,"r")) {
 		if (mode != 'q') {
 			/*printf("\nScanning for new area messages.\nPress Ctrl-C to stop scanning.\n");*/
-			printf(Ustring[490]);
+			printf("%s", Ustring[490]);
 			G.intflag = 0;
 			intr_on();
 		}

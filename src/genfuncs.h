@@ -45,7 +45,6 @@ void  	tnt(char *string);
 void  	upper_string(char *string);
 int	strsort(const void *x, const void *y);
 void  	random_init(void);
-inline 	unsigned int get_random(unsigned int upper);
 int 	get_int_from_file (char *filename);
 
 #define isdelim(x)	(isspace(x) || (x == ','))

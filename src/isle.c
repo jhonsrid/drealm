@@ -38,7 +38,7 @@ char *Holdlines[1001];
 int line_input (FILE *FIL);
 int reformat_text (void);
 int list_text (void);
-int gob_get_raw (int waitcr, int max_i, char *outstring, int restrict);
+int gob_get_raw (int waitcr, int max_i, char *outstring, int restrictch);
 int read_from_disk (char *filename);
 int write_to_disk (char *filename);
 int line_ed_menu (void);
@@ -270,7 +270,7 @@ int list_text (void) {
 	return 1;
 }
 
-int gob_get_raw (int waitcr, int max_i, char *outstring, int restrict) {
+int gob_get_raw (int waitcr, int max_i, char *outstring, int restrictch) {
 	char c;
 	int i = 0;
 
@@ -290,10 +290,10 @@ int gob_get_raw (int waitcr, int max_i, char *outstring, int restrict) {
 				printf("\b \b");
 			}
 		} else {
-			if ((restrict == 1) && isprint(c)) {
+			if ((restrictch == 1) && isprint(c)) {
 				outstring[i++] = c;
 				putchar(c);
-			} else if ((restrict == 2) && isdigit(c)) {
+			} else if ((restrictch == 2) && isdigit(c)) {
 				outstring[i++] = c;
 				putchar(c);
 			}

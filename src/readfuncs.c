@@ -352,7 +352,7 @@ int writemsg (char cmd, char *in) {
 	moretoread(G.highmsg);
 	if ((G.highmsg > 3999)) {
 		/*printf("No more messages allowed in this area.\n");*/
-		printf(Ustring[96]);
+		printf("%s", Ustring[96]);
 		printf("\n");
 		return 0;
 	}		
@@ -408,7 +408,7 @@ int write_main (char cmd,char *in) {
 		}
 		if (!strcmp(vm->parse,"thread") || !strcmp(vm->parse,"branch")) {
 			/*printf("Cannot comment to more than one message at a time!\n");*/
-			printf(Ustring[72]);
+			printf("%s", Ustring[72]);
 			printf("\n");
 
 			free(vm->msglist);
@@ -435,7 +435,7 @@ int write_main (char cmd,char *in) {
 				sprintf(filename,"%s/%s",C.users,alias);
 				if (!stat(filename,&statbuf)) {
 					/*printf("You cannot use someone else's name as an alias.\n");*/
-					printf(Ustring[91]);
+					printf("%s", Ustring[91]);
 					printf("\n");
 					continue;
 				}
@@ -753,7 +753,7 @@ int pendput (char *dummy) {
 	vf = get_valid_files('q',0,"",filename,"hdr.*",1);
 	if (!vf->files[0]) {
 		/*printf("No pending messages.\n");*/
-		printf(Ustring[48]);
+		printf("%s", Ustring[48]);
 		printf("\n");
 		free(vf->files);
 		free(vf->input);
@@ -997,7 +997,7 @@ int scan_area (char *params) {
 			if ((new > 0) || (pendmsgs)) {
 				if (pendmsgs) {
 					/*printf("Messages pending moderator. ");*/
-					printf(Ustring[49]);
+					printf("%s", Ustring[49]);
 				}
 				if (type == 'e') {
 					/*printf("%d new message%s. ",new,(new == 1) ? "" : "s");*/
@@ -3687,7 +3687,7 @@ int flagmsg (char *in) {
 	}
 	if (!strcmp(vm->parse,"thread") || !strcmp(vm->parse,"branch")) {
 		/*printf("Cannot do that to more than one message at a time!\n");*/
-		printf(Ustring[72]);
+		printf("%s", Ustring[72]);
 		printf("\n");
 		free(vm->msglist);
 		free(vm->parse);
@@ -4521,7 +4521,7 @@ int area_create (char *in) {
 	get_raw(1,51,desc,1);
 
 	/*printf("Please wait a few moments... ");*/
-	printf(Ustring[151]);
+	printf("%s", Ustring[151]);
 	if (create_area(areascout,desc)) {
 		date = shorttime(time(0));
 		sprintf(filename,"%s/newarealog",C.datadir);	
@@ -4702,7 +4702,7 @@ int area_destroy (char *in) {
 	}
 
 	/*printf("Please wait a few moments... ");*/
-	printf(Ustring[151]);
+	printf("%s", Ustring[151]);
 	
 	if (destroy_area(areascout)) {
 		char *date = shorttime(time(0));
@@ -4766,7 +4766,7 @@ int describe (char *dummy) {
 	}
 	if (desc[0]) {
 		/*printf("Current description: %s\n",desc);*/
-		printf(Ustring[157]);
+		printf("%s", Ustring[157]);
 		printf(" %s\n",desc);
 	}
 	/*puts("Type up to 50 chars description, or press [Enter] to leave unchanged.");*/
@@ -5912,7 +5912,7 @@ int createvotemsg (char *in) {
 	}
 	if (!strcmp(vm->parse,"thread") || !strcmp(vm->parse,"branch")) {
 		/*printf("Cannot do that to more than one message at a time!\n");*/
-		printf(Ustring[72]);
+		printf("%s", Ustring[72]);
 		printf("\n");
 		free(vm->msglist);
 		free(vm->parse);
@@ -5990,7 +5990,7 @@ int vote (char *in) {
 	}
 	if (!strcmp(vm->parse,"thread") || !strcmp(vm->parse,"branch")) {
 		/*printf("Cannot do that to more than one message at a time!\n");*/
-		printf(Ustring[72]);
+		printf("%s", Ustring[72]);
 		printf("\n");
 		free(vm->msglist);
 		free(vm->parse);

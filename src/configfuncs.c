@@ -305,7 +305,7 @@ int cfgdrealm_parse (FILE *CFG) {
 	}
 
 	if (get_next_cfgfield (CFG,&totalshift,result,MAINLINE)) {
-		if (sscanf(result, " %d ", &C.maxfilename) != 1) {
+		if (sscanf(result, " %zd ", &C.maxfilename) != 1) {
 			run_err("Invalid value for C.maxfilename");
 			return 0;
 		}
@@ -513,7 +513,7 @@ int cfgdrealm_parse (FILE *CFG) {
 
 /* what to do with messages */
 	if (get_next_cfgfield (CFG,&totalshift,result,MAINLINE)) {
-		if (sscanf(result, " %d ", &C.siglength) != 1) {
+		if (sscanf(result, " %zd ", &C.siglength) != 1) {
 			run_err("Invalid value for C.siglength");
 			return 0;
 		}
@@ -776,7 +776,7 @@ int cfgdrealm_parse (FILE *CFG) {
 	}
 
 	if (get_next_cfgfield (CFG,&totalshift,result,MAINLINE)) {
-		if (sscanf(result, " %d ", &C.menucache) != 1) {
+		if (sscanf(result, " %zd ", &C.menucache) != 1) {
 			run_err("Invalid value for C.menucache");
 			return 0;
 		}

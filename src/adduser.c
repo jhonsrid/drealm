@@ -73,7 +73,7 @@ int main (int argc, char *argv[]) {
 	}
 
 	(void)printf("\n");
-	(void)printf(argv[6]);
+	(void)printf("%s", argv[6]);
 	(void)printf("\n");
 	i = strlen(argv[5]) + 10 /* length of fixed part */;
 	command = (char *)malloc(i);
@@ -89,7 +89,7 @@ int main (int argc, char *argv[]) {
 	pw = getpwnam(argv[5]);
 	while(pw && !strcmp("!",pw->pw_passwd)) {
 		(void)printf("\n\n");
-		(void)printf(argv[6]);
+		(void)printf("%s", argv[6]);
 		(void)printf("\n");
 		system(command);
 		free(pw);

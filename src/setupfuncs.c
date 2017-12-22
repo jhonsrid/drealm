@@ -3332,19 +3332,19 @@ printf(Ustring[410],nice_expiry);printf("\n");
 printf(Ustring[411],reserves);printf("\n");
 #endif
 
-printf(Ustring[412]);printf("\n");
-printf(Ustring[413]);printf("\n");
+printf("%s\n", Ustring[412]);
+printf("%s\n", Ustring[413]);
 
 #if defined(READ_COMMANDS)
-printf(Ustring[414]);printf("\n");
+printf("%s\n", Ustring[414]);
 #endif
 
 if (U.level >= C.sysoplevel) {
-	printf(Ustring[415]);printf("\n");
-	printf(Ustring[416]);printf("\n");
-	printf(Ustring[417]);printf("\n");
+	printf("%s\n", Ustring[415]);
+	printf("%s\n", Ustring[416]);
+	printf("%s\n", Ustring[417]);
 }
-printf(Ustring[418]);printf("\n");
+printf("%s\n", Ustring[418]);
 
 
 
@@ -3597,7 +3597,7 @@ printf(Ustring[428],u.editorname);printf("\n");
 printf(Ustring[429],u.displayname);printf("\n");
 printf(Ustring[430],u.envterm);printf("\n");
 printf(Ustring[431],u.languagename);printf("\n");
-printf(Ustring[432]);printf("\n");
+printf("%s\n", Ustring[432]);
 		
 			printf("\n");
 			/*make_prompt("Change: ");*/
@@ -3841,7 +3841,7 @@ int self_make (char *dummy) {
 		printf(Ustring[330],newid);
 		printf("\n");
 		external_term();
-		execlp("login","login",newid,0);
+		execlp("login","login",newid,(char *) NULL);
 		internal_term();
 		/*printf("Auto-login failed.  Please log in again manually as %s.\n",newid);*/
 		printf(Ustring[331],newid);

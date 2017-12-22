@@ -1460,7 +1460,7 @@ int send_mail_off(char *ffield,char *messagefile,char *sender, char *subject, ch
 	while (whocopy[0]) {
 		shiftword(whocopy,recipient,MAINLINE);
 		/*printf("Sending mail message...");*/
-		printf(Ustring[94]);
+		printf("%s", Ustring[94]);
 		fflush(stdout);
 		result = sendmail('v',recipient,sender,messagefile,ffield,subject,'f');
 		if (result) {
@@ -1710,7 +1710,7 @@ int any_unix_mail (char *dummy) {
 			/*make_prompt("Would you like your Unix mail imported? Y/n ");*/
 			if (yes_no(Ustring[468])) {
 				/*fputs("Processing mail, please wait...",stdout);*/
-				printf(Ustring[469]);
+				printf("%s", Ustring[469]);
 				get_unix_mail('v',U.id);
 				printf("\n");
 				return 1;

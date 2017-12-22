@@ -28,7 +28,7 @@ void (*Dsigset(int signum, void (*handler)(int)))(int) {
 	sa.sa_mask.sa_sigbits[2] = 0;
 	sa.sa_mask.sa_sigbits[3] = 0;
 #else
-	sa.sa_mask = 0;
+	sigemptyset(&sa.sa_mask);
 	sa.sa_restorer = 0;
 #endif
 	sa.sa_flags = 0;

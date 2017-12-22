@@ -24,7 +24,7 @@ struct indexlist {
 };
 
 struct menu_struct {
-	int  shiftcount;
+	size_t shiftcount;
 	int  able;
 	char display[MAINLINE];
 	char keys[MAINLINE];

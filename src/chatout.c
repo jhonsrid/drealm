@@ -116,7 +116,7 @@ int main(int argc, char *argv[]) {
 	dgram_in.sun_family = AF_UNIX;
 	(void)strcpy(dgram_in.sun_path, endpoint);
 	if (bind(incoming,
-		(caddr_t) &dgram_in,
+		(const struct sockaddr *) &dgram_in,
 		sizeof (short) + 
 		/* LINTED */
 		strlen(dgram_in.sun_path)))
@@ -181,7 +181,8 @@ int main(int argc, char *argv[]) {
 			} else {
 #if defined(DEVEL)
 				perror("chatout: read");
-#endif				(void)close(incoming);
+#endif				
+				(void)close(incoming);
 				(void)unlink(endpoint);
 				exit(1);
 			}

@@ -140,13 +140,13 @@ static void print_area_body(char *filename) {
 	}
 
 	/* Subject: line */
-	(void)fgets(buffer,256,BODY);
-	(void)printf(buffer);
+	(void)fgets(buffer, sizeof(buffer), BODY);
+	(void)printf("%s", buffer);
 	TOT_LINES += 1;
 
 	/* Blank line after subject */
-	(void)fgets(buffer,256,BODY);
-	(void)printf(buffer);
+	(void)fgets(buffer,sizeof(buffer),BODY);
+	(void)printf("%s", buffer);
 	TOT_LINES += 1;
 
 	if (LINES && (ah.flag[0] == 'A')) {

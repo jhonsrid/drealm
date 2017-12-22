@@ -121,7 +121,7 @@ int main(int argc, char *argv[]) {
 	dgram_in.sun_family = AF_UNIX;
 	(void)strcpy(dgram_in.sun_path, endpoint);
 	if (bind(incoming,
-		(caddr_t) &dgram_in,
+		(const struct sockaddr *) &dgram_in,
 		/* LINTED */
 		sizeof (short) + strlen(dgram_in.sun_path)))
 	{

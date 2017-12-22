@@ -683,10 +683,6 @@ void random_init(void) {
 	(void)seed48(seed);
 }
 
-inline unsigned int get_random(unsigned int upper) {
-	/* return in range 0<=x<upper) */
-	return drand48() * upper;
-}
 
 int get_int_from_file (char *filename) {
 	FILE *CFG;
