@@ -1,0 +1,105 @@
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+<link rel="stylesheet" href="drealmbbs.css" type="text/css"/>
+<title>drealmBBS Bulletin Board System - A common installation difficulty</title>
+
+</head>
+
+
+<body>
+
+<h1>A common installation difficulty</h1>
+<p><b>Problem</b>: <tt>make_my_account</tt> and <tt>make_user_account</tt> don't work!</p>
+<p><b>Solution</b>:</p>
+
+<ol>
+<li>See if <tt>/drealm/data/errorlog</tt> has advice for you.</li>
+
+<li>Check the parents and paths of directories created when making BBS account.
+
+	<ol type="a">
+	<li>Make sure the following directories exist (or your own equivalent if you changed them from the default):
+	<blockquote>
+<pre>$privatefiles$  /drealm/users
+$users$         /drealm/userfiles
+$maildirs$      /drealm/mail</pre>
+	</blockquote>
+	</li>
+
+	<li>Check their permissions are:
+	<ol type="i">
+
+		<li>EITHER (<b>preferred</b>)
+		<br/>owned by group <tt>bbs</tt> and <tt>drwxrwx---</tt></li>
+
+		<li>OR
+		<br/>owned by something else and <tt>drwxrwxrwx</tt></li>
+
+	</ol>
+	</li>
+
+	<li>Check the paths leading to them all the way down from the root directory.
+		Either group &quot;bbs&quot; or &quot;other users&quot; must have clear 'x'
+		access all the way down the path right into the directory.</li>
+
+	<li>If you have chosen to set /home ($homedirs$) to be the same as any other
+		in config.drealm, it must follow the permissions rules in b) above.</li>
+
+	</ol>
+</li>
+
+<li>Check files and directories run and accessed when making Linux account
+
+	<ol type="a">
+	<li>Check permissions of files that execute when a user is added: (Below are
+		the paths and perms on our system)
+<blockquote>
+<pre>
+/drealm/bin/        sysop bbs   drwxrwx--- 
+/drealm/bin/adduser root  bbs   -rws--x---
+/drealm/bin/chown   root  bbs   -rws--x--- 
+/drealm/bin/chmod   root  bbs   -rws--x--- 
+/usr/sbin/          root  other drwxr-xr-x 
+/usr/sbin/useradd   root  bin   -r-x------ 
+/usr/bin/           root  bin   drwxr-xr-x 
+/usr/bin/login      root  other -rwsr-xr-x
+</pre>
+</blockquote>
+	</li>
+
+	<li>Check that the directories containing the above files are in the PATH
+		field of config.drealm, except for /drealm/bin which is taken care of
+		automatically.</li>
+
+	<li>If you are NOT using shadow passwords, you probably need to install our
+		version of useradd which is included within a sub-package in the distribution.</li>
+
+	</ol>
+</li>
+
+<li>Check that valid info is passed to useradd:
+
+	<ol type="a">
+	<li>Ensure groups &quot;bbs&quot; ($groupnum$), and &quot;public&quot; (C.public)
+		are in your /etc/group file and have the correct group numbers as specified in
+		config.drealm.</li>
+
+	<li>Look in config.drealm at the $bbsshell$ value. Does this program exist, is
+		it spelled correctly, and can it be accessed and executed by group
+		&quot;public&quot; from the passwd file?</li>
+
+	<li>Does /home ($homedirs$) exist?</li>
+
+	</ol>
+</li>
+
+</ol>
+
+</body>
+
+</html>
+
+<!-- neodl5.grp.bf1.yahoo.com Sun Dec 24 11:30:47 UTC 2017 -->
