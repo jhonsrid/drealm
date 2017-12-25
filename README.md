@@ -6,9 +6,15 @@ Read README
 (But basically it's just "make" to build).
 
 ### Dependencies
-Drealm needs gcc, GNU make and ncurses. Only tried building on Linux, (Mint 18.3).
+Drealm needs gcc, GNU make and ncurses. 
+
+Linux: Builds ok on Mint 18.3, not tested.
+OSX / MacOS: Builds ok on OSX Yosemite (10.10.5), not tested.
 
 ## Change history
+
+2017-12-25:
+Changes to build on OSX, (utmp -> utmpx etc), plus correct all build warnings at LLVM 7.0.2 default warning level.
 
 2017-12-24:
 Added relevant contents of dlm21b.diff file to bring version up to v2.1b
