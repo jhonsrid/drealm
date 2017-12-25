@@ -71,8 +71,8 @@ endif
 # Disable the debugging code for "live"
 #
 ifeq "$(LIVE)" "yes"
-CFLAGS=-O2 -ffast-math -fomit-frame-pointer -Wno-unused-result
-LDFLAGS=-O2 -s
+CFLAGS=-O2 -ffast-math -fomit-frame-pointer -Wno-unused-result -Wno-unused-value
+LDFLAGS=-O2 
 CWARN=
 else
 CFLAGS=-g
@@ -98,7 +98,7 @@ OBJS=drealm.o \
 	mainfuncs.o inputfuncs.o configfuncs.o setupfuncs.o chatfuncs.o \
 	timerfuncs.o readfuncs.o mailfuncs.o filefuncs.o olrfuncs.o \
 	getvalf.o getmemb.o slist.o sendmail.o sendmess.o \
-	displaymsg.o displaymail.o \
+	displaymsg.o displaymail.o compat.o \
 	$(LPOBJS)
 
 SRCS=genfuncs.c drealmgen.c drealm_sig.c display.c \

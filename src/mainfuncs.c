@@ -1049,7 +1049,7 @@ int add_user_to_list (char mode, char *type, char *filename, char *inlist) {
 		sprintf(tempa,"egrep -v '^(%s)$' %s >%s.temp 2>/dev/null",temp,filename,filename);
 		dsystem(tempa);
 
-		if (FIL = fopen(filename,"a")) {
+		if ((FIL = fopen(filename,"a"))) {
 			fprintf(FIL,"%s\n",temp);
 			fclose(FIL);
 		} else {
@@ -1304,7 +1304,7 @@ int do_prompt (int type,char *promptparam) {
 	}
 	
 	sprintf(filename,"%s/%s/.force",C.users,U.id);
-	if (FIL = fopen(filename,"r")) {
+	if ((FIL = fopen(filename,"r"))) {
 		fgets(G.comline,MAINLINE,FIL);
 		fclose(FIL);
 		tnt(G.comline);
@@ -2140,7 +2140,7 @@ int plansearch (char *in) {
 	free(shellpat);
 
 	if (re) {
-		if (DIRT = opendir(C.users)) {
+		if ((DIRT = opendir(C.users))) {
 			/* LINTED */
 			while ((d = readdir(DIRT)) && !stopped) {
 				if (d->d_name[0] == '.') {
@@ -2148,7 +2148,7 @@ int plansearch (char *in) {
 				}
 
 				sprintf(filename,"%s/%s/.plan",C.privatefiles,d->d_name);
-				if (FIL = fopen(filename,"r")) {
+				if ((FIL = fopen(filename,"r"))) {
 					while (fgets(line,MAINLINE,FIL)) {
 						j=strlen(line)-1;
 						while(j && isspace(line[j])) {
@@ -2263,7 +2263,7 @@ void do_logins (void) {
 	if (place_lock('q',lockname,1,0)) {
 		sprintf(filename,"%s/logins",C.datadir);
 
-		if (FIL = fopen(filename,"a")) {
+		if ((FIL = fopen(filename,"a"))) {
 	 		fputs(line,FIL);
 			fclose(FIL);
 		}
@@ -2280,7 +2280,7 @@ int set_doing(char *params) {
 	char temp[MAINLINE + 100];
 
 	sprintf(temp,"%s/%s/.doing",C.users,U.id);
-	if (TMP = fopen(temp,"w")) {
+	if ((TMP = fopen(temp,"w"))) {
 		char *copy = strdup(params);
 		tnt(copy);
 		fputs(copy,TMP);
@@ -2341,7 +2341,7 @@ int rawlog_on (char *dummy) {
 	}
 				
 	sprintf(filename,"%s/inputlog",C.datadir);
-	if (RAWLOG = fopen(filename,"a")) {
+	if ((RAWLOG = fopen(filename,"a"))) {
 		G.rawlog = 1;
 		return 1;
 	} else {
@@ -2373,7 +2373,7 @@ int chatlog_on (char *dummy) {
 	}
 				
 	sprintf(filename,"%s/chatlog",C.datadir);
-	if (CHATLOG = fopen(filename,"a")) {
+	if ((CHATLOG = fopen(filename,"a"))) {
 		G.chatlog = 1;
 		return 1;
 	} else {
@@ -2432,7 +2432,7 @@ int notify_user (char *in) {
 	}
 
 	sprintf(filename,"%s/%s/.notice",C.users,user);
-	if (FIL = fopen(filename,"a")) {
+	if ((FIL = fopen(filename,"a"))) {
 		fprintf(FIL,"%s\n",notice);
 		fclose(FIL);
 		sprintf(filename,"touch %s/%s",C.users,user);
@@ -2608,19 +2608,19 @@ int whichlangfile (char *fileroot, char *filename) {
 	FILE *FIL;
 	
 	sprintf(filename,"%s/%s.%s",C.library,fileroot,U.language);
-	if (FIL = fopen(filename,"r")) {
+	if ((FIL = fopen(filename,"r"))) {
 		fclose(FIL);
 		return 1;
 	}
 		
 	sprintf(filename,"%s/%s.%s",C.library,fileroot,"txt");
-	if (FIL = fopen(filename,"r")) {
+	if ((FIL = fopen(filename,"r"))) {
 		fclose(FIL);
 		return 1;
 	}
 
 	sprintf(filename,"%s/%s.%s",C.library,fileroot,D.language);
-	if (FIL = fopen(filename,"r")) {
+	if ((FIL = fopen(filename,"r"))) {
 		fclose(FIL);
 		return 1;
 	}

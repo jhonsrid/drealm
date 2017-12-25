@@ -80,7 +80,7 @@ int daytimer_start (char *params) {
 	compare_date[0] = 0;
 	time_today_string[0] = 0;
 
-	if (FIL = fopen(filename,"r")) {
+	if ((FIL = fopen(filename,"r"))) {
 /* fgets() didn't work here */
 		fscanf(FIL, " %s ", compare_date);
 		fscanf(FIL, " %s ", time_today_string);
@@ -96,7 +96,7 @@ int daytimer_start (char *params) {
 	if (strcmp(compare_date,today_date)) {
 		time_today = 0;
 		time_left = allday_time;
-		if (FIL = fopen(filename,"w")) {
+		if ((FIL = fopen(filename,"w"))) {
 			fprintf(FIL,"%s\n",today_date);
 			fprintf(FIL,"%d\n",time_today);
 			fclose(FIL);

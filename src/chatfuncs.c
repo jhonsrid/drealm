@@ -31,7 +31,11 @@ The GNU General Public License should be in a file called COPYING.
 
 /* Non-ANSI headers */
 #include <unistd.h>
+#if defined(__APPLE__)
+#include <utmpx.h>
+#else
 #include <utmp.h>
+#endif
 #include <sys/stat.h>
 #if defined(SVR42) || defined(LINUX_WITH_DGRAMS)
 #  include <sys/socket.h>
@@ -59,6 +63,12 @@ int socket(int domain, int type, int protocol);
 
 #include "chatfuncs.h"
 
+/* utmpx support for OSX/MacOS */
+#if defined(__APPLE__)
+#define getutent getutxent
+#define endutent endutxent
+#define setutent setutxent
+#endif
 
 /* $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
  * NOTES:
@@ -566,7 +576,7 @@ int set_chatdoing(char *chat_string) {
 	char temp[MAINLINE + 100];
 
 	sprintf(temp,"%s/%s/.chatdoing",C.users,U.id);
-	if (TMP = fopen(temp,"w")) {
+	if ((TMP = fopen(temp,"w"))) {
 		fprintf(TMP,"%s",chat_string);
 		fclose(TMP);
 		return 1;
@@ -577,13 +587,17 @@ int set_chatdoing(char *chat_string) {
 int is_online (char *id,char type) {
 /* LENGTHS CHECKED */
 	char tempid[9];
+#if defined(__APPLE__)
+	struct utmpx *u;
+#else
 	struct utmp *u;
+#endif
 	int found = 0;
 	struct stat statbuf;
 	char temp[MAINLINE + 100];
 
 	
-	while(u = getutent()) {
+	while((u = getutent())) {
 		if (u->ut_type == USER_PROCESS) {
 			strncpy(tempid,u->ut_user,8);
 			tempid[8]=0;
@@ -649,7 +663,12 @@ char *onlist (char *indicator) {
 /* LENGTHS CHECKED */
 	char person[9];
 	char tempa[1024];
-	struct utmp *utp;
+#if defined(__APPLE__)
+    struct utmpx *utp;
+#else
+    struct utmp *utp;
+#endif
+
 	struct valid_files *vf;
 	char temp[MAINLINE];
 
@@ -666,8 +685,8 @@ char *onlist (char *indicator) {
 	while(vf->files[0]) {
 		shiftword(vf->files,temp,MAINLINE);
 		setutent();		
-		
-		while (utp = getutent()) {
+
+		while ((utp = getutent())) {
 			if (utp->ut_type != USER_PROCESS) {
 				continue;
 			}
@@ -756,7 +775,7 @@ int chatin (char *recipient, char *msg) {
 			sprintf(temps,"%s/chat.%s",C.tmpdir,recipient);
 			if (!stat(temps,&statbuf)) {
 				sprintf(temps,"%s/hear.%s",C.tmpdir,recipient);
-				if (TMP = fopen(temps,"a")) {
+				if ((TMP = fopen(temps,"a"))) {
 					fprintf(TMP,"%s",msg);
 					fclose(TMP);
 					return 1;

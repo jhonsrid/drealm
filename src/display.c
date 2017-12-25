@@ -207,7 +207,7 @@ void page_file(char *filename,
 	if (!get_LW(1)) {
 		return;
 	}
-	if (FIL = fopen(filename,"r")) {
+	if ((FIL = fopen(filename,"r"))) {
 		(void)pager(FIL,0,Continue,Yes,No);
 		(void)fclose(FIL);
 	}

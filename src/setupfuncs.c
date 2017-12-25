@@ -514,7 +514,7 @@ int setmy_erase (char *dummy) {
 /* MENU COMMAND */
 	int result;
 	/*if (result = do_stty(U.id,"erase","delete")) {*/
-	if (result = do_stty(U.id,"erase",Ustring[340])) {
+	if ((result = do_stty(U.id,"erase",Ustring[340]))) {
 		update("");
 	}
 	flushcom("");
@@ -538,7 +538,7 @@ int sethis_erase (char *in) {
 	}		
 
 	/*if (result = do_stty(user,"erase","erase")) {*/
-	if (result = do_stty(user,"erase",Ustring[340])) {
+	if ((result = do_stty(user,"erase",Ustring[340]))) {
 		update_force(user);
 	}
 	return result;
@@ -548,7 +548,7 @@ int setmy_werase (char *dummy) {
 /* MENU COMMAND */
 	int result;
 	/*if (result = do_stty(U.id,"werase","word erase")) {*/
-	if (result = do_stty(U.id,"werase",Ustring[341])) {
+	if ((result = do_stty(U.id,"werase",Ustring[341]))) {
 		update("");
 	}
 	flushcom("");
@@ -571,7 +571,7 @@ int sethis_werase (char *in) {
 		return 0;
 	}		
 	/*if (result = do_stty(user,"werase","word erase")) {*/
-	if (result = do_stty(user,"werase",Ustring[341])) {
+	if ((result = do_stty(user,"werase",Ustring[341]))) {
 		update_force(user);
 	}
 	return result;
@@ -581,7 +581,7 @@ int setmy_kill (char *dummy) {
 /* MENU COMMAND */
 	int result;
 	/* if (result = do_stty(U.id,"kill","line kill")) { */
-	if (result = do_stty(U.id,"kill",Ustring[342])) {
+	if ((result = do_stty(U.id,"kill",Ustring[342]))) {
 		update("");
 	}
 	flushcom("");
@@ -604,7 +604,7 @@ int sethis_kill (char *in) {
 		return 0;
 	}		
 	/*if (result = do_stty(user,"kill","line kill")) {*/
-	if (result = do_stty(user,"kill",Ustring[342])) {
+	if ((result = do_stty(user,"kill",Ustring[342]))) {
 		update_force(user);
 	}
 	return result;
@@ -614,7 +614,7 @@ int setmy_reprint (char *dummy) {
 /* MENU COMMAND */
 	int result;
 	/*if (result = do_stty(U.id,"reprint","line redraw")) {*/
-	if (result = do_stty(U.id,"reprint",Ustring[343])) {
+	if ((result = do_stty(U.id,"reprint",Ustring[343]))) {
 		update("");
 	}
 	flushcom("");
@@ -637,7 +637,7 @@ int sethis_reprint (char *in) {
 		return 0;
 	}		
 	/*if (result = do_stty(user,"reprint","line redraw")) {*/
-	if (result = do_stty(user,"reprint",Ustring[343])) {
+	if ((result = do_stty(user,"reprint",Ustring[343]))) {
 		update_force(user);
 	}
 	return result;
@@ -693,7 +693,7 @@ int do_stty(char *user,char *parm,char *explanation) {
 int setmy_chat (char *dummy) {
 /* MENU COMMAND */
 	int result;
-	if (result = set_chat(U.id)) {
+	if ((result = set_chat(U.id))) {
 		update("");
 	}
 	flushcom("");
@@ -769,7 +769,7 @@ int setmy_hotkeys (char *dummy) {
 /* MENU COMMAND */
 	int result;
 
-	if (result = set_hotkeys(U.id)) {
+	if ((result = set_hotkeys(U.id))) {
 		update("");
 	}
 	flushcom("");
@@ -792,7 +792,7 @@ int sethis_hotkeys (char *in) {
 		return 0;
 	}		
 	
-	if (result = set_hotkeys(user)) {
+	if ((result = set_hotkeys(user))) {
 		update_force(user);
 	}
 	return result;
@@ -833,7 +833,7 @@ int set_hotkeys (char *user) {
 int setmy_readown (char *dummy) {
 /* MENU COMMAND */
 	int result;
-	if (result = set_readown(U.id)) {
+	if ((result = set_readown(U.id))) {
 		update("");
 	}
 	flushcom("");
@@ -856,7 +856,7 @@ int sethis_readown (char *in) {
 		return 0;
 	}		
 	
-	if (result = set_readown(user)) {
+	if ((result = set_readown(user))) {
 		update_force(user);
 	}
 	return result;
@@ -896,7 +896,7 @@ int set_readown (char *user) {
 int setmy_pausetime (char *dummy) {
 /* MENU COMMAND */
 	int result;
-	if (result = set_pausetime(U.id)) {
+	if ((result = set_pausetime(U.id))) {
 		update("");
 	}
 	flushcom("");
@@ -919,7 +919,7 @@ int sethis_pausetime (char *in) {
 		return 0;
 	}		
 	
-	if (result = set_pausetime(user)) {
+	if ((result = set_pausetime(user))) {
 		update_force(user);
 	}
 	return result;
@@ -973,7 +973,7 @@ int set_pausetime (char *user) {
 int setmy_timeout (char *dummy) {
 /* MENU COMMAND */
 	int result;
-	if (result = set_timeout(U.id)) {
+	if ((result = set_timeout(U.id))) {
 		update("");
 	}
 	flushcom("");
@@ -996,7 +996,7 @@ int sethis_timeout (char *in) {
 		return 0;
 	}		
 	
-	if (result = set_timeout(user)) {
+	if ((result = set_timeout(user))) {
 		update_force(user);
 	}
 	return result;
@@ -1053,7 +1053,7 @@ int set_timeout (char *user) {
 int setmy_rows (char *dummy) {
 /* MENU COMMAND */
 	int result;
-	if (result = set_rows(U.id)) {
+	if ((result = set_rows(U.id))) {
 		update("");
 	}
 	flushcom("");
@@ -1076,7 +1076,7 @@ int sethis_rows (char *in) {
 		return 0;
 	}		
 	
-	if (result = set_rows(user)) {
+	if ((result = set_rows(user))) {
 		update_force(user);
 	}
 	return result;
@@ -1128,7 +1128,7 @@ int set_rows (char *user) {
 int setmy_cols (char *dummy) {
 /* MENU COMMAND */
 	int result;
-	if (result = set_cols(U.id)) {
+	if ((result = set_cols(U.id))) {
 		update("");
 	}
 	flushcom("");
@@ -1151,7 +1151,7 @@ int sethis_cols (char *in) {
 		return 0;
 	}		
 	
-	if (result = set_cols(user)) {
+	if ((result = set_cols(user))) {
 		update_force(user);
 	}
 	return result;
@@ -1202,7 +1202,7 @@ int set_cols (char *user) {
 int setmy_recent (char *dummy) {
 /* MENU COMMAND */
 	int result;
-	if (result = set_recent(U.id)) {
+	if ((result = set_recent(U.id))) {
 		update("");
 	}
 	flushcom("");
@@ -1225,7 +1225,7 @@ int sethis_recent (char *in) {
 		return 0;
 	}		
 	
-	if (result = set_recent(user)) {
+	if ((result = set_recent(user))) {
 		update_force(user);
 	}
 	return result;
@@ -1322,7 +1322,7 @@ int setmy_chatsendcolour (char *in) {
 		flushcom("");
 	}
 	free(copy);
-	if (result = set_chatsendcolour(U.id,atoi(colourstring))) {
+	if ((result = set_chatsendcolour(U.id,atoi(colourstring)))) {
 		update("");
 	}
 	return result;
@@ -1346,7 +1346,7 @@ int sethis_chatsendcolour (char *in) {
 		return 0;
 	}		
 	
-	if (result = set_chatsendcolour(user,atoi(colourstring))) {
+	if ((result = set_chatsendcolour(user,atoi(colourstring)))) {
 		update_force(user);
 	}
 	return result;
@@ -1457,7 +1457,7 @@ int setmy_chatreccolour (char *in) {
 	}
 	free(copy);
 
-	if (result = set_chatreccolour(U.id,atoi(colourstring))) {
+	if ((result = set_chatreccolour(U.id,atoi(colourstring)))) {
 		update("");
 	}
 	return result;
@@ -1481,7 +1481,7 @@ int sethis_chatreccolour (char *in) {
 		return 0;
 	}		
 	
-	if (result = set_chatreccolour(user,atoi(colourstring))) {
+	if ((result = set_chatreccolour(user,atoi(colourstring)))) {
 		update_force(user);
 	}
 	return result;
@@ -1597,7 +1597,7 @@ int set_chatreccolour (char *user, int colour) {
 int setmy_display (char *dummy) {
 /* MENU COMMAND */
 	int result;
-	if (result = set_display(U.id)) {
+	if ((result = set_display(U.id))) {
 		update("");
 	}
 	flushcom("");
@@ -1620,7 +1620,7 @@ int sethis_display (char *in) {
 		return 0;
 	}		
 	
-	if (result = set_display(user)) {
+	if ((result = set_display(user))) {
 		update_force(user);
 	}
 	return result;
@@ -1689,7 +1689,7 @@ int set_display (char *user) {
 int setmy_editor (char *dummy) {
 /* MENU COMMAND */
 	int result;
-	if (result = set_editor(U.id)) {
+	if ((result = set_editor(U.id))) {
 		update("");
 	}
 	flushcom("");
@@ -1712,7 +1712,7 @@ int sethis_editor (char *in) {
 		return 0;
 	}		
 	
-	if (result = set_editor(user)) {
+	if ((result = set_editor(user))) {
 		update_force(user);
 	}
 	return result;
@@ -1781,7 +1781,7 @@ int set_editor (char *user) {
 int setmy_readmode (char *dummy) {
 /* MENU COMMAND */
 	int result;
-	if (result = set_readmode(U.id)) {
+	if ((result = set_readmode(U.id))) {
 		update("");
 	}
 	flushcom("");
@@ -1804,7 +1804,7 @@ int sethis_readmode (char *in) {
 		return 0;
 	}		
 	
-	if (result = set_readmode(user)) {
+	if ((result = set_readmode(user))) {
 		update_force(user);
 	}
 	return result;
@@ -1884,7 +1884,7 @@ int set_readmode (char *user) {
 int setmy_terminal (char *dummy) {
 /* MENU COMMAND */
 	int result;
-	if (result = set_terminal(U.id)) {
+	if ((result = set_terminal(U.id))) {
 		update("");
 	}
 	flushcom("");
@@ -1907,7 +1907,7 @@ int sethis_terminal (char *in) {
 		return 0;
 	}		
 	
-	if (result = set_terminal(user)) {
+	if ((result = set_terminal(user))) {
 		update_force(user);
 	}
 	return result;
@@ -2026,7 +2026,7 @@ int foundterminfo (char *name,char *desc,int *rows,int *cols) {
 		
 	sprintf(command,"longname %s > term 2>/dev/null",name);
 	if (!dsystem(command)) {
-		if (FIL = fopen("term","r")) {
+		if ((FIL = fopen("term","r"))) {
 			fscanf(FIL,"%d %d ",rows,cols);
 			fgets(desc,128,FIL);
 			fclose(FIL);
@@ -2058,7 +2058,7 @@ int setmy_flag (char *params) {
 	shiftword(copy,valuestring,MAINLINE);
 	free(copy);
 	
-	if (result = set_userflag(U.id,flagstring,valuestring)) {
+	if ((result = set_userflag(U.id,flagstring,valuestring))) {
 		update("");
 	}
 	return result;
@@ -2140,7 +2140,7 @@ int sethis_flag (char *in) {
 		while (user_names->files[0]) {
 			shiftword(user_names->files,user,9);	
 
-			if (result = set_userflag(user,flagstring,valuestring)) {
+			if ((result = set_userflag(user,flagstring,valuestring))) {
 				update_force(user);
 				/*printf("Flag set for %s.\n",user);*/
 				sprintf(temp,Ustring[387],Ustring[71],valuestring);
@@ -2277,7 +2277,7 @@ int resetmy_flags (char *dummy) {
 /* MENU COMMAND */
 	int result;
 
-	if (result = reset_flags(U.id)) {
+	if ((result = reset_flags(U.id))) {
 		update("");
 	}
 	return result;
@@ -2316,7 +2316,7 @@ int reset_flags (char *user) {
 	sprintf(temp,"%s/%s/.flags",C.users,user);
 	remove(temp);
 	
-	if (FIL = fopen(temp,"w")) {
+	if ((FIL = fopen(temp,"w"))) {
 		fprintf(FIL,"%s\n",&C.newuserflags[1]);
 		fclose(FIL);
 		sprintf(temp,"chmod 0770 %s/%s/.flags",C.users,user);
@@ -2343,7 +2343,7 @@ int setmy_level (char *params) {
 	free(copy);
 	tnt(levelstring);
 
-	if (result = set_userlevel(U.id,levelstring)) {
+	if ((result = set_userlevel(U.id,levelstring))) {
 		update("");
 	}
 	return result;
@@ -2395,7 +2395,7 @@ int sethis2_level (char *inuser,char *inlevelstring) {
 		return 0;
 	}
 
-	if (result = set_userlevel(user,levelstring)) {
+	if ((result = set_userlevel(user,levelstring))) {
 		update_force(user);
 		/*printf("Level set.\n");*/
 		sprintf(temp,Ustring[387],Ustring[167],levelstring);
@@ -2503,7 +2503,7 @@ int set_title(char *user, char *titlestring) {
 	}
 
 	sprintf(temp,"%s/%s/.title",C.users,user);
-	if (TMP = fopen(temp,"w")) {
+	if ((TMP = fopen(temp,"w"))) {
 		fputs(titlestring,TMP);
 		fclose(TMP);
 		return 1;
@@ -2550,7 +2550,7 @@ int adjustmy_reserves (char *params) {
 	
 	reserves += bytes;
 
-	if (result = mailreserves_write(U.id,reserves)) {
+	if ((result = mailreserves_write(U.id,reserves))) {
 		update("");
 	}
 	return result;
@@ -2651,7 +2651,7 @@ int adjusthis2_reserves (char *user, char *amountstring) {
 		return 0;
 	}		
 		
-	if (result = mailreserves_write(user,reserves)) {
+	if ((result = mailreserves_write(user,reserves))) {
 		update_force(user);
 	}
 	return result;
@@ -2692,7 +2692,7 @@ int adjustmy_expiry (char *params) {
 	}
 	
 	time_2 = time_1 + (realdays * 24 * 60 * 60);
-	if (result = expiry_write(U.id,time_2)) {
+	if ((result = expiry_write(U.id,time_2))) {
 		update("");
 	}
 	return result;
@@ -2782,7 +2782,7 @@ int adjusthis2_expiry (char *user,char *daystring) {
 		printf("%s\n",Ustring[60]);
 		return 0;
 	}
-	if (result = expiry_write(user,time_2)) {
+	if ((result = expiry_write(user,time_2))) {
 		update_force(user);
 	}
 	return result;
@@ -3076,7 +3076,7 @@ struct details *details_read (char mode, char *user) {
 	temp[0]=0;
 
 	sprintf(filename,"%s/%s/.details",C.users,user);
-	if (FIL = fopen(filename,"r")) {
+	if ((FIL = fopen(filename,"r"))) {
 		if (fgets(temp,MAINLINE,FIL)) {
 			tnt(temp);
 			temp[30] = 0;
@@ -3159,7 +3159,7 @@ int details_write (char mode, char *user, struct details *de) {
 	sprintf(pastlife,"%s/%s/.pastlife",C.users,user);
 	copy_file(filename,pastlife,0);
 
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		fprintf(FIL,"%s\n",de->changedate);
 		fprintf(FIL,"%s\n",user);
 		fprintf(FIL,"%s\n",de->realname);
@@ -3188,7 +3188,7 @@ int flags_read (char *user,char *flags) {
 
 	flags[0] = '#';
 	sprintf(filename,"%s/%s/.flags",C.users,user);
-	if (CFG = fopen(filename,"r")) {
+	if ((CFG = fopen(filename,"r"))) {
 		while ((i <= UFLAGMAX) && !feof(CFG)) {
 			fread(&c,1,1,CFG);
 			if (!isgraph(c)) {
@@ -3215,7 +3215,7 @@ int flags_write (char *user, char *flags) {
 	FILE *FIL;
 
 	sprintf(filename,"%s/%s/.flags",C.users,user);
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		fprintf(FIL,"%s\n",&flags[1]);
 		fclose(FIL);
 	} else {
@@ -3960,7 +3960,7 @@ int make_bbs_account (char *id, char *password) {
 	}
 
 	sprintf(filename,"%s/%s/.flags",C.users,id);
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		fprintf(FIL,"%s\n",&C.newuserflags[1]);
 		fclose(FIL);
 		chmod(filename,0770);
@@ -3970,7 +3970,7 @@ int make_bbs_account (char *id, char *password) {
 	}
 
 	sprintf(filename,"%s/%s/.firston",C.users,id);
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		fprintf(FIL,"%ld\n",time(0));
 		fclose(FIL);
 		chmod(filename,0770);
@@ -3980,7 +3980,7 @@ int make_bbs_account (char *id, char *password) {
 	}
 
 	sprintf(filename,"%s/%s/.lastcall",C.users,id);
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		fprintf(FIL,"%ld\n",time(0));
 		fclose(FIL);
 		chmod(filename,0770);
@@ -3991,7 +3991,7 @@ int make_bbs_account (char *id, char *password) {
 
 
 	sprintf(filename,"%s/%s/.newshigh",C.users,id);
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		fputs("0\n",FIL);
 		fclose(FIL);
 		chmod(filename,0770);
@@ -4001,7 +4001,7 @@ int make_bbs_account (char *id, char *password) {
 	}
 
 	sprintf(filename,"%s/%s/.totalmessages",C.users,id);
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		fputs("0\n",FIL);
 		fclose(FIL);
 		chmod(filename,0770);
@@ -4011,7 +4011,7 @@ int make_bbs_account (char *id, char *password) {
 	}
 
 	sprintf(filename,"%s/%s/.totalcalls",C.users,id);
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		fputs("0\n",FIL);
 		fclose(FIL);
 		chmod(filename,0770);
@@ -4021,7 +4021,7 @@ int make_bbs_account (char *id, char *password) {
 	}
 
 	sprintf(filename,"%s/%s/.level",C.users,id);
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		fprintf(FIL,"%d\n",C.newuserlevel);
 		fclose(FIL);
 		chmod(filename,0770);
@@ -4145,7 +4145,7 @@ int destroy_bbs_account (char *id) {
 	struct passwd *pword;
 
 
-	if (pword = getpwnam(id)) {
+	if ((pword = getpwnam(id))) {
 		sprintf(homedir,"%s",pword->pw_dir);
 	} else {
 		homedir[0] = 0;
@@ -4729,7 +4729,7 @@ int defaults_write (char *user, struct uservars *userbuf) {
 	int result = 0;
 	
 	sprintf(filename,"%s/%s/.drealmrc",C.users,user);
-	if (CFG = fopen(filename,"w")) {
+	if ((CFG = fopen(filename,"w"))) {
 		result = drealmrc_write(CFG,userbuf);
 		fclose(CFG);
 		return result;
@@ -4773,7 +4773,7 @@ int resetmy_userdefaults (char *dummy) {
 /* MENU COMMAND */
 	int result = 0;
 	
-	if (result = reset_userdefaults(U.id)) {
+	if ((result = reset_userdefaults(U.id))) {
 		update("");	
 	}
 	return result;
@@ -4932,7 +4932,7 @@ int setmy_lang (char *in) {
 /* MENU COMMAND */
 	int result;
 
-	if (result = set_lang(U.id)) {
+	if ((result = set_lang(U.id))) {
 		update("");
 		whichstrings();
 	}
@@ -4956,7 +4956,7 @@ int sethis_lang (char *in) {
 		return 0;
 	}		
 	
-	if (result = set_lang(user)) {
+	if ((result = set_lang(user))) {
 		/*printf("Setting will take effect next time user logs in.\n");*/
 		/*printf("%s\n",Ustring[494]);*/
 		update_force(user);
@@ -4980,7 +4980,7 @@ int set_lang (char *user) {
 	if (defaults_read(user,&u)) {
 
 		sprintf(filename,"%s/config.langs",C.configdir);
-		if (FIL = fopen(filename,"r")) {
+		if ((FIL = fopen(filename,"r"))) {
 
 			i = 0;
 			totalshift = 0;

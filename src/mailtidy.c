@@ -106,8 +106,8 @@ int main(int argc, char *argv[]) {
 	nowtime = time(0);
 	comparetime = (nowtime - (age * 24 * 60 * 60));
 
-	if (DIRT = opendir(C.maildirs)) {
-		while (d = readdir(DIRT)) {
+	if ((DIRT = opendir(C.maildirs))) {
+		while ((d = readdir(DIRT))) {
 			strncpy(user,d->d_name,8);
 
 			user[8] = 0;
@@ -129,8 +129,8 @@ int main(int argc, char *argv[]) {
 				continue;
 			}
 			sprintf(dirname,"%s/%s/.mail",C.maildirs,user);
-			if (MDIRT = opendir(dirname)) {
-				while (e = readdir(MDIRT)) {
+			if ((MDIRT = opendir(dirname))) {
+				while ((e = readdir(MDIRT))) {
 					strncpy(item,e->d_name,12);
 					item[11] = 0;
 

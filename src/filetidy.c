@@ -105,8 +105,8 @@ int main(int argc, char *argv[]) {
 	nowtime = time(0);
 	comparetime = (nowtime - (age * 24 * 60 * 60));
 
-	if (DIRT = opendir(C.privatefiles)) {
-		while (d = readdir(DIRT)) {
+	if ((DIRT = opendir(C.privatefiles))) {
+		while ((d = readdir(DIRT))) {
 			strncpy(user,d->d_name,8);
 			user[8] = 0;
 
@@ -128,8 +128,8 @@ int main(int argc, char *argv[]) {
 			}
 
 			sprintf(dirname,"%s/%s",C.privatefiles,user);
-			if (FDIRT = opendir(dirname)) {
-				while (e = readdir(FDIRT)) {
+			if ((FDIRT = opendir(dirname))) {
+				while ((e = readdir(FDIRT))) {
 					strncpy(item,e->d_name,MAINLINE);
 					item[MAINLINE - 1] = 0;
 					if (item[0] == '.') {

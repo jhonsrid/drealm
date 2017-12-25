@@ -76,7 +76,7 @@ int sendmail(char mode, char *to, char *from, char *msg,
 	}
 	sprintf(filename,"%s/mailreached.dd",C.datadir);
 
-	if (HANDLE = fopen(filename,"r")) {
+	if ((HANDLE = fopen(filename,"r"))) {
 	/* Opened okay - read the number */
 		fscanf(HANDLE," %d ",&msgno);
 		fclose(HANDLE);
@@ -85,7 +85,7 @@ int sendmail(char mode, char *to, char *from, char *msg,
 		msgno = 0;
 	}
 	msgno++;
-	if (HANDLE = fopen(filename,"w")) {
+	if ((HANDLE = fopen(filename,"w"))) {
 	/* Opened okay - write the new value back */
 		fprintf(HANDLE,"%d\n",msgno);
 		fclose(HANDLE);
@@ -203,7 +203,7 @@ static char *get_reply_to(char *user,char *in_reply_to) {
 		return strdup("base");
 	}
 	sprintf(filename,"%s/%s/.mail/msg.%s",C.maildirs,user,in_reply_to);
-	if (p = getfield(filename,"in-reply-to")) {
+	if ((p = getfield(filename,"in-reply-to"))) {
 		return p;
 	}
 	return strdup("base");
@@ -261,7 +261,7 @@ static int drealm_to_drealm(char mode, char *to, char *from, char *msg,
 	 * Create the message body
 	 */
 	if (type == 's') {
-		if (HANDLE = fopen("temp","w"))	{
+		if ((HANDLE = fopen("temp","w")))	{
 			fprintf(HANDLE,"%s\n",msg);
 			fclose(HANDLE);
 		} else {
@@ -278,7 +278,7 @@ static int drealm_to_drealm(char mode, char *to, char *from, char *msg,
 	}
 
 	sprintf(filename,"%s/%s/.sig",C.privatefiles,from);
-	if (FIL = fopen(filename,"r")) {
+	if ((FIL = fopen(filename,"r"))) {
 		int numread = 0;
 		char *sig = (char *)malloc(C.siglength + 1);
 		numread = fread(sig,1,C.siglength,FIL);
@@ -305,7 +305,7 @@ static int drealm_to_drealm(char mode, char *to, char *from, char *msg,
 
 
 	sprintf(filename,"%s/%s/.mail/hdr.%d",C.maildirs,to,msgno);
-	if (HANDLE = fopen(filename,"w")) {
+	if ((HANDLE = fopen(filename,"w"))) {
 		if (strchr(from,'@')) { /* The 'T' stands for Toll */
 			fprintf(HANDLE,"%s U T %d %s from %s to %s - %s\n",in_reply_to, msgno, dlmtime, from, to, subject);
 		} else {
@@ -326,7 +326,7 @@ static int drealm_to_drealm(char mode, char *to, char *from, char *msg,
 	dsystem(string);
 	/* Create the mailalert */
 	sprintf(filename,"%s/%s/.mailalert",C.users,to);
-	if (HANDLE=fopen(filename,"w"))	{
+	if ((HANDLE=fopen(filename,"w")))	{
 		fclose(HANDLE);
 	}
 	sprintf(filename,"touch %s/%s",C.users,to);
@@ -339,7 +339,7 @@ static int drealm_to_drealm(char mode, char *to, char *from, char *msg,
 	 	 */
 		/* Write the header */
 		sprintf(filename,"%s/%s/.mail/hdr.%d",C.maildirs,from,msgno);
-		if (HANDLE = fopen(filename,"w")) {
+		if ((HANDLE = fopen(filename,"w"))) {
 			fprintf(HANDLE,"%s U # %d %s from %s to %s - %s\n",
 				in_reply_to, msgno, dlmtime, from, to, subject);
 			fclose(HANDLE);

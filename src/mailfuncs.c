@@ -187,7 +187,7 @@ char *definemail (char mode,char *user,int msgno) {
 	}
 
 	sprintf(filename,"%s/%s/.mail/hdr.%d",C.maildirs,user,msgno);
-	if (FIL = fopen(filename,"r")) {
+	if ((FIL = fopen(filename,"r"))) {
 		fgets(header,MAINLINE,FIL);
 		fclose(FIL);
 	} else {
@@ -386,14 +386,14 @@ void markasread (int msgno) {
 	mh.read[0] = 'R';
 
 	sprintf(filename,"%s/%s/.mail/hdr.%d",C.maildirs,U.id,msgno);
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		fprintf(FIL,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s\n",mh.replyto,mh.read,mh.hash,mh.number,mh.dname,mh.mname,mh.dnum,mh.time,mh.dtz,mh.year,mh.from,mh.author,mh.to,mh.recip,mh.dash,mh.subject);
 		fclose(FIL);
 	}
 	sprintf(filename,"%s/%s/.mail/hdr.%d",C.maildirs,mh.author,msgno);
-	if (FIL = fopen(filename,"r")) {
+	if ((FIL = fopen(filename,"r"))) {
 		fclose(FIL);
-		if (FIL = fopen(filename,"w")) {
+		if ((FIL = fopen(filename,"w"))) {
 			fprintf(FIL,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s\n",mh.replyto,mh.read,mh.hash,mh.number,mh.dname,mh.mname,mh.dnum,mh.time,mh.dtz,mh.year,mh.from,mh.author,mh.to,mh.recip,mh.dash,mh.subject);
 			fclose(FIL);
 		}
@@ -472,7 +472,7 @@ int markunread (int msgno) {
 		mh.read[0] = 'U';
 
 		sprintf(filename,"%s/%s/.mail/hdr.%d",C.maildirs,U.id,msgno);
-		if (FIL = fopen(filename,"w")) {
+		if ((FIL = fopen(filename,"w"))) {
 			fprintf(FIL,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s\n",mh.replyto,mh.read,mh.hash,mh.number,mh.dname,mh.mname,mh.dnum,mh.time,mh.dtz,mh.year,mh.from,mh.author,mh.to,mh.recip,mh.dash,mh.subject);
 			fclose(FIL);
 			return 1;
@@ -493,7 +493,7 @@ int restore_mail (char *dummy) {
 	struct valid_mail *vm;
 
 	sprintf(filename,"%s/%s/.mail/mailstore",C.maildirs,U.id);
-	if (FIL = fopen(filename,"r")) {
+	if ((FIL = fopen(filename,"r"))) {
 		fscanf(FIL," %d ",&mailstored);
 		fclose(FIL);
 	}
@@ -554,7 +554,7 @@ int store_mail (char *dummy) {
 	}
 
 	sprintf(filename,"%s/%s/.mail/mailstore",C.maildirs,U.id);
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		fprintf(FIL,"%d\n",mailstored);
 		fclose(FIL);
 		/*printf("Mail pointer stored as %d.\n",mailstored);*/
@@ -570,35 +570,65 @@ void parse_mail_header (char *header,struct mailheader *mh) {
 
 	p = header;
 
-	for(q = p; !isspace(*p); p++); mh->replyto = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	mh->replyto = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); mh->read = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	mh->read = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); mh->hash = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	mh->hash = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); mh->number = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	mh->number = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); mh->dname = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	mh->dname = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); mh->mname = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	mh->mname = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); mh->dnum = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	mh->dnum = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); mh->time = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	mh->time = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); mh->dtz = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	mh->dtz = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); mh->year = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	mh->year = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); mh->from = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	mh->from = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); mh->author = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	mh->author = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); mh->to = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	mh->to = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); mh->recip = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	mh->recip = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); mh->dash = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	mh->dash = q;
 	for(;isspace(*p); *p++='\0');
 
 	mh->subject = p;
@@ -748,7 +778,7 @@ int mailread (char *in) {
 			mailreserves_write(U.id,U.mailreserves);
 			strcpy(mh.hash,"#");
 			sprintf(filename,"%s/%s/.mail/hdr.%d",C.maildirs,U.id,msgno[0]);
-			if (FIL = fopen(filename,"w")) {
+			if ((FIL = fopen(filename,"w"))) {
 				fprintf(FIL,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s\n",mh.replyto,mh.read,mh.hash,mh.number,mh.dname,mh.mname,mh.dnum,mh.time,mh.dtz,mh.year,mh.from,mh.author,mh.to,mh.recip,mh.dash,mh.subject);
 				fclose(FIL);
 			}
@@ -855,7 +885,7 @@ void grabmail (char mode,char *user,int *msglist) {
 				mailreserves_write(U.id,U.mailreserves);
 				strcpy(mh.hash,"#");
 				sprintf(filename,"%s/%s/.mail/hdr.%d",C.maildirs,U.id,msgno[0]);
-				if (FIL = fopen(filename,"w")) {
+				if ((FIL = fopen(filename,"w"))) {
 					fprintf(FIL,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s\n",mh.replyto,mh.read,mh.hash,mh.number,mh.dname,mh.mname,mh.dnum,mh.time,mh.dtz,mh.year,mh.from,mh.author,mh.to,mh.recip,mh.dash,mh.subject);
 					fclose(FIL);
 				}
@@ -1005,7 +1035,7 @@ void workmail (char mode,char *user,int *msglist) {
 				mailreserves_write(U.id,U.mailreserves);
 				strcpy(mh.hash,"#");
 				sprintf(filename,"%s/%s/.mail/hdr.%d",C.maildirs,U.id,msgno[0]);
-				if (FIL = fopen(filename,"w")) {
+				if ((FIL = fopen(filename,"w"))) {
 					fprintf(FIL,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s\n",mh.replyto,mh.read,mh.hash,mh.number,mh.dname,mh.mname,mh.dnum,mh.time,mh.dtz,mh.year,mh.from,mh.author,mh.to,mh.recip,mh.dash,mh.subject);
 					fclose(FIL);
 				}
@@ -1643,7 +1673,7 @@ int get_unix_mail (char mode,char *user) {
 				if (!string[1]) {
 					before_body = 0;
 				} else {
-					if (value = strchr(string,':')) {
+					if ((value = strchr(string,':'))) {
 						*value = 0;
 						while(isspace(*++value)) *value=0;
 						field = string;
@@ -1858,7 +1888,7 @@ int copy_maillist (char mode, char *to, int *fromlist) {
 
 		sprintf(filename,"%s/%s.temp",C.tmpdir,U.id);
 		sprintf(inbody,"%s/%s/.mail/msg.%d",C.maildirs,U.id,fromlist[place]);
-		if (FIL = fopen(filename,"w")) {
+		if ((FIL = fopen(filename,"w"))) {
 			fprintf(FIL,"Copied from private mail by %s\n",U.id);
 			fputs("------\n\n",FIL);
 			fclose(FIL);

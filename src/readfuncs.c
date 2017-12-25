@@ -208,7 +208,7 @@ void grab_area_message(char mode,char *area, int msgno) {
 	free(header);
 
 	sprintf(filename,"%s/%s/msg.%d",C.areasdir,area,msgno);
-	if (BODY=fopen(filename,"r")) {
+	if ((BODY=fopen(filename,"r"))) {
 		while(fgets(buffer,1022,BODY)) {
 			if (buffer[0] == '.') {
 			/* only while putting strips ALL leading dots */
@@ -452,7 +452,7 @@ int write_main (char cmd,char *in) {
 	} else {
 
 		sprintf(filename,"%s/%s/msg.%d",C.areasdir,G.areaname,parent);
-		if (FIL = fopen(filename,"r")) {
+		if ((FIL = fopen(filename,"r"))) {
 			fgets(subject,MAINLINE,FIL);
 			shiftword(subject,temp,5);
 			tnt(subject);
@@ -481,7 +481,7 @@ int write_main (char cmd,char *in) {
 
 	if (G.areaflags[SIGS] != '0') {
 		sprintf(filename,"%s/%s/.sig",C.privatefiles,U.id);
-		if (FIL = fopen(filename,"r")) {
+		if ((FIL = fopen(filename,"r"))) {
 			int numread = 0;
 			char *sig = (char *)malloc(C.siglength + 1);
 			numread = fread(sig,1,C.siglength,FIL);
@@ -553,14 +553,14 @@ int wait_mod (const char mode, const char *sender, const char *area,
 
 		/* See if anyones already had it */
 		sprintf(filename,"%s/%s/pending/hdr.%d",C.areasdir,area,msgno);
-		if (FIL = fopen(filename,"r")) {
+		if ((FIL = fopen(filename,"r"))) {
 			fclose(FIL);
 			sleep(1);
 			continue;
 		}
 
 		sprintf(filename,"%s/%s/pending/hdr.%d",C.areasdir,area,msgno);
-		if (FIL = fopen(filename,"w")) {
+		if ((FIL = fopen(filename,"w"))) {
 			fprintf(FIL,"%s %s %c %d %s",sender,area,cmd,parent,subject);
 			fclose(FIL);
 		} else {
@@ -672,7 +672,7 @@ int send_now (const char mode, const char *sender, const char *area,
 	/* the message is now in the area - not linked yet, though... */
 
 	sprintf(filename,"%s/%s/hdr.%d",C.areasdir,area,parent);
-	if (FIL = fopen(filename,"r+")) { /* fail if not found */
+	if ((FIL = fopen(filename,"r+"))) { /* fail if not found */
 		fseek(FIL, 0, SEEK_END);
 		fprintf(FIL,"%d ",sent);
 		fclose(FIL);
@@ -682,7 +682,7 @@ int send_now (const char mode, const char *sender, const char *area,
 		parse_area_header(tempheader,&phs);
 		previous = atoi(phs.prev);
 		sprintf(filename,"%s/%s/hdr.%d",C.areasdir,area,base);
-		if (FIL = fopen(filename,"w")) {
+		if ((FIL = fopen(filename,"w"))) {
 			fprintf(FIL,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %d\n%s",
 				phs.flag,phs.number,phs.dname,phs.mname,phs.dom,phs.time,
 				phs.tzname,phs.year,phs.from,phs.author,phs.narrative,phs.hash,
@@ -697,7 +697,7 @@ int send_now (const char mode, const char *sender, const char *area,
 	if ( (tempheader = definemsg('q',area,previous)) != NULL) {
 		parse_area_header(tempheader,&phs);
 		sprintf(filename,"%s/%s/hdr.%d",C.areasdir,area,previous);
-		if (FIL = fopen(filename,"w")) {
+		if ((FIL = fopen(filename,"w"))) {
 			fprintf(FIL,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %d %s\n%s",
 				phs.flag,phs.number,phs.dname,phs.mname,phs.dom,phs.time,
 				phs.tzname,phs.year,phs.from,phs.author,phs.narrative,phs.hash,
@@ -710,7 +710,7 @@ int send_now (const char mode, const char *sender, const char *area,
 	if ( (tempheader = definemsg('q',area,sent)) != NULL) {
 		parse_area_header(tempheader,&phs);
 		sprintf(filename,"%s/%s/hdr.%d",C.areasdir,area,sent);
-		if (FIL = fopen(filename,"w")) {
+		if ((FIL = fopen(filename,"w"))) {
 			fprintf(FIL,"%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %d %s %d\n%s",
 				phs.flag,phs.number,phs.dname,phs.mname,phs.dom,phs.time,
 				phs.tzname,phs.year,phs.from,phs.author,phs.narrative,phs.hash,
@@ -913,7 +913,7 @@ int scan_area (char *params) {
 				continue;					
 			}							
 			sprintf(filename,"%s/%s/.areas/%s",C.users,U.id,areascout);
-			if (FIL = fopen(filename,"r")) {
+			if ((FIL = fopen(filename,"r"))) {
 				fscanf(FIL," %d ",&temppointer);
 				fclose(FIL);
 			} else {
@@ -973,7 +973,7 @@ int scan_area (char *params) {
 			}							
 
 			sprintf(filename,"%s/%s/.areas/%s",C.users,U.id,areascout);
-			if (FIL = fopen(filename,"r")) {
+			if ((FIL = fopen(filename,"r"))) {
 				fscanf(FIL," %d ",&temppointer);
 				fclose(FIL);
 
@@ -1312,7 +1312,7 @@ int set_pointers (char *areascout) {
 
 
 	sprintf(filename,"%s/%s/.areas/%s",C.users,U.id,areascout);
-	if (FIL = fopen(filename,"r")) {
+	if ((FIL = fopen(filename,"r"))) {
 		fscanf(FIL," %d ",&temp_pointer);
 		fclose(FIL);
 	} else {
@@ -1320,7 +1320,7 @@ int set_pointers (char *areascout) {
 	}
 
 	sprintf(filename,"%s/%s/highest",C.areasdir,areascout);
-	if (FIL = fopen(filename,"r")) {
+	if ((FIL = fopen(filename,"r"))) {
 		fscanf(FIL," %d ",&temp_highmsg);
 		fclose(FIL);
 	} else {
@@ -1335,7 +1335,7 @@ int set_pointers (char *areascout) {
 	}
 
 	sprintf(filename,"%s/%s/msgindex",C.areasdir,areascout);
-	if (FIL = fopen(filename,"r")) {
+	if ((FIL = fopen(filename,"r"))) {
 		/* CHECKED - overprotected! */
 		if (temp_highmsg > 4000) {
 			temp_highmsg = 4000;
@@ -1380,7 +1380,7 @@ int area_clearup (void) {
 	G.pointer = scout;
 
 	sprintf(filename,"%s/%s/.areas/%s",C.users,U.id,G.areaname);
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		fprintf(FIL,"%d\n",G.pointer);
 		fclose(FIL);
 		return 1;
@@ -1450,7 +1450,7 @@ int news (char *dummy) {
 	if (is_area_elig('q',C.newsarea)) {
 		newshigh = get_int_from_userfile(".newshigh",U.id);
 		sprintf(filename,"%s/%s/highest",C.areasdir,C.newsarea);
-		if (FIL = fopen(filename,"r")) {
+		if ((FIL = fopen(filename,"r"))) {
 			fscanf(FIL," %d ",&highmsg);
 			fclose(FIL);
 			if (newshigh < highmsg) {
@@ -1556,7 +1556,7 @@ int point (char *params) {
 		} else {
 			return result;
 		}
-	} else if (vm = get_valid_messages('q',G.areaname,"",G.current,params,0)) {
+	} else if ((vm = get_valid_messages('q',G.areaname,"",G.current,params,0))) {
 		result = vm->msglist[0];
 		free(vm->parse);
 		free(vm->msglist);
@@ -1645,7 +1645,7 @@ int jump (char *in) {
 		/*printf("All messages marked as read.\n");*/
 		printf("%s\n",Ustring[73]);
 		return 1;
-	} else if (p = point(temp)) {
+	} else if ((p = point(temp))) {
 		G.pointer = (p - 1);
 		moretoread(G.pointer);
 		G.chain[0] = 0;
@@ -1690,7 +1690,7 @@ int skip (char *in) {
 	}
 
 	if (!Dstrcmp(temp,Ustring[34])) { /*thread*/
-		if (msglist = definethread ('v',G.areaname,G.current)) {
+		if ((msglist = definethread ('v',G.areaname,G.current))) {
 			for(i=0;msglist[i];i++) {
 				G.mymsgindex[msglist[i]] = tolower(G.mymsgindex[msglist[i]]);
 			}
@@ -1705,7 +1705,7 @@ int skip (char *in) {
 		}
 
 	} else if (!Dstrcmp(temp,Ustring[35])) { /*branch*/
-		if (msglist = definetree('v',G.areaname,G.current)) {
+		if ((msglist = definetree('v',G.areaname,G.current))) {
 			for(i=0;msglist[i];i++) {
 				G.mymsgindex[msglist[i]] = tolower(G.mymsgindex[msglist[i]]);
 			}
@@ -2445,7 +2445,7 @@ int *definetree (const char mode, const char *area, const int msgno) {
 	temptree[k + (unsigned)1] = 0;
 	k++;
 	for (i=1;thread[i];i++) {
-		if (header = definemsg('q',area,thread[i])) {
+		if ((header = definemsg('q',area,thread[i]))) {
 			parse_area_header(header,&ah);
 			test_parent = atoi(ah.parent);	/*parent of one under scrutiny */
 
@@ -2728,7 +2728,7 @@ int detach_messages (char *area, int msgno, int *sublist) {
 		return 0;
 	}
 
-	if (oldheader = definemsg('q',area,from_msg)) {
+	if ((oldheader = definemsg('q',area,from_msg))) {
 		newheader = strdup(oldheader);
 		newheader[0] = 0;
 
@@ -3609,7 +3609,7 @@ int copy_list (char mode, char *from, char *to, int *fromlist) {
 		place++;
 
 		sprintf(filename,"%s/%s/hdr.%d",C.areasdir,to,reply_no);
-		if (FIL = fopen(filename,"a")) {
+		if ((FIL = fopen(filename,"a"))) {
 			fprintf(FIL,"%d ",sending);
 			fclose(FIL);
 		}
@@ -3631,11 +3631,11 @@ char *compose_msgbody (char *area, int msgno, char *msgfile) {
 
 
 	sprintf(inbody,"%s/%s/msg.%d",C.areasdir,area,msgno);
-	if (IN = fopen(inbody,"r")) {
+	if ((IN = fopen(inbody,"r"))) {
 		fgets(subject,MAINLINE,IN);
 		shiftword(subject,temp,5);
 		tnt(subject);
-		if (OUT = fopen(msgfile,"w")) {
+		if ((OUT = fopen(msgfile,"w"))) {
 			fprintf(OUT,"Copied from %s by %s\n",area,U.id);
 			fputs("------\n\n",OUT);
 			fclose(OUT);
@@ -3722,7 +3722,7 @@ int flagmsg (char *in) {
 		header[0] = '#';
 	}
 	sprintf(filename,"%s/%s/hdr.%d",C.areasdir,G.areaname,vm->msglist[0]);
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		fputs(header,FIL);
 		fclose(FIL);
 		result = 1;
@@ -3912,7 +3912,7 @@ int textsearch (char *in) {
 	if (re) {
 		for(i=startnum;i<=stopnum;i++) {
 			sprintf(filename,"%s/%s/msg.%d",C.areasdir,G.areaname,i);
-			if (FIL = fopen(filename,"r")) {
+			if ((FIL = fopen(filename,"r"))) {
 				while (fgets(line,MAINLINE,FIL)) {
 					j=strlen(line)-1;
 					while(j && isspace(line[j])) {
@@ -4061,7 +4061,7 @@ int listheaders (char *in) {
 		}
 	/*} else if (!strcmp(string,"d") || !strcmp(string,"thread")) {*/
 	} else if (!Dstrcmp(string,Ustring[43]) || !Dstrcmp(string,"thread")) {
-		if (msglist = definethread('v',G.areaname,G.current)) {
+		if ((msglist = definethread('v',G.areaname,G.current))) {
 			startnum = msglist[0];
 			for (i=0;msglist[i];i++) {
 				linecount += list_one(G.areaname,msglist[i]);
@@ -4078,7 +4078,7 @@ int listheaders (char *in) {
 		}
 	/*} else if (!strcmp(string,"h") || !strcmp(string,"branch")) {*/
 	} else if (!Dstrcmp(string,Ustring[195]) || !Dstrcmp(string,"branch")) {
-		if (msglist = definetree('v',G.areaname,G.current)) {
+		if ((msglist = definetree('v',G.areaname,G.current))) {
 			startnum = msglist[0];
 			for (i=0;msglist[i];i++) {
 				linecount += list_one(G.areaname,msglist[i]);
@@ -4093,7 +4093,7 @@ int listheaders (char *in) {
 		} else {
 			return 0;
 		}
-	} else if (startnum = point(string)) {
+	} else if ((startnum = point(string))) {
 		for (i=startnum;i<=G.highmsg;i++) {
 			if (strchr("BbMmRr",G.mymsgindex[i])) {
 				linecount += list_one(G.areaname,i);
@@ -4134,7 +4134,7 @@ int list_one (char *area,int msgno) {
 	}
 
 	sprintf(filename,"%s/%s/msg.%d",C.areasdir,area,msgno);
-	if (FIL = fopen(filename,"r")) {
+	if ((FIL = fopen(filename,"r"))) {
 		fgets(subject,MAINLINE,FIL);
 		shiftword(subject,response,2);
 		tnt(subject);
@@ -4172,7 +4172,7 @@ int participants (char *dummy) {
 	while (list[0]) {
 		shiftword(list,party,9);		
 		sprintf(temp,"%s/%s/.areas/%s",C.users,party,G.areaname);
-		if (FIL = fopen(temp,"r")) {
+		if ((FIL = fopen(temp,"r"))) {
 			reached = 0;
 			fscanf(FIL," %d ",&reached);
 			printf("%-10s %4d\n",party,reached);
@@ -4233,7 +4233,7 @@ int countmsgs (char *area, int msgno) {
 	char filename[MAINLINE + 100];
 
 	sprintf(filename,"%s/%s/msgindex",C.areasdir,area);
-	if (FIL = fopen(filename,"r")) {
+	if ((FIL = fopen(filename,"r"))) {
 		fseek(FIL,msgno,SEEK_SET);
 		while (fread(&c,1,1,FIL)) {
 			if (strchr("BM",c)) {
@@ -4442,7 +4442,7 @@ int list_areas(char *wantedflags, int level, char *usermask) {
 			
 			desc[0] = 0;
 			sprintf(filename,"%s/%s/description",C.areasdir,onearea);
-			if (FIL = fopen(filename,"r")) {
+			if ((FIL = fopen(filename,"r"))) {
 				fgets(desc,52,FIL);
 				tnt(desc);
 				fclose(FIL);
@@ -4553,7 +4553,7 @@ int create_area (char *areascout,char *desc) {
 	}
 
 	sprintf(filename,"%s/%s/highest",C.areasdir,areascout);
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		fputs("0\n",FIL);
 		fclose(FIL);
 	} else {
@@ -4572,7 +4572,7 @@ int create_area (char *areascout,char *desc) {
 	}
 
 	sprintf(filename,"%s/%s/msgindex",C.areasdir,areascout);
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		fputs("0",FIL);
 		fclose(FIL);
 	} else {
@@ -4583,7 +4583,7 @@ int create_area (char *areascout,char *desc) {
 	}
 
 	sprintf(filename,"%s/%s/members",C.areasdir,areascout);
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		fprintf(FIL,"%s\n",U.id);
 		fclose(FIL);
 	} else {
@@ -4594,7 +4594,7 @@ int create_area (char *areascout,char *desc) {
 	}
 
 	sprintf(filename,"%s/%s/chair",C.areasdir,areascout);
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		fprintf(FIL,"%s\n",U.id);
 		fclose(FIL);
 	} else {
@@ -4605,7 +4605,7 @@ int create_area (char *areascout,char *desc) {
 	}
 
 	sprintf(filename,"%s/%s/gagged",C.areasdir,areascout);
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		fclose(FIL);
 	} else {
 		/*printf("Could not write %s.\n",filename);*/
@@ -4615,7 +4615,7 @@ int create_area (char *areascout,char *desc) {
 	}
 
 	sprintf(filename,"%s/%s/flags",C.areasdir,areascout);
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		fprintf(FIL,"%s\n",&C.newareaflags[1]);
 		fclose(FIL);
 	} else {
@@ -4626,7 +4626,7 @@ int create_area (char *areascout,char *desc) {
 	}
 
 	sprintf(filename,"%s/%s/areamask",C.areasdir,areascout);
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		fprintf(FIL,"%s\n",&C.newareamask[1]);
 		fclose(FIL);
 	} else {
@@ -4637,7 +4637,7 @@ int create_area (char *areascout,char *desc) {
 	}
 
 	sprintf(filename,"%s/%s/description",C.areasdir,areascout);
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		fprintf(FIL,"%s\n",desc);
 		fclose(FIL);
 	} else {
@@ -4759,7 +4759,7 @@ int describe (char *dummy) {
 	flushcom("");
 
 	sprintf(filename,"%s/%s/description",C.areasdir,G.areaname);
-	if (FIL = fopen(filename,"r")) {
+	if ((FIL = fopen(filename,"r"))) {
 		fgets(desc,51,FIL);
 		tnt(desc);
 		fclose(FIL);
@@ -4779,7 +4779,7 @@ int describe (char *dummy) {
 	} else {
 		return 0;
 	}
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		sprintf(temp,"%s\n",desc);
 		fputs(temp,FIL);
 		fclose(FIL);
@@ -4984,7 +4984,7 @@ int setarea_level(char *in) {
 		return 0;
 	}
 
-	if (result = set_arealevel(G.areaname,levelstring)) {
+	if ((result = set_arealevel(G.areaname,levelstring))) {
 		G.arealevel = arealevel_read(G.areaname);
 		/*printf("Level set to %s.\n");*/
 		printf(Ustring[387],Ustring[166],levelstring);
@@ -5077,7 +5077,7 @@ int areaflags_read (char *area,char *flags) {
 
 	flags[0] = '#';
 	sprintf(filename,"%s/%s/flags",C.areasdir,area);
-	if (CFG = fopen(filename,"r")) {
+	if ((CFG = fopen(filename,"r"))) {
 		while ((i <= AFLAGMAX) && !feof(CFG)) {
 			fread(&c,1,1,CFG);
 			if (!isgraph(c)) {
@@ -5199,7 +5199,7 @@ int set_areaflag (char *area, int flag, char value) {
 
 	aflags[flag] = value;
 	sprintf(filename,"%s/%s/flags",C.areasdir,G.areaname);
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		fprintf(FIL,"%s\n",&aflags[1]);
 		fclose(FIL);
 	} else {
@@ -5216,7 +5216,7 @@ int areamask_read (char *area,char *flags) {
 
 	flags[0] = '#';
 	sprintf(filename,"%s/%s/areamask",C.areasdir,area);
-	if (CFG = fopen(filename,"r")) {
+	if ((CFG = fopen(filename,"r"))) {
 		while ((i <= UFLAGMAX) && !feof(CFG)) {
 			fread(&c,1,1,CFG);
 			if (!isgraph(c)) {
@@ -5338,7 +5338,7 @@ int set_maskflag (char *area, int flag, char value) {
 
 	mflags[flag] = value;
 	sprintf(filename,"%s/%s/areamask",C.areasdir,G.areaname);
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		fprintf(FIL,"%s\n",&mflags[1]);
 		fclose(FIL);
 	} else {
@@ -5376,7 +5376,7 @@ int maskmenu (char *area) {
 			}
 
 			sprintf(filename,"%s/%s/areamask",C.areasdir,area);
-			if (FIL = fopen(filename,"w")) {
+			if ((FIL = fopen(filename,"w"))) {
 				fprintf(FIL,"%s\n",&C.newareamask[1]);
 				fclose(FIL);
 			} else {
@@ -5463,7 +5463,7 @@ int areaflagmenu (char *area) {
 			}
 
 			sprintf(filename,"%s/%s/flags",C.areasdir,G.areaname);
-			if (FIL = fopen(filename,"w")) {
+			if ((FIL = fopen(filename,"w"))) {
 				fprintf(FIL,"%s\n",&C.newareaflags[1]);
 				fclose(FIL);
 			} else {
@@ -5533,41 +5533,77 @@ int parse_area_header(char *header, struct areaheader *h) {
 
 	p = header;
 
-	for(q = p; !isspace(*p); p++); h->flag = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	h->flag = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); h->number = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	h->number = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); h->dname = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	h->dname = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); h->mname = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	h->mname = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); h->dom = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	h->dom = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); h->time = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	h->time = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); h->tzname = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	h->tzname = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); h->year = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	h->year = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); h->from = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	h->from = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); h->author = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	h->author = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); h->narrative = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	h->narrative = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); h->hash = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	h->hash = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); h->parent = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	h->parent = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); h->by = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	h->by = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); h->parentby = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	h->parentby = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); h->base = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	h->base = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); h->next = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	h->next = q;
 	for(;isspace(*p); *p++='\0');
-	for(q = p; !isspace(*p); p++); h->prev = q;
+	for(q = p; !isspace(*p); p++)
+		; 
+	h->prev = q;
 	for(;isspace(*p); *p++='\0');
 
 	h->footer = p;
@@ -5933,7 +5969,7 @@ int createvotemsg (char *in) {
 	}
 
 	sprintf(filename,"%s/%s/vote.%d",C.areasdir,G.areaname,message);
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		fclose(FIL);
 		/*printf("Message %d flagged as vote.\n",message);*/
 		printf(Ustring[106],message,Ustring[496]);
@@ -6004,7 +6040,7 @@ int vote (char *in) {
 	free(vm);
 
 	sprintf(filename,"%s/%s/vote.%d",C.areasdir,G.areaname,message);
-	if (FIL = fopen(filename,"r")) {
+	if ((FIL = fopen(filename,"r"))) {
 		while (fgets(temp,11,FIL)) {
 			shiftword(temp,vote_opt,2);
 			shiftword(temp,tempid,9);
@@ -6032,7 +6068,7 @@ int vote (char *in) {
 	}
 
 	sprintf(filename,"%s/%s/vote.%d",C.areasdir,G.areaname,message);
-	if (FIL = fopen(filename,"a")) {
+	if ((FIL = fopen(filename,"a"))) {
 		fprintf(FIL,"%c %s\n",vote_opt[0],U.id);
 		fclose(FIL);
 		return 1;

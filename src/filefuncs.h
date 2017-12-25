@@ -30,8 +30,8 @@ struct prototab {
 };
 
 
-int cfgfiles_parse (FILE *CFG, char F[][5][MAINLINE]);
-void cfgfiles_read (char F[][5][MAINLINE]);
+int cfgfiles_parse (FILE *CFG, char F[][6][MAINLINE]);
+void cfgfiles_read (char F[][6][MAINLINE]);
 int   copy_desc (char *fromparent, char *toparent, char *file);
 int   describe_file (char *dir,char *file);
 int   dirmake (char *newdir);

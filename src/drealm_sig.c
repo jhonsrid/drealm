@@ -29,7 +29,9 @@ void (*Dsigset(int signum, void (*handler)(int)))(int) {
 	sa.sa_mask.sa_sigbits[3] = 0;
 #else
 	sigemptyset(&sa.sa_mask);
+#if !defined(__APPLE__)
 	sa.sa_restorer = 0;
+#endif
 #endif
 	sa.sa_flags = 0;
 

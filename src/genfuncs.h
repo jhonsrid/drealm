@@ -43,8 +43,11 @@ int   	strshift(char *bigstring, char *smallstring, const size_t smallmax, const
 int   	menushift(char *bigstring, char *smallstring, const size_t smallmax, const char *splitstring, size_t *got_to);
 void  	tnt(char *string);
 void  	upper_string(char *string);
-int	strsort(const void *x, const void *y);
+int		strsort(const void *x, const void *y);
 void  	random_init(void);
 int 	get_int_from_file (char *filename);
+
+/* compat.c */
+char	*cuserid_s(char *s, int sz);
 
 #define isdelim(x)	(isspace(x) || (x == ','))

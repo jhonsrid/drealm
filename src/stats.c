@@ -119,8 +119,8 @@ int main(int argc, char *argv[]) {
 	RT = fopen(filename,"w");
 
 
-	if (DIRT = opendir(C.users)) {
-		while (d = readdir(DIRT)) {
+	if ((DIRT = opendir(C.users))) {
+		while ((d = readdir(DIRT))) {
 			strncpy(user,d->d_name,8);
 			user[8] = 0;
 
@@ -153,7 +153,7 @@ int main(int argc, char *argv[]) {
 			}
 	
 			sprintf(filename,"%s/%s/.totalmessages",C.users,user);	
-			if (TMP = fopen(filename,"r")) {
+			if ((TMP = fopen(filename,"r"))) {
 				fscanf(TMP," %d ",&messages);
 				fclose(TMP);
 			} else {
@@ -162,7 +162,7 @@ int main(int argc, char *argv[]) {
 			fprintf(PT,"%-16s%5d\n",user,messages);
 
 			sprintf(filename,"%s/%s/.totalcalls",C.users,user);	
-			if (TMP = fopen(filename,"r")) {
+			if ((TMP = fopen(filename,"r"))) {
 				fscanf(TMP," %d ",&calls);
 				fclose(TMP);
 			} else {
@@ -189,17 +189,17 @@ int main(int argc, char *argv[]) {
 	dlmdate = drealmtime(nowdate);
 
 	sprintf(filename,"%s/callerstats",C.datadir);
-	if (TMP = fopen(filename,"w")) {
+	if ((TMP = fopen(filename,"w"))) {
 		fprintf(TMP,"Call Stats - compiled %s\n",dlmdate);
 		fclose(TMP);
 	}
 	sprintf(filename,"%s/posterstats",C.datadir);
-	if (TMP = fopen(filename,"w")) {
+	if ((TMP = fopen(filename,"w"))) {
 		fprintf(TMP,"Message Posting Stats - compiled %s\n",dlmdate);
 		fclose(TMP);
 	}
 	sprintf(filename,"%s/ratiostats",C.datadir);
-	if (TMP = fopen(filename,"w")) {
+	if ((TMP = fopen(filename,"w"))) {
 		fprintf(TMP,"Message:Calls Ratio - compiled %s\n",dlmdate);
 		fclose(TMP);
 	}

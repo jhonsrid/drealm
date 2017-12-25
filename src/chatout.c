@@ -223,7 +223,7 @@ static int chatout_init (enum colour_names rcolour, char *tmpdir, char *id) {
 
 	/* If there is a conf.<user>, get the pid from it */
 	(void)sprintf(endpoint,"%s/conf.%s",tmpdir,id);
-	if (F = fopen(endpoint,"r")) {
+	if ((F = fopen(endpoint,"r"))) {
 		(void)fscanf(F," %d ",&parent);
 		(void)fclose(F);
 	} else {

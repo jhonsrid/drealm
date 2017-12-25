@@ -142,11 +142,11 @@ int is_line_elig (struct line_details *ld,char *user) {
 	}
 	if (ld->level > 0) {
 		sprintf(filename,"%s/level.%d",C.configdir,ld->ln);
-		if (CFG = fopen(filename,"r")) {
+		if ((CFG = fopen(filename,"r"))) {
 			fscanf(CFG," %d ",&i);
 			fclose(CFG);
 			sprintf(filename,"%s/%s/.level",C.users,user);
-			if (CFG = fopen(filename,"r")) {
+			if ((CFG = fopen(filename,"r"))) {
 				fscanf(CFG," %d ",&f);
 				fclose(CFG);
 				if (f < i) {
@@ -202,7 +202,7 @@ struct line_details *get_line_details (char *dev) {
 	ld->shells = 0;
 
 	sprintf(filename,"%s/config.nodes",C.configdir);
-	if (FIL = fopen(filename,"r")) {
+	if ((FIL = fopen(filename,"r"))) {
 		i = 0;
 		while (fgets(temp,1024,FIL) && (!G.maxusers || (i < G.maxusers))) {
 			tnt(temp);
@@ -346,7 +346,7 @@ static char *create_lock(const char *lockname, const pid_t pid) {
 	(void)strncpy(my_lock,lockname, MAINLINE + 105);
 	my_lock[MAINLINE + 104] = 0;
 
-	if (p=strrchr(my_lock,'/')) {
+	if ((p=strrchr(my_lock,'/'))) {
 		p++;
 	} else {
 		p=my_lock;

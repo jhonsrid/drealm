@@ -854,10 +854,10 @@ int catalogue (char *dummy) {
 		if ((!stat(filename,&sb)) && !S_ISDIR(sb.st_mode)) {
 			date = drealmtime(sb.st_mtime);
 			if (C.canchown && (pw = getpwuid(sb.st_uid)) ) {
-				printf("%-20s %10ld %s %s %s\n",
+				printf("%-20s %10lld %s %s %s\n",
 					name, sb.st_size, date, Ustring[260], pw->pw_name);
 			} else {
-				printf("%-20s %10ld %s\n",name,sb.st_size,date);
+				printf("%-20s %10lld %s\n",name,sb.st_size,date);
 			}
 			free(date);
 
@@ -873,7 +873,7 @@ int catalogue (char *dummy) {
 			sprintf(filename,"%s/filedescs/%s",G.dir,name);
 			linecount++;
 			if (!stat(filename,&sb) && (sb.st_size > 0)) {
-				if (FIL = fopen(filename,"r")) {
+				if ((FIL = fopen(filename,"r"))) {
 					while (fgets(filename,80,FIL)) {
 						k = strlen(filename) - 1;
 						if (filename[k] == '\n') {
@@ -1180,7 +1180,7 @@ char *uploading (char *dir, char *params) {
 	time_t starttime = time(0);
 	int i = 0;
 	int choice;
-	char F[8][5][MAINLINE];
+	char F[8][6][MAINLINE];
 	char temp[1024];
 	char changed[1024];
 	char src_file[MAINLINE * 2];
@@ -1245,8 +1245,8 @@ char *uploading (char *dir, char *params) {
 	}
 
 	
-	if (DIRT = opendir(G.home)) {
-		while (dent = readdir(DIRT)) {
+	if ((DIRT = opendir(G.home))) {
+		while ((dent = readdir(DIRT))) {
 			if (dent->d_name[0] == '.') {
 				continue;
 			}
@@ -1421,7 +1421,7 @@ int downloading (int bf, char *dir, char *files) {
 	char filename[MAINLINE + 100];
 	char command[MAINLINE + MAINLINE + 100];
 	char temp[MAINLINE];
-	char F[8][5][MAINLINE];
+	char F[8][6][MAINLINE];
 	char *copy = strdup(files);
 	char *copyfiles;
 
@@ -1521,13 +1521,13 @@ int downloading (int bf, char *dir, char *files) {
 }
 
 
-void cfgfiles_read (char F[][5][MAINLINE]) {
+void cfgfiles_read (char F[][6][MAINLINE]) {
 	char filename[MAINLINE + 50];
 	FILE *CFG;
 
 	F[0][0][0] = 0;
 	sprintf(filename,"%s/config.files",C.configdir);
-	if (CFG = fopen(filename,"r")) {
+	if ((CFG = fopen(filename,"r"))) {
 
 		if (cfgfiles_parse(CFG,F)) {
 			fclose(CFG);
@@ -1543,7 +1543,7 @@ void cfgfiles_read (char F[][5][MAINLINE]) {
 	}
 }
 
-int cfgfiles_parse (FILE *CFG, char F[][5][MAINLINE]) {
+int cfgfiles_parse (FILE *CFG, char F[][6][MAINLINE]) {
 	int i = 0;
 	char result[MAINLINE];
 	int totalshift = 0;
@@ -1857,7 +1857,7 @@ void search_descs (char recurse,int *stopped,int *nr_found,int *linecount, char 
 
 
 	if (re) {
-		if (DIRT = opendir(descdir)) {
+		if ((DIRT = opendir(descdir))) {
 			/* LINTED */
 			while ((d = readdir(DIRT)) && !*stopped) {
 				if (G.intflag)  {
@@ -1867,7 +1867,7 @@ void search_descs (char recurse,int *stopped,int *nr_found,int *linecount, char 
 					continue;
 				}
 				sprintf(filename,"%s/%s",descdir,d->d_name);
-				if (FIL = fopen(filename,"r")) {
+				if ((FIL = fopen(filename,"r"))) {
 					while (fgets(line,MAINLINE,FIL)) {
 						j=strlen(line)-1;
 						while(j && isspace(line[j])) {

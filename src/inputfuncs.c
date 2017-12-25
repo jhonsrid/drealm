@@ -73,9 +73,15 @@ void store_term(void) {
 }
 
 void restore_term(void) {
+#if defined (__APPLE__)
+	if (cfgetispeed(&storedterm)) {
+		tcsetattr(0, TCSAFLUSH,&storedterm);
+	}
+#else
 	if (storedterm.c_cflag & CBAUD) {
 		tcsetattr(0,TCSAFLUSH,&storedterm);
 	}
+#endif
 }
 
 

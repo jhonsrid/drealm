@@ -116,7 +116,7 @@ struct valid_members *get_valid_members(const char mode, const int nr_matches,
 		return vm;
 	}
 
-	if (L = fopen(memberlist,"r")) {
+	if ((L = fopen(memberlist,"r"))) {
 		fclose(L);
 	} else {
 		if (mode == 'v') {
@@ -212,7 +212,7 @@ struct valid_members *get_valid_members(const char mode, const int nr_matches,
 		if (vm->input[0] && _get_valid_members(mode, nr_matches, prompt, memberlist, &array, case_sensitive)) {
 			l = array;
 			i = 0;
-			if (L = fopen(filename,"w")) {
+			if ((L = fopen(filename,"w"))) {
 				while(l) {
 					i += strlen(l->this) + 1;
 					fputs(l->this,L);
@@ -232,7 +232,7 @@ struct valid_members *get_valid_members(const char mode, const int nr_matches,
 	if (!stat(filename,&sb)) {
 		vm->members = (char *)malloc((unsigned)sb.st_size+1);
 		vm->members[0] = 0;
-		if (L = fopen(filename,"r")) {
+		if ((L = fopen(filename,"r"))) {
 			i = fread(vm->members,1,(unsigned)sb.st_size,L);
 			vm->members[i] = 0;
 			fclose(L);

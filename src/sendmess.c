@@ -100,7 +100,7 @@ int sendmess(const char mode, const char *areaname, const char *from,
 		return 0;
 	}
 	sprintf(filename,"%s/%s/highest",C.areasdir,areaname);
-	if (HANDLE = fopen(filename,"r")) {
+	if ((HANDLE = fopen(filename,"r"))) {
 	/* Opened okay - read the number */
 		fscanf(HANDLE," %d ",&msgno);
 		fclose(HANDLE);
@@ -137,7 +137,7 @@ int sendmess(const char mode, const char *areaname, const char *from,
 
 	/* Write the header */
 	sprintf(filename,"%s/%s/hdr.%d",C.areasdir,areaname,msgno);
-	if (HANDLE = fopen(filename,"w")) {
+	if ((HANDLE = fopen(filename,"w"))) {
 		fprintf(HANDLE,"# %d %s from %s %s %d - %d\n",
 			msgno, dlmtime, from, resthead, msgno, msgno);
 		fclose(HANDLE);
@@ -152,7 +152,7 @@ int sendmess(const char mode, const char *areaname, const char *from,
 
 	/* Write the body */
 	sprintf(filename,"%s/%s/msg.%d",C.areasdir,areaname,msgno);
-	if (HANDLE = fopen(filename,"w")) {
+	if ((HANDLE = fopen(filename,"w"))) {
 		fprintf(HANDLE,"Subject: %s\n\n",subject);
 		fclose(HANDLE);
 	}
@@ -160,7 +160,7 @@ int sendmess(const char mode, const char *areaname, const char *from,
 	dsystem(string);
 
 	sprintf(filename,"%s/%s/highest",C.areasdir,areaname);
-	if (HANDLE = fopen(filename,"w")) {
+	if ((HANDLE = fopen(filename,"w"))) {
 	/* Opened okay - write the new value back */
 		fprintf(HANDLE,"%d\n",msgno);
 		fclose(HANDLE);
@@ -182,7 +182,7 @@ int sendmess(const char mode, const char *areaname, const char *from,
 
 	/* Update msgindex (locked way up there ^^^) */
 	sprintf(filename,"%s/%s/msgindex",C.areasdir,areaname);
-	if (HANDLE=fopen(filename,"a")) {
+	if ((HANDLE=fopen(filename,"a"))) {
 		fputc(msgtype,HANDLE);
 		fclose(HANDLE);
 	} else {

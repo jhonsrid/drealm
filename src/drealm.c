@@ -462,7 +462,7 @@ struct inttab intvar[] = {
 	"msgpointer",		&G.pointer,
 	"mylevel",		&U.level,
 	"newuserlevel",		&C.newuserlevel,
-	"pausetime",		&U.pausetime,
+	"pausetime",		(int *)&U.pausetime,
 	"pvtfileslevel",	&C.pvtfileslevel,
 	"pvtmaillevel",		&C.pvtmaillevel,
 	"quickreturn",		&C.quickreturn,
@@ -514,6 +514,7 @@ int main(int argc, char *argv[]) {
 	time_t last_touch = 0;
 	char *checkdir;
 	char *thinga;
+	char userid[128];
 
 	user1_off();
 	user2_off();
@@ -588,7 +589,11 @@ int main(int argc, char *argv[]) {
 /*==================================================================*/
 /* Some pretty IMPORTANT starters ASAP please */
 
+#if defined(__APPLE__)
+	cuserid_s(U.id, sizeof(U.id));
+#else
 	strcpy(U.id,cuserid(NULL));
+#endif
 
 	if (!U.id[0]) {
 		printf("Cannot determine who you are.\n");
@@ -597,7 +602,7 @@ int main(int argc, char *argv[]) {
 	}
 
 	sprintf(temp,"%s/%s",C.tmpdir,U.id);
-	if (TMP = fopen(temp,"w")) {
+	if ((TMP = fopen(temp,"w"))) {
 		fclose(TMP);
 		remove(temp);
 	} else {
@@ -667,7 +672,7 @@ int main(int argc, char *argv[]) {
 
 		if (C.canlogin) {
 			sprintf(temp,"%s/%s/.shunt",C.users,U.id);
-			if (TMP = fopen(temp,"r")) {
+			if ((TMP = fopen(temp,"r"))) {
 				while (fgets(temp,80,TMP)) {
 					shiftword(temp,smalltemp,9);
 					sprintf(temp,"%s/conf.%s",C.tmpdir,smalltemp);

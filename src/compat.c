@@ -1,4 +1,4 @@
-#if 0
+/*
 drealmBBS - Bulletin Board System for Linux
 Copyright (C) 1994, 1995, 1996  Inge Cubitt and Peter Jones
 
@@ -17,49 +17,28 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 
 The GNU General Public License should be in a file called COPYING.
-#endif
-#define _POSIX_SOURCE
+*/
+
+/* ANSI headers */
 #include <stdio.h>
-#include <stdlib.h>
-#include <signal.h>
+#include <string.h>
+
+/* Non-ANSI headers */
 #include <unistd.h>
+#include <pwd.h>
 
-#define WRONGPARAMS 1
-#define NOTSUPPORTED 2
-#define NOADD 3
+/* cuserid emulation for platforms that don't have it. (But with one concession to string length safety) */
+char * cuserid_s(char *s, int sz)
+{
+	struct passwd *pwd;
+	if (!s) return (char *)NULL;
 
-/* argv1 is user, argv2 is tmpdir */
-
-int main (int argc, char *argv[]) {
-	char lockname[1024];
-	char pidstring[21];
-	int result = 0;
-	int pid = 0;
-	FILE *FIL;
-
-	if (argc != 3) {
-		exit(WRONGPARAMS);
+	if ((pwd = getpwuid(geteuid())) == NULL) {
+		*s = '\0';
 	}
-
-
-	(void)sprintf(lockname,"%s/conf.%s",argv[2],argv[1]);
-	if ((FIL = fopen(lockname,"r"))) {
-		(void)fgets(pidstring,20,FIL);
-		(void)fclose(FIL);
-		pidstring[20] = 0;
-		pid = atoi(pidstring);
-		if (pid) {
-	/*
-	 * Assume full authority
-	 */
-			(void)setuid(0);
-
-			if (kill(pid,SIGHUP)) {
-				result = 1;
-			}
-		}
+	else {
+		(void)strncpy(s, pwd->pw_name, sz);
 	}
-	exit(!result);
-	/* NOTREACHED */
+	return (s);
 }
 

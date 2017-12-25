@@ -73,7 +73,7 @@ int uflagnames (void) {
 	strcpy(C.uflagnames[10],"RESERVED");
 
 	sprintf(filename,"%s/config.uflags",C.configdir);
-	if (FIL = fopen(filename,"r")) {
+	if ((FIL = fopen(filename,"r"))) {
 		for (flagno=11;flagno < (UFLAGMAX + 1);flagno++) {
 			temp[0] = 0;
 			foundname = 0;
@@ -122,7 +122,7 @@ int aflagnames (void) {
 	strcpy(C.aflagnames[10],"RESERVED");
 
 	sprintf(filename,"%s/config.aflags",C.configdir);
-	if (FIL = fopen(filename,"r")) {
+	if ((FIL = fopen(filename,"r"))) {
 
 		for (flagno=11;flagno < (AFLAGMAX + 1);flagno++) {
 			temp[0] = 0;
@@ -155,7 +155,7 @@ int cfgdrealm_read (void) {
 	FILE *CFG;
 	int i;
 
-	if (CFG = fopen(C.configfile,"r")) {
+	if ((CFG = fopen(C.configfile,"r"))) {
 		i = cfgdrealm_parse(CFG);
 		fclose(CFG);
 		if (!i) {

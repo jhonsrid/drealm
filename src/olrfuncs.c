@@ -224,7 +224,7 @@ int olrput (char mode) {
 		return 0;
 	}
 	sprintf(filename,"%s/%s/.tfolrm",C.users,U.id);
-	if (FIL = fopen(filename,"w")) {
+	if ((FIL = fopen(filename,"w"))) {
 		i = 0;
 		while (fgets(line,MAINLINE,PUT)) {
 			if (is_msgsep(line) && i) {
@@ -262,7 +262,7 @@ int olrput (char mode) {
 	}
 
 	sprintf(filename,"%s/%s/putfile",C.privatefiles,U.id);
-	if (PUT = fopen(filename,"r")) {
+	if ((PUT = fopen(filename,"r"))) {
 		while(fgets(line,MAINLINE,PUT)) {
 			hups_off();
 			shiftword(line,temp,MAINLINE);
@@ -350,7 +350,7 @@ int make_message(FILE *PUT, char *filename) {
 	FILE *MSG;
 	char line[MAINLINE];
 
-	if (MSG = fopen(filename,"w")) {
+	if ((MSG = fopen(filename,"w"))) {
 		while(fgets(line,MAINLINE,PUT) && !is_msgsep(line)) {
 			if (line[0] == '.') {
 			/* This is just to strip out leading dots, see top of file*/
@@ -505,7 +505,7 @@ int putareamain(char cmd,char mode,char *params,FILE *PUT) {
 		strcpy(sendhead,"BASE-MESSAGE - - - -");
 	} else {
 		sprintf(filename,"%s/%s/msg.%d",C.areasdir,areaname,parent);
-		if (FIL = fopen(filename,"r")) {
+		if ((FIL = fopen(filename,"r"))) {
 			fgets(temp,MAINLINE,FIL);
 			shiftword(temp,tempa,5);
 			tnt(temp);
@@ -527,7 +527,7 @@ int putareamain(char cmd,char mode,char *params,FILE *PUT) {
 	areaflags_read(areaname,areaflags);
 	if (areaflags[SIGS] != '0') {
 		sprintf(filename,"%s/%s/.sig",C.privatefiles,U.id);
-		if (FIL = fopen(filename,"r")) {
+		if ((FIL = fopen(filename,"r"))) {
 			int numread;
 			char *sig = (char *)malloc(C.siglength + 1);
 			numread = fread(sig,1,C.siglength,FIL);
@@ -634,7 +634,7 @@ int grab_all_areas(char mode) {
 	}
 
 	sprintf(filename,"%s/%s/.scanlist",C.users,U.id);
-	if (SCANLIST = fopen(filename,"r")) {
+	if ((SCANLIST = fopen(filename,"r"))) {
 		if (mode != 'q') {
 			/*printf("\nScanning for new area messages.\nPress Ctrl-C to stop scanning.\n");*/
 			printf("%s", Ustring[490]);
@@ -653,7 +653,7 @@ int grab_all_areas(char mode) {
 				continue;
 			}
 			sprintf(filename,"%s/%s/highest",C.areasdir,areaname);
-			if (FIL = fopen(filename,"r")) {
+			if ((FIL = fopen(filename,"r"))) {
 				fscanf(FIL," %d ",&highmsg);
 				fclose(FIL);
 			} else {
@@ -668,7 +668,7 @@ int grab_all_areas(char mode) {
 			}
 			
 			sprintf(filename,"%s/%s/msgindex",C.areasdir,areaname);
-			if (FIL = fopen(filename,"r")) {
+			if ((FIL = fopen(filename,"r"))) {
 				fread(olr_msgindex,(unsigned)highmsg + 1,1,FIL);
 				olr_msgindex[highmsg + 1] = 0;
 				fclose(FIL);
@@ -683,7 +683,7 @@ int grab_all_areas(char mode) {
 				printf("\n");
 				printf(Ustring[183],areaname);
 			}
-			if (FIL = fopen(filename,"r")) {
+			if ((FIL = fopen(filename,"r"))) {
 				fscanf(FIL," %d ",&pointer);
 				fclose(FIL);
 			} else {
@@ -709,7 +709,7 @@ int grab_all_areas(char mode) {
 			
 			/* We seemed to have forgotten to write back the pointer */
 			sprintf(filename,"%s/%s/.areas/%s",C.users,U.id,areaname);
-			if (FIL = fopen(filename,"w")) {
+			if ((FIL = fopen(filename,"w"))) {
 				fprintf(FIL,"%d",pointer);
 				fclose(FIL);
 			}
@@ -761,7 +761,7 @@ void do_message_error(char *msg, char *filename) {
 
 	if (PAD) {
 		fputs("The following message could not be placed:\n\n",PAD);
-		if (IN = fopen(filename,"r")) {
+		if ((IN = fopen(filename,"r"))) {
 			while(fgets(line,MAINLINE,IN)) {
 				fputs(line,PAD);
 			}
@@ -793,7 +793,7 @@ FILE *write_subject(char *msg) {
 	char *date;
 
 	sprintf(filename,"%s/%s/grabpad",C.privatefiles,U.id);
-	if (FIL = fopen(filename,"a")) {
+	if ((FIL = fopen(filename,"a"))) {
 		date = drealmtime(time(0));
 		fputs("\nMail:\n",FIL);
 		sprintf(line,"Mail # 0 %s from grab to %s - -\n",date,U.id);

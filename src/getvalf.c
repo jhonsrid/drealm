@@ -119,7 +119,7 @@ struct valid_files *get_valid_entries(const char mode, const int nr_matches,
 		return vf;
 	}
 
-	if (dir = opendir(dirname)) {
+	if ((dir = opendir(dirname))) {
 		closedir(dir);
 	} else {
 		if (mode == 'v') {
@@ -210,7 +210,7 @@ struct valid_files *get_valid_entries(const char mode, const int nr_matches,
 		if (vf->input[0] && _get_valid_files(mode, nr_matches, prompt, dirname, &array, valid_what, case_sensitive)) {
 			l = array;
 			i = 0;
-			if (L = fopen(filename,"w")) {
+			if ((L = fopen(filename,"w"))) {
 				while(l) {
 					i += strlen(l->this) + 1;
 					fputs(l->this,L);
@@ -230,7 +230,7 @@ struct valid_files *get_valid_entries(const char mode, const int nr_matches,
 	if (!stat(filename,&sb)) {
 		vf->files = (char *)malloc((unsigned)sb.st_size+1);
 		vf->files[0] = 0;
-		if (L = fopen(filename,"r")) {
+		if ((L = fopen(filename,"r"))) {
 			i = fread(vf->files,1,(unsigned)sb.st_size,L);
 			vf->files[i] = 0;
 			fclose(L);
