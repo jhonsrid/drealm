@@ -71,7 +71,7 @@ endif
 # Disable the debugging code for "live"
 #
 ifeq "$(LIVE)" "yes"
-CFLAGS=-O2 -ffast-math -fomit-frame-pointer -Wno-unused-result -Wno-unused-value
+CFLAGS=-O2 -Wall -Wno-unused-result -Wno-unused-value
 LDFLAGS=-O2 
 CWARN=
 else
@@ -173,7 +173,7 @@ mailtidy: mailtidy.o configfuncs.o drealmgen.o genfuncs.o
 # Header file dependencies
 #
 
-include depend
+-include depend
 # Here's how to make depend, if it's missing
 depend: $(SRCS)
 	$(MAKEDEP) $(SRCS) > X$@

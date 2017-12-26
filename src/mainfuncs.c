@@ -1078,7 +1078,6 @@ int rem_from_list (char mode, char *filename,char *inlist) {
    still want to remove them from the list! */
 
 	char temp[1024];
-	char tempa[1024];
 	unsigned int i;
 	struct valid_members *vm;
 	FILE *F;
@@ -1099,7 +1098,7 @@ int rem_from_list (char mode, char *filename,char *inlist) {
 		free(vm);
 		return 0;
 	}
-	tempa[0]='\0';
+	
 	sprintf(temp,"%s.str",filename);
 	F = fopen(temp,"w");
 	if (F) {

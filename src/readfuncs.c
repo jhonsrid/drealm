@@ -55,19 +55,19 @@ The GNU General Public License should be in a file called COPYING.
 #include "readfuncs.h"
 
 static struct msgfunctab md[] = {
-	&Ustring[1],	"first",	findfirst,
-	&Ustring[3],	"last",		findlast,
-	&Ustring[5],	"base",		findbase,
-	&Ustring[7],	"upthread",	findbackthread,
-	&Ustring[9],	"onthread",	findonthread,
-	&Ustring[11],	"current",	findnumber,
-	&Ustring[13],	"parent",	findupchain,
-	&Ustring[17],	"forward",	findforward,
-	&Ustring[19],	"back",		findback,
-	&Ustring[21],	"next", 	findnext,
-	&Ustring[23],	"thread",	definethread,
-	&Ustring[25],	"branch",	definetree,
-	(char **)0,	"",		NULL,
+	{ &Ustring[1],	"first",	findfirst },
+	{ &Ustring[3],	"last",		findlast },
+	{ &Ustring[5],	"base",		findbase },
+	{ &Ustring[7],	"upthread",	findbackthread },
+	{ &Ustring[9],	"onthread",	findonthread },
+	{ &Ustring[11],	"current",	findnumber },
+	{ &Ustring[13],	"parent",	findupchain },
+	{ &Ustring[17],	"forward",	findforward },
+	{ &Ustring[19],	"back",		findback },
+	{ &Ustring[21],	"next", 	findnext },
+	{ &Ustring[23],	"thread",	definethread },
+	{ &Ustring[25],	"branch",	definetree },
+	{ (char **)0,	"",		NULL },
 };
 
 

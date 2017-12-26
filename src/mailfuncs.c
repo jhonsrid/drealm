@@ -1275,7 +1275,7 @@ int mailforward (char *in) {
 	struct valid_mail *vm;
 	struct mailheader mh;
 	int msgno;
-	int result;
+	int result = 0;
         char from[MAINLINE];
 	char to[51];
 	char temp[MAINLINE+100];

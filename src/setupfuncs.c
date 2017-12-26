@@ -1636,9 +1636,9 @@ int set_display (char *user) {
 		char **prog;
 		char **name;
 	} display_set[3] = {
-		&C.display1,	&C.displayname1,
-		&C.display2,	&C.displayname2,
-		&C.display3,	&C.displayname3,
+		{ &C.display1,	&C.displayname1 },
+		{ &C.display2,	&C.displayname2 },
+		{ &C.display3,	&C.displayname3 },
 	};
 
 	if (defaults_read(user,&u)) {
@@ -1728,9 +1728,9 @@ int set_editor (char *user) {
 		char **prog;
 		char **name;
 	} editor[3] = {
-		&C.editor1,	&C.editorname1,
-		&C.editor2,	&C.editorname2,
-		&C.editor3,	&C.editorname3,
+		{ &C.editor1,	&C.editorname1 },
+		{ &C.editor2,	&C.editorname2 },
+		{ &C.editor3,	&C.editorname3 },
 	};
 
 	if (defaults_read(user,&u)) {
