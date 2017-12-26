@@ -133,7 +133,7 @@ struct valid_members *get_valid_members(const char mode, const int nr_matches,
 	if (!params[0] && (mode == 'v')) {
 	/* Nothing entered and we're allowed to talk to the user */
 		char *promptstring;
-		char number[5];
+		char number[6];
 
 		promptstring = (char *)malloc(15 + 12 + strlen(prompt) + 20);
 		vm->input=(char *)malloc(MAINLINE);

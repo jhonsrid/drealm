@@ -3817,7 +3817,8 @@ int self_make (char *dummy) {
 
 
 	if (!make_bbs_account(newid,"")) {
-		sprintf(G.errmsg,"ACTION FAILURE:Could not complete creation of BBS files for %s, unix account and some files may have been created and now need removing.",newid);
+		// unix account and some files may have been created and now need removing.
+		sprintf(G.errmsg,"ACTION FAILURE:Could not complete creation of BBS files for %s", newid);
 		errorlog(G.errmsg);
 		sprintf(G.errmsg,"BBS account creation failed for %s, more details in errorlog.",newid);
 		newuserlog(G.errmsg);
@@ -3904,7 +3905,8 @@ int makehis_account (char *in) {
 	}
 
 	if (!make_bbs_account(newid,"")) {
-		sprintf(G.errmsg,"ACTION FAILURE:Could not complete creation of BBS files for %s, unix account and some files may have been created and now need removing.",newid);
+		// unix account and some files may have been created and now need removing.
+		sprintf(G.errmsg,"ACTION FAILURE:Could not complete creation of BBS files for %s", newid);
 		errorlog(G.errmsg);
 		/*printf("Sorry, unable to create account for %s.\n",newid);*/
 		printf(Ustring[270],newid);

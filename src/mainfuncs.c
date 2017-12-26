@@ -884,7 +884,7 @@ char *lookup(char *varvar, char *flag, int *flag_no, char *format) {
 	i = 0;
 	while (charvar[i].varstring[0]) {
 		if (!strcmp(charvar[i].varstring,varvar)) {
-			char temp[4];
+			char temp[16];
 			sprintf(temp,"%d",(int) *charvar[i].realvar);
 			return strdup(temp);
 		}
@@ -2236,7 +2236,7 @@ void do_logins (void) {
 	char lockname[MAINLINE + 100];
 	char filename[MAINLINE + 100];
 	char exclusions[MAINLINE];
-	char line[80];
+	char line[132];
 	char *dlmdate;
 	int totalshift = 0;
 
@@ -2256,7 +2256,7 @@ void do_logins (void) {
 	}
 
 	dlmdate = drealmtime(time(0));
-	sprintf(line,"%s %s on %s\n",U.id,dlmdate,G.nicename);
+	snprintf(line, sizeof(line), "%s %s on %s\n",U.id,dlmdate,G.nicename);
 	free(dlmdate);
 
 	sprintf(lockname,"%s/logins.lock",C.datadir);

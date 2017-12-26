@@ -174,7 +174,7 @@ int startdir (char *params) {
 int nestdir (char *in) {
 /* MENU COMMAND */
 /* allows users to choose from among the children */
-	char temp[MAINLINE + 80];
+	char temp[MAINLINE + 100];
 	struct valid_files *vf;
 	char *copy;
 	
@@ -207,7 +207,7 @@ int nestdir (char *in) {
 		return 0;
 	}
 
-	sprintf(temp,"%s/%s",G.dir,vf->files);
+	snprintf(temp, sizeof(temp), "%s/%s",G.dir,vf->files);
 
 	if (!is_dir_elig('v',temp)) {
 		/*printf("Unable to access %s - chdir abandoned.\n",temp);*/
@@ -854,10 +854,10 @@ int catalogue (char *dummy) {
 		if ((!stat(filename,&sb)) && !S_ISDIR(sb.st_mode)) {
 			date = drealmtime(sb.st_mtime);
 			if (C.canchown && (pw = getpwuid(sb.st_uid)) ) {
-				printf("%-20s %10lld %s %s %s\n",
-					name, sb.st_size, date, Ustring[260], pw->pw_name);
+				printf("%-20s %10d %s %s %s\n",
+					name, (int)sb.st_size, date, Ustring[260], pw->pw_name);
 			} else {
-				printf("%-20s %10lld %s\n",name,sb.st_size,date);
+				printf("%-20s %10d %s\n",name,(int)sb.st_size,date);
 			}
 			free(date);
 
@@ -1186,7 +1186,7 @@ char *uploading (char *dir, char *params) {
 	char src_file[MAINLINE * 2];
 	char dest_file[MAINLINE * 2];
 	int ind;
-	char indstring[4];
+	char indstring[8];
 
 	cfgfiles_read(F);
 
