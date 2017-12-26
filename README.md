@@ -8,10 +8,13 @@ Read README
 ### Dependencies
 Drealm needs gcc, GNU make and ncurses. 
 
-* Linux: Builds ok on Mint 18.3, not tested.
+* Linux: Builds ok on Mint 18.3, and Ubuntu 17.10, not tested.
 * OSX / MacOS: Builds ok on OSX Yosemite (10.10.5), not tested.
 
 ## Change history
+
+2017-12-26:
+Correct all build warnings for "-Wall" on GCC 7.2.
 
 2017-12-25:
 Changes to build on OSX, (utmp -> utmpx etc), plus correct all build warnings at LLVM 7.0.2 default warning level.
